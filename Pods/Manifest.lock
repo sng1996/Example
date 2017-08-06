@@ -1,0 +1,27 @@
+PODS:
+  - HPGrowingTextView (1.1)
+  - NoChat (0.3.2)
+  - NOCProtoKit (0.3.2)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - HPGrowingTextView
+  - NoChat (from `.`)
+  - NOCProtoKit (from `.`)
+  - YYText
+
+EXTERNAL SOURCES:
+  NoChat:
+    :path: .
+  NOCProtoKit:
+    :path: .
+
+SPEC CHECKSUMS:
+  HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
+  NoChat: aaa980b8b29c0db8c8bd8ecde22e718cc8ad1bf7
+  NOCProtoKit: 1eed77c8f171953c6632fbad8bc1d6f6ebf6b718
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: 487fd1eaf18c86f763e9dc0f38e2d4ca1a7cb99a
+
+COCOAPODS: 1.2.0
