@@ -65,7 +65,9 @@ class TGChatInputTextPanel: NOCChatInputPanel, HPGrowingTextViewDelegate {
         stripeLayer = CALayer()
         stripeLayer.backgroundColor = UIColor(colorLiteralRed: 179/255.0, green: 170/255.0, blue: 178/255.0, alpha: 1).cgColor
         
-        let filedBackgroundImage = UIImage(named: "TGInputFieldBackground.jpg")!
+        var filedBackgroundImage = UIImage(named: "ModernConversationInput.png")!
+        let myInsets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        filedBackgroundImage = filedBackgroundImage.resizableImage(withCapInsets: myInsets)
         fieldBackground = UIImageView(image: filedBackgroundImage)
         fieldBackground.frame = CGRect(x: 41, y: 9, width: frame.width - 41 - sendButtonWidth - 1, height: 28)
         
@@ -97,11 +99,11 @@ class TGChatInputTextPanel: NOCChatInputPanel, HPGrowingTextViewDelegate {
         
         attachButton = UIButton(type: .system)
         attachButton.isExclusiveTouch = true
-        attachButton.setImage(UIImage(named: "TGAttachButton.tiff")!, for: .normal)
+        attachButton.setImage(UIImage(named: "ModernConversationAttach@2x.png")!, for: .normal)
         
         micButton = UIButton(type: .system)
         micButton.isExclusiveTouch = true
-        micButton.setImage(UIImage(named: "TGMicButton.tiff"), for: .normal)
+        micButton.setImage(UIImage(named: "ModernConversationMicButton@2x.png"), for: .normal)
         
         super.init(frame: frame)
         

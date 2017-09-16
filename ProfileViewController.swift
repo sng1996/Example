@@ -18,7 +18,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     var pageIndex:Int = 0
     
-    
+    var performOrders: [Order] = []
+    var orderedOrders: [Order] = []
+    var historyOrders: [Order] = []
+    var reviews: [Int] = []
     var tableViews: [UITableView] = []
 
     override func viewDidLoad() {
@@ -27,7 +30,46 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
         scrollView.delegate = self
         createSlides()
         setupScrollView(slides: tableViews)
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
+        let url = URL(string: way + "/order/perform/?id=" + String(myId))
+        URLSession.shared.dataTask(with: url!, completionHandler: {
+            (data, response, error) in
+            if(error != nil){
+                print("error")
+            }else{
+                do{
+                    self.performOrders.removeAll()
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
+                    let response = json["response"] as? [[String: Any]]
+                    for elem in response!{
+                        let data = elem as NSDictionary?
+                        let customer = Profile()
+                        customer.id = data?["client"] as! Int
+                        let performer = Profile()
+                        performer.id = data?["executor"] as! Int
+                        let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer)
+                        
+                        self.performOrders.append(order)
+                    }
+                    
+                    /*OperationQueue.main.addOperation({
+                     self.mainTableView.reloadData()
+                     })*/
+                    
+                }catch let error as NSError{
+                    print(error)
+                }
+            }
+        }).resume()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView1.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +79,46 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int
     {
-        return 3
+        if (tableView == tableView1){
+            return performOrders.count
+        }
+        else if (tableView == tableView2){
+            return orderedOrders.count
+        }
+        else if (tableView == tableView3){
+            return historyOrders.count
+        }
+        else{
+            return reviews.count
+        }
+        
     }
     
     public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OrderTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
+        
+        if (tableView == tableView1){
+            print(performOrders)
+            print(performOrders[indexPath.row])
+            print(performOrders[indexPath.row].subject)
+            //cell.subject.text = performOrders[indexPath.row].subject
+            cell.subject.text = "Hello"
+            cell.type.text = types[performOrders[indexPath.row].type]
+            cell.cost.text = String(performOrders[indexPath.row].cost) + " ₽"
+            cell.startDate.text = performOrders[indexPath.row].startDate
+            cell.finishDate.text = performOrders[indexPath.row].finishDate
+        }
+        else{
+            
+        }
        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 66.0;
     }
     
     func createSlides(){
@@ -71,18 +145,5 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     func scrollViewDidScroll(_ scrollView: UIScrollView){
         pageIndex = Int(round(scrollView.contentOffset.x/view.frame.width))
     }
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

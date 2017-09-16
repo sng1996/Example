@@ -29,7 +29,7 @@ class TGAvatarButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setImage(UIImage(named: "TGUserInfo.tiff")!, for: .normal)
+        setImage(UIImage(named: "TGUserInfo.png")!, for: .normal)
         regularLayout()
     }
     

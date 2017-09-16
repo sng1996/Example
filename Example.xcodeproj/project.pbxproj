@@ -8,6 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		059E2A8453087675C5E7959A /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF283D52B8039CA2A2F85B /* Pods_Example.framework */; };
+		2A094BEE1F69503200A2441A /* ChoosePerformerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */; };
+		2A094BF01F69526000A2441A /* PerformerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */; };
+		2A094BF21F695B4500A2441A /* WaitingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A094BF11F695B4500A2441A /* WaitingPerformer.swift */; };
+		2A2141DB1F5E5368000F052E /* TGUserInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141DA1F5E5368000F052E /* TGUserInfo.png */; };
+		2A2141DD1F5E538B000F052E /* ModernConversationInput@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141DC1F5E538B000F052E /* ModernConversationInput@2x.png */; };
+		2A2141DF1F5E539B000F052E /* ModernConversationAttach@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141DE1F5E539B000F052E /* ModernConversationAttach@2x.png */; };
+		2A2141E11F5E53A9000F052E /* ModernConversationMicButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141E01F5E53A9000F052E /* ModernConversationMicButton@2x.png */; };
+		2A2141E31F5E59D8000F052E /* builtin-wallpaper-0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141E21F5E59D8000F052E /* builtin-wallpaper-0.jpg */; };
+		2A2141E51F5E5A1F000F052E /* ClockFrame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141E41F5E5A1F000F052E /* ClockFrame@2x.png */; };
+		2A2141E71F5E5A47000F052E /* ClockMin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141E61F5E5A47000F052E /* ClockMin@2x.png */; };
+		2A2141E91F5E5A6A000F052E /* ClockHour@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141E81F5E5A6A000F052E /* ClockHour@2x.png */; };
+		2A2141EB1F5E5AC1000F052E /* ModernMessageCheckmark1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141EA1F5E5AC1000F052E /* ModernMessageCheckmark1@2x.png */; };
+		2A2141ED1F5E5AE5000F052E /* ModernMessageCheckmark2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141EC1F5E5AE5000F052E /* ModernMessageCheckmark2@2x.png */; };
+		2A2141EF1F5E5CA4000F052E /* ModernBubbleOutgoingFullHighlightedPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141EE1F5E5CA4000F052E /* ModernBubbleOutgoingFullHighlightedPad@2x.png */; };
+		2A2141F11F5E5CE9000F052E /* ModernBubbleOutgoingFullPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141F01F5E5CE9000F052E /* ModernBubbleOutgoingFullPad@2x.png */; };
+		2A2141F31F5E5D18000F052E /* ModernBubbleOutgoingPartialPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141F21F5E5D18000F052E /* ModernBubbleOutgoingPartialPad@2x.png */; };
+		2A2141F51F5E5D40000F052E /* ModernBubbleOutgoingPartialHighlightedPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141F41F5E5D40000F052E /* ModernBubbleOutgoingPartialHighlightedPad@2x.png */; };
+		2A2141F71F5E5D83000F052E /* ModernBubbleIncomingFullPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141F61F5E5D83000F052E /* ModernBubbleIncomingFullPad@2x.png */; };
+		2A2141F91F5E5D9E000F052E /* ModernBubbleIncomingFullHighlightedPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141F81F5E5D9E000F052E /* ModernBubbleIncomingFullHighlightedPad@2x.png */; };
+		2A2141FB1F5E5DBD000F052E /* ModernBubbleIncomingPartialPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141FA1F5E5DBD000F052E /* ModernBubbleIncomingPartialPad@2x.png */; };
+		2A2141FD1F5E5DD5000F052E /* ModernBubbleIncomingPartialHighlightedPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141FC1F5E5DD5000F052E /* ModernBubbleIncomingPartialHighlightedPad@2x.png */; };
+		2A2141FF1F5E6008000F052E /* ModernConversationInput.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2141FE1F5E6008000F052E /* ModernConversationInput.png */; };
+		2A415A8E1F643AFA0017DF85 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A415A8D1F643AFA0017DF85 /* EnterViewController.swift */; };
 		2AB3E0CD1F371AF500E2B5FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E0CB1F371AF500E2B5FC /* Main.storyboard */; };
 		2AB3E0CF1F371AF500E2B5FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E0CE1F371AF500E2B5FC /* Assets.xcassets */; };
 		2AB3E0D21F371AF500E2B5FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E0D01F371AF500E2B5FC /* LaunchScreen.storyboard */; };
@@ -48,10 +71,6 @@
 		2AB3E1391F371BCC00E2B5FC /* TGTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1161F371BCC00E2B5FC /* TGTitleView.swift */; };
 		2AB3E13A1F371BCC00E2B5FC /* UIFont+NoChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1171F371BCC00E2B5FC /* UIFont+NoChat.swift */; };
 		2AB3E13B1F371BCC00E2B5FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1181F371BCC00E2B5FC /* User.swift */; };
-		2AB3E13D1F371EC000E2B5FC /* TGUserInfo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E13C1F371EC000E2B5FC /* TGUserInfo.tiff */; };
-		2AB3E13F1F371F4F00E2B5FC /* TGInputFieldBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E13E1F371F4F00E2B5FC /* TGInputFieldBackground.jpg */; };
-		2AB3E1411F371F9600E2B5FC /* TGAttachButton.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E1401F371F9600E2B5FC /* TGAttachButton.tiff */; };
-		2AB3E1431F371FB800E2B5FC /* TGMicButton.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E1421F371FB800E2B5FC /* TGMicButton.tiff */; };
 		2AB9E4F31F3734C400861298 /* AboutOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9E4E61F3734C400861298 /* AboutOrderViewController.swift */; };
 		2AB9E4F41F3734C400861298 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9E4E71F3734C400861298 /* AddViewController.swift */; };
 		2AB9E4F51F3734C400861298 /* ChooseDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9E4E81F3734C400861298 /* ChooseDataViewController.swift */; };
@@ -86,6 +105,29 @@
 
 /* Begin PBXFileReference section */
 		0BE2CD25B5A35B22C6953F5B /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePerformerViewController.swift; sourceTree = "<group>"; };
+		2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformerTableViewCell.swift; sourceTree = "<group>"; };
+		2A094BF11F695B4500A2441A /* WaitingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPerformer.swift; sourceTree = "<group>"; };
+		2A2141DA1F5E5368000F052E /* TGUserInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TGUserInfo.png; path = "Telegram/User Info/TGUserInfo.imageset/TGUserInfo.png"; sourceTree = SOURCE_ROOT; };
+		2A2141DC1F5E538B000F052E /* ModernConversationInput@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernConversationInput@2x.png"; path = "Telegram/Input/TGInputFieldBackground.imageset/ModernConversationInput@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141DE1F5E539B000F052E /* ModernConversationAttach@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernConversationAttach@2x.png"; path = "Telegram/Input/TGAttachButton.imageset/ModernConversationAttach@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141E01F5E53A9000F052E /* ModernConversationMicButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernConversationMicButton@2x.png"; path = "Telegram/Input/TGMicButton.imageset/ModernConversationMicButton@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141E21F5E59D8000F052E /* builtin-wallpaper-0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "builtin-wallpaper-0.jpg"; path = "Telegram/Wallpaper/TGWallpaper.imageset/builtin-wallpaper-0.jpg"; sourceTree = SOURCE_ROOT; };
+		2A2141E41F5E5A1F000F052E /* ClockFrame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ClockFrame@2x.png"; path = "Telegram/Clock/TGClockGreenFrame.imageset/ClockFrame@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141E61F5E5A47000F052E /* ClockMin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ClockMin@2x.png"; path = "Telegram/Clock/TGClockGreenMin.imageset/ClockMin@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141E81F5E5A6A000F052E /* ClockHour@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ClockHour@2x.png"; path = "Telegram/Clock/TGClockGreenHour.imageset/ClockHour@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141EA1F5E5AC1000F052E /* ModernMessageCheckmark1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernMessageCheckmark1@2x.png"; path = "Telegram/Status/TGMessageCheckmark1.imageset/ModernMessageCheckmark1@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141EC1F5E5AE5000F052E /* ModernMessageCheckmark2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernMessageCheckmark2@2x.png"; path = "Telegram/Status/TGMessageCheckmark2.imageset/ModernMessageCheckmark2@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141EE1F5E5CA4000F052E /* ModernBubbleOutgoingFullHighlightedPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleOutgoingFullHighlightedPad@2x.png"; path = "Telegram/Bubble/TGBubbleOutgoingFull.imageset/ModernBubbleOutgoingFullHighlightedPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141F01F5E5CE9000F052E /* ModernBubbleOutgoingFullPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleOutgoingFullPad@2x.png"; path = "Telegram/Bubble/TGBubbleOutgoingFullHL.imageset/ModernBubbleOutgoingFullPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141F21F5E5D18000F052E /* ModernBubbleOutgoingPartialPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleOutgoingPartialPad@2x.png"; path = "Telegram/Bubble/TGBubbleOutgoingPartial.imageset/ModernBubbleOutgoingPartialPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141F41F5E5D40000F052E /* ModernBubbleOutgoingPartialHighlightedPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleOutgoingPartialHighlightedPad@2x.png"; path = "Telegram/Bubble/TGBubbleOutgoingPartialHL.imageset/ModernBubbleOutgoingPartialHighlightedPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141F61F5E5D83000F052E /* ModernBubbleIncomingFullPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleIncomingFullPad@2x.png"; path = "Telegram/Bubble/TGBubbleIncomingFull.imageset/ModernBubbleIncomingFullPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141F81F5E5D9E000F052E /* ModernBubbleIncomingFullHighlightedPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleIncomingFullHighlightedPad@2x.png"; path = "Telegram/Bubble/TGBubbleIncomingFullHL.imageset/ModernBubbleIncomingFullHighlightedPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141FA1F5E5DBD000F052E /* ModernBubbleIncomingPartialPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleIncomingPartialPad@2x.png"; path = "Telegram/Bubble/TGBubbleIncomingPartial.imageset/ModernBubbleIncomingPartialPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141FC1F5E5DD5000F052E /* ModernBubbleIncomingPartialHighlightedPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ModernBubbleIncomingPartialHighlightedPad@2x.png"; path = "Telegram/Bubble/TGBubbleIncomingPartialHL.imageset/ModernBubbleIncomingPartialHighlightedPad@2x.png"; sourceTree = SOURCE_ROOT; };
+		2A2141FE1F5E6008000F052E /* ModernConversationInput.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ModernConversationInput.png; path = Telegram/Input/TGInputFieldBackground.imageset/ModernConversationInput.png; sourceTree = SOURCE_ROOT; };
+		2A415A8D1F643AFA0017DF85 /* EnterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		2AB3E0C41F371AF500E2B5FC /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AB3E0CC1F371AF500E2B5FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2AB3E0CE1F371AF500E2B5FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,10 +175,6 @@
 		2AB3E1161F371BCC00E2B5FC /* TGTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGTitleView.swift; sourceTree = "<group>"; };
 		2AB3E1171F371BCC00E2B5FC /* UIFont+NoChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+NoChat.swift"; sourceTree = "<group>"; };
 		2AB3E1181F371BCC00E2B5FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		2AB3E13C1F371EC000E2B5FC /* TGUserInfo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = TGUserInfo.tiff; path = ../../Design/TGUserInfo.tiff; sourceTree = "<group>"; };
-		2AB3E13E1F371F4F00E2B5FC /* TGInputFieldBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = TGInputFieldBackground.jpg; path = ../../TGInputFieldBackground.jpg; sourceTree = "<group>"; };
-		2AB3E1401F371F9600E2B5FC /* TGAttachButton.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = TGAttachButton.tiff; path = ../../Design/TGAttachButton.tiff; sourceTree = "<group>"; };
-		2AB3E1421F371FB800E2B5FC /* TGMicButton.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = TGMicButton.tiff; path = ../../Design/TGMicButton.tiff; sourceTree = "<group>"; };
 		2AB9E4E61F3734C400861298 /* AboutOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutOrderViewController.swift; sourceTree = SOURCE_ROOT; };
 		2AB9E4E71F3734C400861298 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = SOURCE_ROOT; };
 		2AB9E4E81F3734C400861298 /* ChooseDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDataViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -214,17 +252,21 @@
 				2AB9E4EA1F3734C400861298 /* FilterDataTableViewCell.swift */,
 				2AB9E4EB1F3734C400861298 /* FilterDataViewController.swift */,
 				2AB9E4EC1F3734C400861298 /* FilterViewController.swift */,
+				2A094BF11F695B4500A2441A /* WaitingPerformer.swift */,
 				2AB9E4ED1F3734C400861298 /* Order.swift */,
 				2AB9E4EE1F3734C400861298 /* OrderTableViewCell.swift */,
 				2AB9E4EF1F3734C400861298 /* ProfileViewController.swift */,
-				2AB9E4F01F3734C400861298 /* static */,
+				2AB9E5001F37358200861298 /* Profile.swift */,
 				2AB9E4F21F3734C400861298 /* ViewController.swift */,
+				2A415A8D1F643AFA0017DF85 /* EnterViewController.swift */,
+				2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */,
+				2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */,
+				2AB9E4F01F3734C400861298 /* static */,
 				2AB3E0CB1F371AF500E2B5FC /* Main.storyboard */,
 				2AB3E0CE1F371AF500E2B5FC /* Assets.xcassets */,
 				2AB3E0D01F371AF500E2B5FC /* LaunchScreen.storyboard */,
 				2AB3E0D31F371AF500E2B5FC /* Info.plist */,
 				2AB3E0F51F371BCB00E2B5FC /* Example-Bridging-Header.h */,
-				2AB9E5001F37358200861298 /* Profile.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -284,10 +326,25 @@
 				2AB3E1161F371BCC00E2B5FC /* TGTitleView.swift */,
 				2AB3E1171F371BCC00E2B5FC /* UIFont+NoChat.swift */,
 				2AB3E1181F371BCC00E2B5FC /* User.swift */,
-				2AB3E13C1F371EC000E2B5FC /* TGUserInfo.tiff */,
-				2AB3E13E1F371F4F00E2B5FC /* TGInputFieldBackground.jpg */,
-				2AB3E1401F371F9600E2B5FC /* TGAttachButton.tiff */,
-				2AB3E1421F371FB800E2B5FC /* TGMicButton.tiff */,
+				2A2141DA1F5E5368000F052E /* TGUserInfo.png */,
+				2A2141DC1F5E538B000F052E /* ModernConversationInput@2x.png */,
+				2A2141FE1F5E6008000F052E /* ModernConversationInput.png */,
+				2A2141DE1F5E539B000F052E /* ModernConversationAttach@2x.png */,
+				2A2141E01F5E53A9000F052E /* ModernConversationMicButton@2x.png */,
+				2A2141E21F5E59D8000F052E /* builtin-wallpaper-0.jpg */,
+				2A2141E41F5E5A1F000F052E /* ClockFrame@2x.png */,
+				2A2141E61F5E5A47000F052E /* ClockMin@2x.png */,
+				2A2141E81F5E5A6A000F052E /* ClockHour@2x.png */,
+				2A2141EA1F5E5AC1000F052E /* ModernMessageCheckmark1@2x.png */,
+				2A2141EC1F5E5AE5000F052E /* ModernMessageCheckmark2@2x.png */,
+				2A2141EE1F5E5CA4000F052E /* ModernBubbleOutgoingFullHighlightedPad@2x.png */,
+				2A2141F01F5E5CE9000F052E /* ModernBubbleOutgoingFullPad@2x.png */,
+				2A2141F21F5E5D18000F052E /* ModernBubbleOutgoingPartialPad@2x.png */,
+				2A2141F41F5E5D40000F052E /* ModernBubbleOutgoingPartialHighlightedPad@2x.png */,
+				2A2141F61F5E5D83000F052E /* ModernBubbleIncomingFullPad@2x.png */,
+				2A2141F81F5E5D9E000F052E /* ModernBubbleIncomingFullHighlightedPad@2x.png */,
+				2A2141FA1F5E5DBD000F052E /* ModernBubbleIncomingPartialPad@2x.png */,
+				2A2141FC1F5E5DD5000F052E /* ModernBubbleIncomingPartialHighlightedPad@2x.png */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -431,16 +488,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AB3E13D1F371EC000E2B5FC /* TGUserInfo.tiff in Resources */,
+				2A2141ED1F5E5AE5000F052E /* ModernMessageCheckmark2@2x.png in Resources */,
+				2A2141FB1F5E5DBD000F052E /* ModernBubbleIncomingPartialPad@2x.png in Resources */,
 				2AB3E0D21F371AF500E2B5FC /* LaunchScreen.storyboard in Resources */,
+				2A2141E11F5E53A9000F052E /* ModernConversationMicButton@2x.png in Resources */,
+				2A2141DB1F5E5368000F052E /* TGUserInfo.png in Resources */,
+				2A2141E71F5E5A47000F052E /* ClockMin@2x.png in Resources */,
+				2A2141E31F5E59D8000F052E /* builtin-wallpaper-0.jpg in Resources */,
+				2A2141F71F5E5D83000F052E /* ModernBubbleIncomingFullPad@2x.png in Resources */,
+				2A2141F11F5E5CE9000F052E /* ModernBubbleOutgoingFullPad@2x.png in Resources */,
+				2A2141F91F5E5D9E000F052E /* ModernBubbleIncomingFullHighlightedPad@2x.png in Resources */,
+				2A2141E91F5E5A6A000F052E /* ClockHour@2x.png in Resources */,
 				2AB9E4FD1F3734C400861298 /* ok.tiff in Resources */,
+				2A2141F51F5E5D40000F052E /* ModernBubbleOutgoingPartialHighlightedPad@2x.png in Resources */,
+				2A2141FD1F5E5DD5000F052E /* ModernBubbleIncomingPartialHighlightedPad@2x.png in Resources */,
+				2A2141EB1F5E5AC1000F052E /* ModernMessageCheckmark1@2x.png in Resources */,
 				2AB3E0CF1F371AF500E2B5FC /* Assets.xcassets in Resources */,
+				2A2141FF1F5E6008000F052E /* ModernConversationInput.png in Resources */,
+				2A2141F31F5E5D18000F052E /* ModernBubbleOutgoingPartialPad@2x.png in Resources */,
 				2AB3E0CD1F371AF500E2B5FC /* Main.storyboard in Resources */,
 				2AB3E12A1F371BCC00E2B5FC /* sent.caf in Resources */,
-				2AB3E13F1F371F4F00E2B5FC /* TGInputFieldBackground.jpg in Resources */,
-				2AB3E1411F371F9600E2B5FC /* TGAttachButton.tiff in Resources */,
-				2AB3E1431F371FB800E2B5FC /* TGMicButton.tiff in Resources */,
+				2A2141EF1F5E5CA4000F052E /* ModernBubbleOutgoingFullHighlightedPad@2x.png in Resources */,
+				2A2141DF1F5E539B000F052E /* ModernConversationAttach@2x.png in Resources */,
+				2A2141E51F5E5A1F000F052E /* ClockFrame@2x.png in Resources */,
 				2AB3E1281F371BCC00E2B5FC /* notification.caf in Resources */,
+				2A2141DD1F5E538B000F052E /* ModernConversationInput@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +607,7 @@
 				2AB3E1201F371BCC00E2B5FC /* MMChatInputTextPanel.swift in Sources */,
 				2AB3E1251F371BCC00E2B5FC /* MMSystemMessageCellLayout.swift in Sources */,
 				2AB3E1381F371BCC00E2B5FC /* TGTextMessageCellLayout.swift in Sources */,
+				2A094BF21F695B4500A2441A /* WaitingPerformer.swift in Sources */,
 				2AB3E11B1F371BCC00E2B5FC /* ChatsViewController.swift in Sources */,
 				2AB3E11E1F371BCC00E2B5FC /* MMBaseMessageCell.swift in Sources */,
 				2AB3E11A1F371BCC00E2B5FC /* Chat.swift in Sources */,
@@ -542,6 +615,7 @@
 				2AB3E1221F371BCC00E2B5FC /* MMDateMessageCell.swift in Sources */,
 				2AB9E4FE1F3734C400861298 /* ViewController.swift in Sources */,
 				2AB3E1301F371BCC00E2B5FC /* TGChatViewController.swift in Sources */,
+				2A415A8E1F643AFA0017DF85 /* EnterViewController.swift in Sources */,
 				2AB3E1311F371BCC00E2B5FC /* TGClockProgressView.swift in Sources */,
 				2AB3E1371F371BCC00E2B5FC /* TGTextMessageCell.swift in Sources */,
 				2AB3E1361F371BCC00E2B5FC /* TGSystemMessageCellLayout.swift in Sources */,
@@ -550,11 +624,13 @@
 				2AB3E1231F371BCC00E2B5FC /* MMDateMessageCellLayout.swift in Sources */,
 				2AB9E4F81F3734C400861298 /* FilterDataViewController.swift in Sources */,
 				2AB9E4F41F3734C400861298 /* AddViewController.swift in Sources */,
+				2A094BEE1F69503200A2441A /* ChoosePerformerViewController.swift in Sources */,
 				2AB9E4F91F3734C400861298 /* FilterViewController.swift in Sources */,
 				2AB3E12B1F371BCC00E2B5FC /* SoundManager.swift in Sources */,
 				2AB9E4FA1F3734C400861298 /* Order.swift in Sources */,
 				2AB9E4F61F3734C400861298 /* Filter.swift in Sources */,
 				2AB3E12F1F371BCC00E2B5FC /* TGChatInputTextPanel.swift in Sources */,
+				2A094BF01F69526000A2441A /* PerformerTableViewCell.swift in Sources */,
 				2AB9E4FC1F3734C400861298 /* ProfileViewController.swift in Sources */,
 				2AB3E1341F371BCC00E2B5FC /* TGDeliveryStatusView.swift in Sources */,
 				2AB3E13B1F371BCC00E2B5FC /* User.swift in Sources */,

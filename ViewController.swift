@@ -12,13 +12,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet var mainTableView: UITableView!
     var filter: Filter = Filter()
-    var tmpOrdersArr: [Order]!
+    var tmpOrdersArr: [Order] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var order = Order(id: 1, science: 2, type: 2, subject: "Аналитическая геометрия", cost: 1500, startDate: "20.02", finishDate: "Завтра, 19:30", des: "", customer: Profile(), performer: Profile())
+        updateData()
+        
+        /*var order = Order(id: 1, science: 2, type: 2, subject: "Аналитическая геометрия", cost: 1500, startDate: "20.02", finishDate: "Завтра, 19:30", des: "", customer: Profile(), performer: Profile())
         
         orders.append(order)
         
@@ -32,10 +34,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         order = Order(id: 4, science: 2, type: 1, subject: "Аналитическая геометрия", cost: 6000, startDate: "26.02", finishDate: "Завтра, 20:29", des: "", customer: Profile(), performer: Profile())
         
-        orders.append(order)
+        orders.append(order)*/
         
         tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,31 +49,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
         if (filter.type != 0){
-            /*for var i in 0..<tmpOrdersArr.count{
-                if(tmpOrdersArr[i].type != filter.type){
-                    tmpOrdersArr.remove(at: i)
-                    i = i-1
-                }
-            }*/
             tmpOrdersArr = tmpOrdersArr.filter { $0.type == filter.type }
         }
         
         if (filter.science != 0){
-            /*for var i in 0..<tmpOrdersArr.count{
-                if(tmpOrdersArr[i].science != filter.science){
-                    tmpOrdersArr.remove(at: i)
-                }
-            }*/
             tmpOrdersArr = tmpOrdersArr.filter { $0.science == filter.science }
         }
         
         if (filter.maxCost != 0){
-            /*for var i in 0..<tmpOrdersArr.count{
-                if(tmpOrdersArr[i].cost < filter.minCost || tmpOrdersArr[i].cost > filter.maxCost){
-                    tmpOrdersArr.remove(at: i)
-                    i = i-1
-                }
-            }*/
             tmpOrdersArr = tmpOrdersArr.filter { $0.cost > filter.minCost && $0.cost < filter.maxCost}
         }
         
@@ -99,7 +88,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             break
         }
-        
         mainTableView.reloadData()
         
     }
@@ -151,6 +139,48 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {}
+    
+    func updateData(){
+        
+        let url = URL(string: way + "/order/new/?user_id=" + String(myId))
+        URLSession.shared.dataTask(with: url!, completionHandler: {
+            (data, response, error) in
+            if(error != nil){
+                print("error")
+            }else{
+                do{
+                    orders.removeAll()
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
+                    let response = json["response"] as? [[String: Any]]
+                    for elem in response!{
+                        let data = elem as NSDictionary?
+                        let customer = Profile()
+                        customer.id = data?["client"] as! Int
+                        let performer = Profile()
+                        performer.id = data?["executor"] as! Int
+                        let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer)
+                        
+                        orders.append(order)
+                    }
+                    
+                    
+                    /*OperationQueue.main.addOperation({
+                     self.mainTableView.reloadData()
+                    })*/
+                    
+                }catch let error as NSError{
+                    print(error)
+                }
+            }
+        }).resume()
+    }
+    
+    @IBAction func updateView(){
+        
+        viewDidAppear(false)
+        
+    }
+    
 
 }
 

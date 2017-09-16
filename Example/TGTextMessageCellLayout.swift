@@ -213,14 +213,54 @@ class TGTextMessageCellLayout: TGBaseMessageCellLayout {
     
     
     struct Style {
-        static let fullOutgoingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let highlightFullOutgoingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let partialOutgoingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let highlightPartialOutgoingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let fullIncomingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let highlightFullIncomingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let partialIncomingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let highlightPartialIncomingBubbleImage = UIImage(named: "TGInputFieldBackground.jpg")!
+        static var fullOutgoingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleOutgoingFullPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
+        static var highlightFullOutgoingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleOutgoingFullHighlightedPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
+        static var partialOutgoingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleOutgoingPartialPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
+        static var highlightPartialOutgoingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleOutgoingPartialHighlightedPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
+        static var fullIncomingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleIncomingFullPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
+        static var highlightFullIncomingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleIncomingFullHighlightedPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
+        static var partialIncomingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleIncomingPartialPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
+        static var highlightPartialIncomingBubbleImage: UIImage{
+            var img = UIImage(named: "ModernBubbleIncomingPartialHighlightedPad@2x.png")!
+            let myInsets : UIEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20)
+            img = img.resizableImage(withCapInsets: myInsets)
+            return img
+        }
 
         static var textFont: UIFont {
             return UIFont.preferredFont(forTextStyle: .body)

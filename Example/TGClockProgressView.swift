@@ -113,9 +113,9 @@ class TGClockProgressView: UIView {
     }
     
     struct Constant {
-        static let progressFrameImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let progressMinImage = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let progressHourImage = UIImage(named: "TGInputFieldBackground.jpg")!
+        static let progressFrameImage = UIImage(named: "ClockFrame@2x.png")!
+        static let progressMinImage = UIImage(named: "ClockMin@2x.png")!
+        static let progressHourImage = UIImage(named: "ClockHour@2x.png")!
         static let minuteDuration = TimeInterval(0.3)
         static let hourDuration = TimeInterval(1.8)
     }

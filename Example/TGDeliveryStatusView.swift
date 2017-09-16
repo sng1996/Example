@@ -80,8 +80,8 @@ class TGDeliveryStatusView: UIView {
     }
     
     struct Constant {
-        static let checkmark1Image = UIImage(named: "TGInputFieldBackground.jpg")!
-        static let checkmark2Image = UIImage(named: "TGInputFieldBackground.jpg")!
+        static let checkmark1Image = UIImage(named: "ModernMessageCheckmark1@2x.png")!
+        static let checkmark2Image = UIImage(named: "ModernMessageCheckmark2@2x.png")!
     }
     
 }

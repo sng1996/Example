@@ -79,7 +79,7 @@ class TGChatViewController: NOCChatViewController, UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView?.image = UIImage(named: "TGInputFieldBackground.jpg")!
+        backgroundView?.image = UIImage(named: "builtin-wallpaper-0.jpg")!
         navigationController?.delegate = self
         
         loadMessages()
