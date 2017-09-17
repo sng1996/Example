@@ -25,7 +25,7 @@ class EnterViewController: UIViewController {
     @IBAction func enterUser(sender: UIButton){
         
         var code: Int = -1
-        var request = URLRequest(url: URL(string: "https://fast-basin-97049.herokuapp.com/person/enter")!)
+        var request = URLRequest(url: URL(string:way + "/person/enter")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let parameters = ["email": "nick" + String(sender.tag), "password": ""]

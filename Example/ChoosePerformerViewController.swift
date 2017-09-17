@@ -20,7 +20,7 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let url = URL(string: "https://fast-basin-97049.herokuapp.com/person/get_performers/?id=" + String(order.id))
+        let url = URL(string: way + "/person/get_performers/?id=" + String(order.id))
         URLSession.shared.dataTask(with: url!, completionHandler: {
             (data, response, error) in
             if(error != nil){
@@ -92,7 +92,7 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
         let DestViewController : AboutOrderViewController = segue.destination as! AboutOrderViewController
         
         var code: Int = 0
-        var request = URLRequest(url: URL(string: "https://fast-basin-97049.herokuapp.com/order/set_executor")!)
+        var request = URLRequest(url: URL(string: way + "/order/set_executor")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let parameters = ["id": order.id, "executor": performers[indexPath.row].performer.id, "cost": performers[indexPath.row].cost]
