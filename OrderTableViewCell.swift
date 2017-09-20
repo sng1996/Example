@@ -15,6 +15,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet var cost: UILabel!
     @IBOutlet var startDate: UILabel!
     @IBOutlet var finishDate: UILabel!
+    var tableView: UITableView!
     
 
 }

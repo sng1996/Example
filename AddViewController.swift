@@ -61,48 +61,6 @@ class AddViewController: UIViewController {
             }
         }else{
             
-            /*if sender is UIButton{
-                
-                order.subject = subjectTxtFld.text!
-                order.finishDate = dateLbl.text!
-                order.cost = Int(costTxtFld.text!)!
-                order.des = desTxtView.text!
-                
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd.MM.yyyy"
-                order.startDate = formatter.string(from: date)
-                
-                //orders.append(order)
-                
-                var id_order:Int!
-                
-                var request = URLRequest(url: URL(string: way + "/order/create")!)
-                request.httpMethod = "POST"
-                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                let parameters = ["subject": order.subject, "type": order.type, "category": order.science, "description": order.des, "create_date": order.startDate, "end_date": order.finishDate, "cost": order.cost, "client": myId] as [String : Any]
-                guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-                request.httpBody = httpBody
-                URLSession.shared.dataTask(with: request, completionHandler: {
-                    (data, response, error) in
-                    
-                    if let response = response{
-                        print(response)
-                    }
-                    
-                    if let data = data {
-                        do{
-                            let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : AnyObject]
-                            id_order = json["id"] as! Int
-                            print("HEEEEELLLLLLOOOOO!!!!!!!!" + String(json["code"] as! Int))
-                        }catch{
-                            print(error)
-                        }
-                    }
-                    
-                }).resume()
-            }*/
-            
         }
         
     }

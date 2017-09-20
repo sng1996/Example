@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        MessageManager.manager.play()
+        
         updateData()
         
         /*var order = Order(id: 1, science: 2, type: 2, subject: "Аналитическая геометрия", cost: 1500, startDate: "20.02", finishDate: "Завтра, 19:30", des: "", customer: Profile(), performer: Profile())
@@ -158,7 +160,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         customer.id = data?["client"] as! Int
                         let performer = Profile()
                         performer.id = data?["executor"] as! Int
-                        let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer)
+                        let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer, status: data?["status"] as! Int)
                         
                         orders.append(order)
                     }

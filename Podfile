@@ -7,5 +7,6 @@ target 'Example' do
     pod 'NOCProtoKit', :path => '.'
     pod 'YYText'
     pod 'HPGrowingTextView'
+    pod 'Starscream', '~> 2.0.3'
 
 end

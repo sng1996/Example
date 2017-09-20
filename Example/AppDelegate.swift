@@ -30,21 +30,20 @@ var orders: [Order] = []
 var sciences: [String] = ["Все области", "Математика", "Физика"]
 var types: [String] = ["Все типы", "Домашняя работа", "Контрольная работа", "Курсовой проект"]
 var myId: Int = 0
-var way: String = "https://fast-basin-97049.herokuapp.com"
-//var way: String = "http://localhost:8080"
+//var way: String = "https://fast-basin-97049.herokuapp.com"
+var way: String = "http://localhost:8080"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        MessageManager.manager.play()
-        
         return true
     }
+    
 
 }
 

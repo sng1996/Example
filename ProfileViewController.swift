@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
                         customer.id = data?["client"] as! Int
                         let performer = Profile()
                         performer.id = data?["executor"] as! Int
-                        let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer)
+                        let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer, status: data?["status"] as! Int)
                         
                         self.performOrders.append(order)
                     }
@@ -112,8 +112,26 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
         else{
             
         }
+        
+        cell.tableView = tableView
        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "aboutOrder"){
+            let DestViewController = segue.destination as! AboutOrderViewController
+            let cell = sender as! OrderTableViewCell
+            let indexPath = cell.tableView.indexPath(for: cell)!
+            if (cell.tableView == tableView1){
+                DestViewController.order = performOrders[indexPath.row].copy() as! Order
+            }else if (cell.tableView == tableView2){
+                DestViewController.order = orderedOrders[indexPath.row].copy() as! Order
+            }else if (cell.tableView == tableView3){
+                DestViewController.order = historyOrders[indexPath.row].copy() as! Order
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

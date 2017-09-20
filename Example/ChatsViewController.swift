@@ -34,29 +34,20 @@ class ChatsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath)
-        if indexPath.row == 0 {
-            cell.textLabel?.text = "Telegram"
-            cell.imageView?.image = UIImage(named: "TGIcon")
-        } else if indexPath.row == 1 {
-            cell.textLabel?.text = "WeChat"
-            cell.imageView?.image = UIImage(named: "MMIcon")
-        }
+        cell.textLabel?.text = "Telegram"
+        cell.imageView?.image = UIImage(named: "TGIcon")
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chat = ChatsViewController.botChat
         var chatVC: UIViewController?
-        if indexPath.row == 0 {
-            chatVC = TGChatViewController(chat: chat)
-        } else if indexPath.row == 1 {
-            chatVC = MMChatViewController(chat: chat)
-        }
+        chatVC = TGChatViewController(chat: chat)
         if let vc = chatVC {
             navigationController?.pushViewController(vc, animated: true)
         }

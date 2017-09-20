@@ -20,10 +20,11 @@ class Order: NSObject, NSCopying {
     var des: String = ""
     var customer: Profile = Profile()
     var performer: Profile = Profile()
+    var status: Int = 0
     
     override init(){}
     
-    init(id: Int, science: Int, type: Int, subject: String, cost: Int, startDate: String, finishDate: String, des: String, customer: Profile, performer: Profile){
+    init(id: Int, science: Int, type: Int, subject: String, cost: Int, startDate: String, finishDate: String, des: String, customer: Profile, performer: Profile, status: Int){
         self.id = id
         self.science = science
         self.type = type
@@ -34,11 +35,12 @@ class Order: NSObject, NSCopying {
         self.des = des
         self.customer = customer
         self.performer = performer
+        self.status = status
     }
     
     func copy(with zone: NSZone? = nil) -> Any{
         
-        let copy = Order(id: id, science: science, type: type, subject: subject, cost: cost, startDate: startDate, finishDate: finishDate, des: des, customer: customer, performer: performer)
+        let copy = Order(id: id, science: science, type: type, subject: subject, cost: cost, startDate: startDate, finishDate: finishDate, des: des, customer: customer, performer: performer, status: status)
         return copy
         
     }

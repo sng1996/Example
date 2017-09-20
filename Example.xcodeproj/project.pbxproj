@@ -41,16 +41,6 @@
 		2AB3E11B1F371BCC00E2B5FC /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0F81F371BCC00E2B5FC /* ChatsViewController.swift */; };
 		2AB3E11C1F371BCC00E2B5FC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0F91F371BCC00E2B5FC /* Message.swift */; };
 		2AB3E11D1F371BCC00E2B5FC /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0FA1F371BCC00E2B5FC /* MessageManager.swift */; };
-		2AB3E11E1F371BCC00E2B5FC /* MMBaseMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0FB1F371BCC00E2B5FC /* MMBaseMessageCell.swift */; };
-		2AB3E11F1F371BCC00E2B5FC /* MMBaseMessageCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0FC1F371BCC00E2B5FC /* MMBaseMessageCellLayout.swift */; };
-		2AB3E1201F371BCC00E2B5FC /* MMChatInputTextPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0FD1F371BCC00E2B5FC /* MMChatInputTextPanel.swift */; };
-		2AB3E1211F371BCC00E2B5FC /* MMChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0FE1F371BCC00E2B5FC /* MMChatViewController.swift */; };
-		2AB3E1221F371BCC00E2B5FC /* MMDateMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E0FF1F371BCC00E2B5FC /* MMDateMessageCell.swift */; };
-		2AB3E1231F371BCC00E2B5FC /* MMDateMessageCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1001F371BCC00E2B5FC /* MMDateMessageCellLayout.swift */; };
-		2AB3E1241F371BCC00E2B5FC /* MMSystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1011F371BCC00E2B5FC /* MMSystemMessageCell.swift */; };
-		2AB3E1251F371BCC00E2B5FC /* MMSystemMessageCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1021F371BCC00E2B5FC /* MMSystemMessageCellLayout.swift */; };
-		2AB3E1261F371BCC00E2B5FC /* MMTextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1031F371BCC00E2B5FC /* MMTextMessageCell.swift */; };
-		2AB3E1271F371BCC00E2B5FC /* MMTextMessageCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1041F371BCC00E2B5FC /* MMTextMessageCellLayout.swift */; };
 		2AB3E1281F371BCC00E2B5FC /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E1051F371BCC00E2B5FC /* notification.caf */; };
 		2AB3E1291F371BCC00E2B5FC /* NSAttributedString+NoChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3E1061F371BCC00E2B5FC /* NSAttributedString+NoChat.swift */; };
 		2AB3E12A1F371BCC00E2B5FC /* sent.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2AB3E1071F371BCC00E2B5FC /* sent.caf */; };
@@ -145,16 +135,6 @@
 		2AB3E0F81F371BCC00E2B5FC /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		2AB3E0F91F371BCC00E2B5FC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2AB3E0FA1F371BCC00E2B5FC /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
-		2AB3E0FB1F371BCC00E2B5FC /* MMBaseMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMBaseMessageCell.swift; sourceTree = "<group>"; };
-		2AB3E0FC1F371BCC00E2B5FC /* MMBaseMessageCellLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMBaseMessageCellLayout.swift; sourceTree = "<group>"; };
-		2AB3E0FD1F371BCC00E2B5FC /* MMChatInputTextPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMChatInputTextPanel.swift; sourceTree = "<group>"; };
-		2AB3E0FE1F371BCC00E2B5FC /* MMChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMChatViewController.swift; sourceTree = "<group>"; };
-		2AB3E0FF1F371BCC00E2B5FC /* MMDateMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMDateMessageCell.swift; sourceTree = "<group>"; };
-		2AB3E1001F371BCC00E2B5FC /* MMDateMessageCellLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMDateMessageCellLayout.swift; sourceTree = "<group>"; };
-		2AB3E1011F371BCC00E2B5FC /* MMSystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMSystemMessageCell.swift; sourceTree = "<group>"; };
-		2AB3E1021F371BCC00E2B5FC /* MMSystemMessageCellLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMSystemMessageCellLayout.swift; sourceTree = "<group>"; };
-		2AB3E1031F371BCC00E2B5FC /* MMTextMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTextMessageCell.swift; sourceTree = "<group>"; };
-		2AB3E1041F371BCC00E2B5FC /* MMTextMessageCellLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTextMessageCellLayout.swift; sourceTree = "<group>"; };
 		2AB3E1051F371BCC00E2B5FC /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		2AB3E1061F371BCC00E2B5FC /* NSAttributedString+NoChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+NoChat.swift"; sourceTree = "<group>"; };
 		2AB3E1071F371BCC00E2B5FC /* sent.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sent.caf; sourceTree = "<group>"; };
@@ -218,6 +198,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AA6EB9C1F7275A000319A75 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2A094BF11F695B4500A2441A /* WaitingPerformer.swift */,
+				2AB9E4E91F3734C400861298 /* Filter.swift */,
+				2AB9E4ED1F3734C400861298 /* Order.swift */,
+				2AB9E5001F37358200861298 /* Profile.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		2AA6EB9D1F7275D500319A75 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AB9E4E61F3734C400861298 /* AboutOrderViewController.swift */,
+				2AB9E4E71F3734C400861298 /* AddViewController.swift */,
+				2AB9E4E81F3734C400861298 /* ChooseDataViewController.swift */,
+				2AB9E4EB1F3734C400861298 /* FilterDataViewController.swift */,
+				2AB9E4EC1F3734C400861298 /* FilterViewController.swift */,
+				2AB9E4EF1F3734C400861298 /* ProfileViewController.swift */,
+				2AB9E4F21F3734C400861298 /* ViewController.swift */,
+				2A415A8D1F643AFA0017DF85 /* EnterViewController.swift */,
+				2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2AA6EB9E1F7275F900319A75 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2AB9E4EA1F3734C400861298 /* FilterDataTableViewCell.swift */,
+				2AB9E4EE1F3734C400861298 /* OrderTableViewCell.swift */,
+				2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		2AB3E0BB1F371AF500E2B5FC = {
 			isa = PBXGroup;
 			children = (
@@ -243,24 +260,11 @@
 		2AB3E0C61F371AF500E2B5FC /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				2AA6EB9E1F7275F900319A75 /* Cells */,
+				2AA6EB9D1F7275D500319A75 /* ViewControllers */,
+				2AA6EB9C1F7275A000319A75 /* Objects */,
 				2AB9E4E51F37295C00861298 /* Chat */,
 				2AB3E0F61F371BCC00E2B5FC /* AppDelegate.swift */,
-				2AB9E4E61F3734C400861298 /* AboutOrderViewController.swift */,
-				2AB9E4E71F3734C400861298 /* AddViewController.swift */,
-				2AB9E4E81F3734C400861298 /* ChooseDataViewController.swift */,
-				2AB9E4E91F3734C400861298 /* Filter.swift */,
-				2AB9E4EA1F3734C400861298 /* FilterDataTableViewCell.swift */,
-				2AB9E4EB1F3734C400861298 /* FilterDataViewController.swift */,
-				2AB9E4EC1F3734C400861298 /* FilterViewController.swift */,
-				2A094BF11F695B4500A2441A /* WaitingPerformer.swift */,
-				2AB9E4ED1F3734C400861298 /* Order.swift */,
-				2AB9E4EE1F3734C400861298 /* OrderTableViewCell.swift */,
-				2AB9E4EF1F3734C400861298 /* ProfileViewController.swift */,
-				2AB9E5001F37358200861298 /* Profile.swift */,
-				2AB9E4F21F3734C400861298 /* ViewController.swift */,
-				2A415A8D1F643AFA0017DF85 /* EnterViewController.swift */,
-				2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */,
-				2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */,
 				2AB9E4F01F3734C400861298 /* static */,
 				2AB3E0CB1F371AF500E2B5FC /* Main.storyboard */,
 				2AB3E0CE1F371AF500E2B5FC /* Assets.xcassets */,
@@ -296,16 +300,6 @@
 				2AB3E0F81F371BCC00E2B5FC /* ChatsViewController.swift */,
 				2AB3E0F91F371BCC00E2B5FC /* Message.swift */,
 				2AB3E0FA1F371BCC00E2B5FC /* MessageManager.swift */,
-				2AB3E0FB1F371BCC00E2B5FC /* MMBaseMessageCell.swift */,
-				2AB3E0FC1F371BCC00E2B5FC /* MMBaseMessageCellLayout.swift */,
-				2AB3E0FD1F371BCC00E2B5FC /* MMChatInputTextPanel.swift */,
-				2AB3E0FE1F371BCC00E2B5FC /* MMChatViewController.swift */,
-				2AB3E0FF1F371BCC00E2B5FC /* MMDateMessageCell.swift */,
-				2AB3E1001F371BCC00E2B5FC /* MMDateMessageCellLayout.swift */,
-				2AB3E1011F371BCC00E2B5FC /* MMSystemMessageCell.swift */,
-				2AB3E1021F371BCC00E2B5FC /* MMSystemMessageCellLayout.swift */,
-				2AB3E1031F371BCC00E2B5FC /* MMTextMessageCell.swift */,
-				2AB3E1041F371BCC00E2B5FC /* MMTextMessageCellLayout.swift */,
 				2AB3E1051F371BCC00E2B5FC /* notification.caf */,
 				2AB3E1061F371BCC00E2B5FC /* NSAttributedString+NoChat.swift */,
 				2AB3E1071F371BCC00E2B5FC /* sent.caf */,
@@ -586,9 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AB3E1321F371BCC00E2B5FC /* TGDateMessageCell.swift in Sources */,
-				2AB3E1261F371BCC00E2B5FC /* MMTextMessageCell.swift in Sources */,
 				2AB3E1351F371BCC00E2B5FC /* TGSystemMessageCell.swift in Sources */,
-				2AB3E11F1F371BCC00E2B5FC /* MMBaseMessageCellLayout.swift in Sources */,
 				2AB3E1291F371BCC00E2B5FC /* NSAttributedString+NoChat.swift in Sources */,
 				2AB3E1191F371BCC00E2B5FC /* AppDelegate.swift in Sources */,
 				2AB3E11C1F371BCC00E2B5FC /* Message.swift in Sources */,
@@ -596,23 +588,16 @@
 				2AB9E4F51F3734C400861298 /* ChooseDataViewController.swift in Sources */,
 				2AB3E12C1F371BCC00E2B5FC /* TGAvatarButton.swift in Sources */,
 				2AB3E11D1F371BCC00E2B5FC /* MessageManager.swift in Sources */,
-				2AB3E1241F371BCC00E2B5FC /* MMSystemMessageCell.swift in Sources */,
-				2AB3E1271F371BCC00E2B5FC /* MMTextMessageCellLayout.swift in Sources */,
 				2AB3E13A1F371BCC00E2B5FC /* UIFont+NoChat.swift in Sources */,
 				2AB3E1391F371BCC00E2B5FC /* TGTitleView.swift in Sources */,
-				2AB3E1211F371BCC00E2B5FC /* MMChatViewController.swift in Sources */,
 				2AB9E5011F37358200861298 /* Profile.swift in Sources */,
 				2AB3E12D1F371BCC00E2B5FC /* TGBaseMessageCell.swift in Sources */,
 				2AB9E4F31F3734C400861298 /* AboutOrderViewController.swift in Sources */,
-				2AB3E1201F371BCC00E2B5FC /* MMChatInputTextPanel.swift in Sources */,
-				2AB3E1251F371BCC00E2B5FC /* MMSystemMessageCellLayout.swift in Sources */,
 				2AB3E1381F371BCC00E2B5FC /* TGTextMessageCellLayout.swift in Sources */,
 				2A094BF21F695B4500A2441A /* WaitingPerformer.swift in Sources */,
 				2AB3E11B1F371BCC00E2B5FC /* ChatsViewController.swift in Sources */,
-				2AB3E11E1F371BCC00E2B5FC /* MMBaseMessageCell.swift in Sources */,
 				2AB3E11A1F371BCC00E2B5FC /* Chat.swift in Sources */,
 				2AB9E4FB1F3734C400861298 /* OrderTableViewCell.swift in Sources */,
-				2AB3E1221F371BCC00E2B5FC /* MMDateMessageCell.swift in Sources */,
 				2AB9E4FE1F3734C400861298 /* ViewController.swift in Sources */,
 				2AB3E1301F371BCC00E2B5FC /* TGChatViewController.swift in Sources */,
 				2A415A8E1F643AFA0017DF85 /* EnterViewController.swift in Sources */,
@@ -621,7 +606,6 @@
 				2AB3E1361F371BCC00E2B5FC /* TGSystemMessageCellLayout.swift in Sources */,
 				2AB3E12E1F371BCC00E2B5FC /* TGBaseMessageCellLayout.swift in Sources */,
 				2AB3E1331F371BCC00E2B5FC /* TGDateMessageCellLayout.swift in Sources */,
-				2AB3E1231F371BCC00E2B5FC /* MMDateMessageCellLayout.swift in Sources */,
 				2AB9E4F81F3734C400861298 /* FilterDataViewController.swift in Sources */,
 				2AB9E4F41F3734C400861298 /* AddViewController.swift in Sources */,
 				2A094BEE1F69503200A2441A /* ChoosePerformerViewController.swift in Sources */,
