@@ -27,12 +27,24 @@ import Foundation
 
 class Chat {
     
-    var chatId: String = ""
+    var chatId: Int = 0
     var type: String = ""
     
-    var targetId: String = ""
+    var targetId: Int = 0
+    var targetName: String = ""
 
     var title: String = ""
     var detail: String = ""
+    
+    var orderId: Int = 0
+    
+    init(chatId: Int, targetId: Int, targetName: String, orderId: Int){
+        
+        self.chatId = chatId
+        self.targetId = targetId
+        self.targetName = targetName
+        self.orderId = orderId
+        
+    }
     
 }

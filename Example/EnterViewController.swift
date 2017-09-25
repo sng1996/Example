@@ -51,7 +51,7 @@ class EnterViewController: UIViewController {
             if (code == 0){
                 OperationQueue.main.addOperation({
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
+                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! TabViewController
                     self.present(nextViewController, animated:true, completion:nil)
                     print("OK")
                 })

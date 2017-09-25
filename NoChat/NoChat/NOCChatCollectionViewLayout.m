@@ -75,7 +75,8 @@
     CGFloat contentHeight = 0;
     [_layoutAttributes addObjectsFromArray:[self layoutAttributesForLayouts:[(id<NOCChatCollectionViewLayoutDelegate>)self.collectionView.delegate cellLayouts] containerWidth:self.collectionView.bounds.size.width maxHeight:CGFLOAT_MAX contentHeight:&contentHeight]];
     
-    _contentSize = CGSizeMake(self.collectionView.bounds.size.width, contentHeight);
+    _contentSize = CGSizeMake(self.collectionView.bounds.size.width, contentHeight + 34.0f);
+    NSLog(@"CONTENTSIZE = %f", _contentSize.height);
 }
 
 - (CGSize)collectionViewContentSize
@@ -88,6 +89,7 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     for (UICollectionViewLayoutAttributes *attributes in _layoutAttributes) {
+        //attributes.frame = CGRectMake(0, attributes.frame.origin.y - 64.0f, attributes.frame.size.width, attributes.frame.size.height);
         if (!CGRectIsNull(CGRectIntersection(rect, attributes.frame))) {
             [array addObject:attributes];
         }
@@ -194,8 +196,7 @@
 - (NSArray *)layoutAttributesForLayouts:(NSArray *)layouts containerWidth:(CGFloat)containerWidth maxHeight:(CGFloat)maxHeight contentHeight:(CGFloat *)contentHeight
 {
     NSMutableArray *layoutAttributes = [[NSMutableArray alloc] init];
-    
-    __block CGFloat verticalOffset = _inset.top;
+    __block CGFloat verticalOffset = _inset.top - 64.0f;
     
     [layouts enumerateObjectsUsingBlock:^(id<NOCChatItemCellLayout> layout, NSUInteger i, BOOL *stop) {
         UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
@@ -204,6 +205,7 @@
             layout.width = containerWidth;
             [layout calculateLayout];
         }
+
         attributes.frame = CGRectMake(0, verticalOffset, layout.width, layout.height);
         
         [layoutAttributes addObject:attributes];

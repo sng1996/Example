@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let url = URL(string: way + "/order/perform/?id=" + String(myId))
+        let url = URL(string: way + "/order/my/?id=" + String(myId))
         URLSession.shared.dataTask(with: url!, completionHandler: {
             (data, response, error) in
             if(error != nil){
@@ -43,23 +43,35 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
             }else{
                 do{
                     self.performOrders.removeAll()
+                    self.orderedOrders.removeAll()
+                    self.historyOrders.removeAll()
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
-                    let response = json["response"] as? [[String: Any]]
-                    for elem in response!{
-                        let data = elem as NSDictionary?
-                        let customer = Profile()
-                        customer.id = data?["client"] as! Int
-                        let performer = Profile()
-                        performer.id = data?["executor"] as! Int
-                        let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer, status: data?["status"] as! Int)
-                        
-                        self.performOrders.append(order)
+                    let response = json["response"] as? [String: Any]
+                    let arrNames = ["performed", "ordered", "history"]
+    
+                    
+                    for i in 0..<3{
+                        for elem in (response![arrNames[i]] as? [[String: Any]])!{
+                            let data = elem as NSDictionary?
+                            let customer = Profile()
+                            customer.id = data?["client"] as! Int
+                            let performer = Profile()
+                            performer.id = data?["executor"] as! Int
+                            let order = Order(id: data?["id"] as! Int, science: 0, type: data?["type"] as! Int, subject: data?["subject"] as! String, cost: data?["cost"] as! Int, startDate: data?["create_date"] as! String, finishDate: data?["end_date"] as! String, des: data?["description"] as! String, customer: customer, performer: performer, status: data?["status"] as! Int)
+                            switch i {
+                            case 0: self.performOrders.append(order)
+                            case 1: self.orderedOrders.append(order)
+                            case 2: self.historyOrders.append(order)
+                            default: break
+                            }
+                        }
                     }
-                    
-                    /*OperationQueue.main.addOperation({
-                     self.mainTableView.reloadData()
-                     })*/
-                    
+                    OperationQueue.main.addOperation({
+                        self.tableView1.reloadData()
+                        self.tableView2.reloadData()
+                        self.tableView3.reloadData()
+                        self.tableView4.reloadData()
+                    })
                 }catch let error as NSError{
                     print(error)
                 }
@@ -70,6 +82,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     override func viewDidAppear(_ animated: Bool) {
         tableView1.reloadData()
+        tableView2.reloadData()
+        tableView3.reloadData()
+        tableView4.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,19 +113,30 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
         
-        if (tableView == tableView1){
-            print(performOrders)
-            print(performOrders[indexPath.row])
-            print(performOrders[indexPath.row].subject)
-            //cell.subject.text = performOrders[indexPath.row].subject
-            cell.subject.text = "Hello"
+        switch tableView{
+        case tableView1:
+            cell.subject.text = performOrders[indexPath.row].subject
             cell.type.text = types[performOrders[indexPath.row].type]
             cell.cost.text = String(performOrders[indexPath.row].cost) + " ₽"
             cell.startDate.text = performOrders[indexPath.row].startDate
             cell.finishDate.text = performOrders[indexPath.row].finishDate
-        }
-        else{
-            
+            break
+        case tableView2:
+            cell.subject.text = orderedOrders[indexPath.row].subject
+            cell.type.text = types[orderedOrders[indexPath.row].type]
+            cell.cost.text = String(orderedOrders[indexPath.row].cost) + " ₽"
+            cell.startDate.text = orderedOrders[indexPath.row].startDate
+            cell.finishDate.text = orderedOrders[indexPath.row].finishDate
+            break
+        case tableView3:
+            cell.subject.text = historyOrders[indexPath.row].subject
+            cell.type.text = types[historyOrders[indexPath.row].type]
+            cell.cost.text = String(historyOrders[indexPath.row].cost) + " ₽"
+            cell.startDate.text = historyOrders[indexPath.row].startDate
+            cell.finishDate.text = historyOrders[indexPath.row].finishDate
+            break
+        case tableView4: break
+        default: break
         }
         
         cell.tableView = tableView
@@ -162,6 +188,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     func scrollViewDidScroll(_ scrollView: UIScrollView){
         pageIndex = Int(round(scrollView.contentOffset.x/view.frame.width))
+    }
+    
+    @IBAction func logout(){
+        MessageManager.manager.logout(vc: self)
     }
 
 }

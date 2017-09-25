@@ -29,7 +29,21 @@ class AboutOrderViewController: UIViewController {
         cost.text = String(order.cost) + " ₽"
         des.text = order.des
         
-        
+        if (order.customer.id == myId){
+            isMyOrder = true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true;
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false;
     }
     
     @IBAction func actionSheet(sender: UIButton){
@@ -218,10 +232,10 @@ class AboutOrderViewController: UIViewController {
                 print("error")
             }else{
                 do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
-                    let code = json["code"] as! Int
-                    print(code)
-                    self.dismiss(animated: true, completion: nil)
+                    _ = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
+                    OperationQueue.main.addOperation({
+                        _ = self.navigationController?.popViewController(animated: true)
+                    })
                 }catch let error as NSError{
                     print(error)
                 }
@@ -257,8 +271,10 @@ class AboutOrderViewController: UIViewController {
                     print("error")
                 }else{
                     do{
-                        self.dismiss(animated: true, completion: nil)
-                        
+                        _ = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
+                        OperationQueue.main.addOperation({
+                            _ = self.navigationController?.popViewController(animated: true)
+                        })
                     }catch let error as NSError{
                         print(error)
                     }

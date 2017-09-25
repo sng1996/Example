@@ -39,7 +39,7 @@ class Message: NSObject, NOCChatItem {
     var msgId: String = UUID().uuidString
     var msgType: String = "Text"
     
-    var senderId: String = ""
+    var senderId: Int = 0
     var date: Date = Date()
     var text: String = ""
     

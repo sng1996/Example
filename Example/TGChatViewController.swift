@@ -73,6 +73,9 @@ class TGChatViewController: NOCChatViewController, UINavigationControllerDelegat
     }
     
     deinit {
+        print("COLLECTIONVIEW = " + String(describing: self.collectionView?.frame.size.height))
+        print("COLLECTIONLAYOUT = " + String(describing: self.collectionLayout?.collectionViewContentSize.height))
+        print("SCROLL = " + String(describing: self.collectionView?.collectionViewLayout.collectionViewContentSize.height))
         messageManager.removeDelegate(self)
         unregisterContentSizeCategoryDidChangeNotification()
     }
@@ -106,7 +109,7 @@ class TGChatViewController: NOCChatViewController, UINavigationControllerDelegat
     
     // MARK: MessageManagerDelegate
     
-    func didReceiveMessages(messages: [Message], chatId: String) {
+    func didReceiveMessages(messages: [Message], chatId: Int) {
         if isViewLoaded == false { return }
         
         if chatId == chat.chatId {
@@ -161,7 +164,7 @@ class TGChatViewController: NOCChatViewController, UINavigationControllerDelegat
     
     private func sendMessage(_ message: Message) {
         message.isOutgoing = true
-        message.senderId = User.currentUser.userId
+        message.senderId = myId
         message.deliveryStatus = .Read
         
         addMessages([message], scrollToBottom: true, animated: true)

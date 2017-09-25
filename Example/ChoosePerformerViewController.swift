@@ -38,13 +38,11 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
                         let cost = data?["cost"] as! Int
                         let date = data?["date"] as! String
                         let perf = WaitingPerformer(performer: performer, cost: cost, date: date)
-                        print(perf.performer.name)
                         self.performers.append(perf)
                     }
                     
-                    
                     OperationQueue.main.addOperation({
-                        //self.tV.reloadData()
+                        self.tV.reloadData()
                     })
                     
                 }catch let error as NSError{
@@ -95,7 +93,7 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
         var request = URLRequest(url: URL(string: way + "/order/set_executor")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let parameters = ["id": order.id, "executor": performers[indexPath.row].performer.id, "cost": performers[indexPath.row].cost]
+        let parameters = ["id": order.id, "executor": performers[indexPath.row].performer.id, "cost": performers[indexPath.row].cost, "client": myId]
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
         request.httpBody = httpBody
         URLSession.shared.dataTask(with: request, completionHandler: {
@@ -109,6 +107,7 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
                 do{
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : AnyObject]
                     code = json["code"] as! Int
+                    
                 }catch{
                     print(error)
                 }
@@ -124,6 +123,10 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
             
         }).resume()
         
+    }
+    
+    @IBAction func back(){
+        self.dismiss(animated: true, completion: nil)
     }
 
 

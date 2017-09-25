@@ -124,6 +124,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "home"){
@@ -132,11 +136,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             DestViewController.filter = filter.copy() as! Filter
         }
         if (segue.identifier == "aboutOrder"){
-            let navVC : UINavigationController = segue.destination as! UINavigationController
-            let DestViewController = navVC.viewControllers.first as! AboutOrderViewController
+            let DestViewController = segue.destination as! AboutOrderViewController
             let cell = sender as! OrderTableViewCell
             let indexPath = mainTableView.indexPath(for: cell)!
-            DestViewController.order = tmpOrdersArr[indexPath.row].copy() as! Order
+            DestViewController.order = tmpOrdersArr[indexPath.row]
         }
     }
     
@@ -166,9 +169,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                     
                     
-                    /*OperationQueue.main.addOperation({
+                    OperationQueue.main.addOperation({
                      self.mainTableView.reloadData()
-                    })*/
+                    })
                     
                 }catch let error as NSError{
                     print(error)

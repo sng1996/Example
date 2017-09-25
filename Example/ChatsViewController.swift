@@ -28,25 +28,37 @@ import NoChat
 
 class ChatsViewController: UITableViewController {
     
+    var chats: [Chat] = []
+    @IBOutlet var mainTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.backgroundColor = UIColor.white;
+        //updateData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        mainTableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return chats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath)
-        cell.textLabel?.text = "Telegram"
-        cell.imageView?.image = UIImage(named: "TGIcon")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+        cell.nameLbl.text = chats[indexPath.row].targetName
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chat = ChatsViewController.botChat
+        let chat = chats[indexPath.row]
         var chatVC: UIViewController?
+        print("chat = " + String(chat.chatId))
         chatVC = TGChatViewController(chat: chat)
         if let vc = chatVC {
             navigationController?.pushViewController(vc, animated: true)
@@ -55,14 +67,33 @@ class ChatsViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    static let botChat: Chat = {
-        let chat = Chat()
-        chat.type = "bot"
-        chat.targetId = "89757"
-        chat.chatId = chat.type + "_" + chat.targetId
-        chat.title = "Gothons From Planet Percal #25"
-        chat.detail = "bot"
-        return chat
-    }()
+    func updateData(){
+        
+        let url = URL(string: way + "/message/contacts/?user_id=" + String(myId))
+        URLSession.shared.dataTask(with: url!, completionHandler: {
+            (data, response, error) in
+            if(error != nil){
+                print("error")
+            }else{
+                do{
+                    self.chats.removeAll()
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
+                    let response = json["response"] as? [[String: Any]]
+                    for elem in response!{
+                        let data = elem as NSDictionary?
+                        let chat = Chat(chatId: data?["chat_id"] as! Int, targetId: data?["target_id"] as! Int, targetName: data?["target_name"] as! String, orderId: data?["order_id"] as! Int)
+                        
+                        self.chats.append(chat)
+                    }
+                    OperationQueue.main.addOperation({
+                        self.mainTableView.reloadData()
+                    })
+                }catch let error as NSError{
+                    print(error)
+                }
+            }
+        }).resume()
+    }
+
     
 }

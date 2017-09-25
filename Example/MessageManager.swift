@@ -28,25 +28,23 @@ import NOCProtoKit
 import Starscream
 
 protocol MessageManagerDelegate: class {
-    func didReceiveMessages(messages: [Message], chatId: String)
+    func didReceiveMessages(messages: [Message], chatId: Int)
 }
 
 class MessageManager: NSObject, NOCClientDelegate {
     
     var delegates: NSHashTable<AnyObject> /////private
-    private var client: NOCClient
+    //private var client: NOCClient
     var socket = WebSocket(url: URL(string: "ws://localhost:8080/gameapi")!, protocols: ["chat"])
     
-    private var messages: Dictionary<String, [Message]>
+    private var messages: Dictionary<Int, [Message]>
     
     override init() {
         delegates = NSHashTable<AnyObject>.weakObjects()
-        client = NOCClient(userId: User.currentUser.userId)
+        //client = NOCClient(userId: User.currentUser.userId)
         messages = [:]
         super.init()
-        client.delegate = self
-        socket.delegate = self
-        socket.connect()
+        //client.delegate = self
     }
     
     deinit {
@@ -57,11 +55,32 @@ class MessageManager: NSObject, NOCClientDelegate {
     static let manager = MessageManager()
     
     func play() {
-        client.open()
+        //client.open()
+        socket.delegate = self
+        socket.connect()
+    }
+    
+    func logout(vc: ProfileViewController){
+        
+        let parameters = ["code": 3, "id": myId] as [String : Any]
+        do{
+            let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions()) as NSData
+            let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
+            socket.write(string: jsonString)
+            socket.disconnect(forceTimeout: 0, closeCode: 0)
+            messages.removeAll()
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "EnterViewController") as! EnterViewController
+            vc.present(nextViewController, animated:true, completion:nil)
+        }
+        catch _{
+            print ("JSON Failure")
+        }
+        
     }
     
     //READ: Output all messages
-    func fetchMessages(withChatId chatId: String, handler: ([Message]) -> Void) {
+    func fetchMessages(withChatId chatId: Int, handler: ([Message]) -> Void) {
         if let msgs = messages[chatId] {
             handler(msgs)
         } else {
@@ -70,13 +89,6 @@ class MessageManager: NSObject, NOCClientDelegate {
             let msg = Message()
             msg.msgType = "Date"
             arr.append(msg)
-            
-            if chatId == "bot_89757" {
-                let msg = Message()
-                msg.msgType = "System"
-                msg.text = "Welcome to Gothons From Planet Percal #25! Please input `/start` to play!"
-                arr.append(msg)
-            }
             
             saveMessages(arr, chatId: chatId)
             
@@ -89,21 +101,7 @@ class MessageManager: NSObject, NOCClientDelegate {
         
         saveMessages([message], chatId: chatId)
         
-        let dict = [
-            "from": message.senderId,
-            "to": chat.targetId,
-            "type": message.msgType,
-            "text": message.text,
-            "ctype": chat.type
-        ]
-        
-        var target_id = 1
-        
-        if (myId == 1){
-            target_id = 2
-        }
-        
-        let parameters = ["code" : 1, "response" : ["message" : message.text, "from_id" : myId, "to_id" : target_id]] as [String : Any]
+        let parameters = ["code" : 1, "response" : ["message" : message.text, "from_id" : myId, "to_id" : chat.targetId, "chat_id" : chat.chatId]] as [String : Any]
         
         //READ: Тут мы посылаем сообщение через сокет
         //client.sendMessage(dict)
@@ -126,37 +124,8 @@ class MessageManager: NSObject, NOCClientDelegate {
         delegates.remove(delegate)
     }
     
-    //READ: Тут нам пришло сообщение походу
-    func clientDidReceiveMessage(_ message: [AnyHashable : Any]) {
-        /*guard let senderId = message["from"] as? String,
-            let type = message["type"] as? String,
-            let text = message["text"] as? String,
-            let chatType = message["ctype"] as? String else {
-                return;
-        }
-        
-        if type != "Text" || chatType != "bot" {
-            return;
-        }
-        
-        let msg = Message()
-        msg.senderId = senderId
-        msg.msgType = type
-        msg.text = text
-        msg.isOutgoing = false
-        
-        let chatId = chatType + "_" + senderId
-        
-        saveMessages([msg], chatId: chatId)
-        
-        for delegate in delegates.allObjects {
-            if let d = delegate as? MessageManagerDelegate {
-                d.didReceiveMessages(messages: [msg], chatId: chatId)
-            }
-        }*/
-    }
     
-    func saveMessages(_ messages: [Message], chatId: String) { //private
+    func saveMessages(_ messages: [Message], chatId: Int) { //private
         var msgs = self.messages[chatId] ?? []
         msgs += messages
         self.messages[chatId] = msgs
@@ -187,34 +156,50 @@ extension MessageManager : WebSocketDelegate {
         let data: NSData = text.data(using: String.Encoding.utf8)! as NSData
         do {
             let json = try JSONSerialization.jsonObject(with: data as Data, options:.allowFragments) as! [String : AnyObject]
-            let response = json["response"] as? [String: Any]
+            let code = json["code"] as? Int
             
-            let message = response?["message"] as! String
-            
-            guard let senderId = "89757" as? String,
-                let type = "Text" as? String,
-                let text = message as? String,
-                let chatType = "bot" as? String else {
-                    return;
-            }
-            
-            if type != "Text" || chatType != "bot" {
-                return;
-            }
-            
-            let msg = Message()
-            msg.senderId = senderId
-            msg.msgType = type
-            msg.text = text
-            msg.isOutgoing = false
-            
-            let chatId = chatType + "_" + senderId
-            
-            saveMessages([msg], chatId: chatId)
-            
-            for delegate in delegates.allObjects {
-                if let d = delegate as? MessageManagerDelegate {
-                    d.didReceiveMessages(messages: [msg], chatId: chatId)
+            if (code == 0){
+                let response = json["response"] as? [String: Any]
+                let text = response?["message"] as! String
+                let senderId = (response?["from_id"] as? Int)!
+                let chat_id = (response?["chat_id"] as? Int)!
+                let type = "Text"
+                let msg = Message()
+                msg.senderId = senderId
+                msg.msgType = type
+                msg.text = text
+                msg.isOutgoing = false
+                saveMessages([msg], chatId: chat_id)
+                
+                for delegate in delegates.allObjects {
+                    if let d = delegate as? MessageManagerDelegate {
+                        d.didReceiveMessages(messages: [msg], chatId: chat_id)
+                    }
+                }
+                
+            }else if (code == 4){
+                let arr = [MessageDeliveryStatus.Idle, MessageDeliveryStatus.Delivering, MessageDeliveryStatus.Delivered, MessageDeliveryStatus.Failure, MessageDeliveryStatus.Read]
+                let response = json["response"] as? [[String: Any]]
+                for chat in response!{
+                    var msgesArr: [Message] = []
+                    let chat_id = chat["chat_id"] as? Int
+                    let msges = chat["msges"] as? [[String: Any]]
+                    for msg in msges!{
+                        let message = Message()
+                        message.msgId = String((msg["id"] as? Int)!)
+                        message.senderId = (msg["sender_id"] as? Int)!
+                        message.text = (msg["text"] as? String)!
+                        //message.date = (msg["date"] as? String)!
+                        message.deliveryStatus = arr[(msg["status"] as? Int)!]
+                        if (message.senderId == myId){
+                            message.isOutgoing = true
+                        }
+                        else{
+                            message.isOutgoing = false
+                        }
+                        msgesArr.append(message)
+                    }
+                    saveMessages(msgesArr, chatId: chat_id!)
                 }
             }
         }
