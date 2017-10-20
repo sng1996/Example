@@ -35,7 +35,8 @@ class MessageManager: NSObject, NOCClientDelegate {
     
     var delegates: NSHashTable<AnyObject> /////private
     //private var client: NOCClient
-    var socket = WebSocket(url: URL(string: "ws://localhost:8080/gameapi")!, protocols: ["chat"])
+    //var socket = WebSocket(url: URL(string: "ws://localhost:8080/gameapi")!, protocols: ["chat"])
+    var socket = WebSocket(url: URL(string: "ws://fast-basin-97049.herokuapp.com/gameapi")!, protocols: ["chat"])
     
     private var messages: Dictionary<Int, [Message]>
     
@@ -152,6 +153,7 @@ extension MessageManager : WebSocketDelegate {
     }
     
     public func websocketDidReceiveMessage(socket: Starscream.WebSocket, text: String) {
+        print(text)
         print("RecievedMessage")
         let data: NSData = text.data(using: String.Encoding.utf8)! as NSData
         do {

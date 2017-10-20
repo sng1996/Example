@@ -19,31 +19,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         MessageManager.manager.play()
-        
-        updateData()
-        
-        /*var order = Order(id: 1, science: 2, type: 2, subject: "Аналитическая геометрия", cost: 1500, startDate: "20.02", finishDate: "Завтра, 19:30", des: "", customer: Profile(), performer: Profile())
-        
-        orders.append(order)
-        
-        order = Order(id: 2, science: 1, type: 2, subject: "Аналитическая геометрия", cost: 1000, startDate: "19.02", finishDate: "Завтра, 19:31", des: "", customer: Profile(), performer: Profile())
-        
-        orders.append(order)
-        
-        order = Order(id: 3, science: 1, type: 1, subject: "Аналитическая геометрия", cost: 600, startDate: "21.02", finishDate: "Завтра, 19:29", des: "", customer: Profile(), performer: Profile())
-        
-        orders.append(order)
-        
-        order = Order(id: 4, science: 2, type: 1, subject: "Аналитическая геометрия", cost: 6000, startDate: "26.02", finishDate: "Завтра, 20:29", des: "", customer: Profile(), performer: Profile())
-        
-        orders.append(order)*/
+        navigationController?.navigationBar.barTintColor = .white
+        //updateData()
         
         tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        updateData()
+        //updateData()
     }
     
     override func viewDidAppear(_ animated: Bool) {

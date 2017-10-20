@@ -1,30 +1,100 @@
 PODS:
+  - Alamofire (4.5.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
   - HPGrowingTextView (1.1)
+  - ImageSource (2.0.0):
+    - ImageSource/AlamofireImage (= 2.0.0)
+    - ImageSource/Core (= 2.0.0)
+    - ImageSource/Local (= 2.0.0)
+    - ImageSource/PHAsset (= 2.0.0)
+    - ImageSource/Remote (= 2.0.0)
+  - ImageSource/AlamofireImage (2.0.0):
+    - AlamofireImage (~> 3)
+    - ImageSource/Remote
+  - ImageSource/Core (2.0.0)
+  - ImageSource/Local (2.0.0):
+    - ImageSource/Core
+  - ImageSource/PHAsset (2.0.0):
+    - ImageSource/Core
+  - ImageSource/Remote (2.0.0):
+    - ImageSource/Core
+    - ImageSource/UIKit
+  - ImageSource/UIKit (2.0.0):
+    - ImageSource/Core
+  - JNWSpringAnimation (0.7.1)
+  - JTAppleCalendar (7.0.6)
+  - Marshroute (0.3.5)
   - NoChat (0.3.2)
   - NOCProtoKit (0.3.2)
+  - Paparazzo (2.0.0):
+    - ImageSource/Core
+    - ImageSource/Local
+    - ImageSource/PHAsset
+    - ImageSource/Remote
+    - JNWSpringAnimation
+    - Paparazzo/AlamofireImage (= 2.0.0)
+    - Paparazzo/Core (= 2.0.0)
+    - Paparazzo/Marshroute (= 2.0.0)
+  - Paparazzo/AlamofireImage (2.0.0):
+    - ImageSource/AlamofireImage
+    - ImageSource/Core
+    - ImageSource/Local
+    - ImageSource/PHAsset
+    - ImageSource/Remote
+    - JNWSpringAnimation
+    - Paparazzo/Core
+  - Paparazzo/Core (2.0.0):
+    - ImageSource/Core
+    - ImageSource/Local
+    - ImageSource/PHAsset
+    - ImageSource/Remote
+    - JNWSpringAnimation
+  - Paparazzo/Marshroute (2.0.0):
+    - ImageSource/Core
+    - ImageSource/Local
+    - ImageSource/PHAsset
+    - ImageSource/Remote
+    - JNWSpringAnimation
+    - Marshroute
+    - Paparazzo/Core
   - Starscream (2.0.4)
   - YYText (1.0.7)
 
 DEPENDENCIES:
   - HPGrowingTextView
+  - ImageSource (from `.`)
+  - JTAppleCalendar (~> 7.0)
   - NoChat (from `.`)
   - NOCProtoKit (from `.`)
+  - Paparazzo (from `.`)
   - Starscream (~> 2.0.3)
   - YYText
 
 EXTERNAL SOURCES:
+  ImageSource:
+    :path: .
   NoChat:
     :path: .
   NOCProtoKit:
     :path: .
+  Paparazzo:
+    :path: .
 
 SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
+  ImageSource: dd391918cda9515e0588285c90b4bd25ea41d74e
+  JNWSpringAnimation: cd4c2f4464324f63f176c3624ffccf205211a100
+  JTAppleCalendar: 6a942475e33b9ad4dee0a0e14aa4c63adcf4f543
+  Marshroute: abed7a53cf04db1a60aaddfe797dea7a7d010464
   NoChat: aaa980b8b29c0db8c8bd8ecde22e718cc8ad1bf7
   NOCProtoKit: 1eed77c8f171953c6632fbad8bc1d6f6ebf6b718
+  Paparazzo: c4315ce7f1c9aca229456cdc8c4148642275de39
   Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 1c7b17d8fff39a1180b105fe0e0b41343187459f
+PODFILE CHECKSUM: 8be02cbe4eea4be72193e5f9d2f069fbac46de0d
 
 COCOAPODS: 1.2.0

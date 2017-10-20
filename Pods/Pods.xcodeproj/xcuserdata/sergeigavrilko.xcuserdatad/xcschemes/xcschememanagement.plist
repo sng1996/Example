@@ -4,7 +4,37 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HPGrowingTextView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImageSource.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JNWSpringAnimation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JTAppleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Marshroute.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -15,6 +45,11 @@
 			<false/>
 		</dict>
 		<key>NoChat.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Paparazzo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -36,37 +71,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>0392CFCAA7B667F929EFFB6C160E3382</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5B84CE874F8B6F109672914CE0608575</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>617D61FCB3A3DFF8E75036B33D8E9BA1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>64FE122BD3CE0F1BC99699025AE3D333</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8B3ED0211F7EECC173E919CC06059E3C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8D3BE1CE5FB288907407073EB98DF4A9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

@@ -11,5 +11,6 @@ import UIKit
 class FilterDataTableViewCell: UITableViewCell{
 
     @IBOutlet var data: UILabel!
+    @IBOutlet var myView: UIView!
     
 }

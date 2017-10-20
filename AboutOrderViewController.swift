@@ -6,9 +6,10 @@
 //  Copyright © 2017 Сергей Гаврилко. All rights reserved.
 //
 
+import ImageSource
 import UIKit
 
-class AboutOrderViewController: UIViewController {
+class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var type: UILabel!
     @IBOutlet var startDate: UILabel!
@@ -16,9 +17,14 @@ class AboutOrderViewController: UIViewController {
     @IBOutlet var cost: UILabel!
     @IBOutlet var des: UITextView!
     @IBOutlet var button: UIButton!
+    @IBOutlet var myScrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var heightScrollView: UIScrollView!
+    
     
     var isMyOrder: Bool = false
     var order: Order!
+    var photos: [ImageSource] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,23 +33,55 @@ class AboutOrderViewController: UIViewController {
         startDate.text = order.startDate
         finishDate.text = order.finishDate
         cost.text = String(order.cost) + " ₽"
-        des.text = order.des
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName : style]
+        des.attributedText = NSAttributedString(string: order.des, attributes:attributes)
+        des.font = UIFont(name: (des.font?.fontName)!, size: 14)
+        
+        let contentSize = self.des.sizeThatFits(self.des.bounds.size)
+        var frame = self.des.frame
+        frame.size.height = contentSize.height
+        self.des.frame = frame
+        
+        /*let aspectRatioTextViewConstraint = NSLayoutConstraint(item: self.des, attribute: .height, relatedBy: .equal, toItem: self.des, attribute: .width, multiplier: des.bounds.height/des.bounds.width, constant: 1)
+        self.des.addConstraint(aspectRatioTextViewConstraint)*/
+        
+        heightScrollView.contentSize = CGSize(width: self.view.frame.width, height: des.frame.origin.y + des.frame.height + 20.0)
+        print(heightScrollView.contentSize.height, des.frame.origin.y + des.frame.height + 20.0)
         
         if (order.customer.id == myId){
             isMyOrder = true
         }
+        
+        pageControl.numberOfPages = photos.count
+        pageControl.currentPage = 0
+        pageControl.frame.size.width = CGFloat(24 * photos.count)
+        pageControl.frame.origin.x = (self.view.frame.width - pageControl.frame.width)/2
+        pageControl.layer.cornerRadius = 19
+        
+        setupScrollView(imageSource: photos)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true;
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false;
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
     }
     
     @IBAction func actionSheet(sender: UIButton){
@@ -170,7 +208,11 @@ class AboutOrderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindToHome(segue: UIStoryboardSegue) {}
+    @IBAction func back(){
+        
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     
     func showPerformers(){
         
@@ -316,6 +358,29 @@ class AboutOrderViewController: UIViewController {
 
     func approve(){
         //Деньги переходят исполнителю, заказ получает статус 3 и переходит в историю
+    }
+    
+    func setupScrollView(imageSource: [ImageSource]){
+        
+        myScrollView.contentSize = CGSize(width: self.view.frame.width*CGFloat(photos.count), height: myScrollView.frame.height)
+        myScrollView.isPagingEnabled = true
+        
+        for i in 0..<imageSource.count{
+            
+            let myImageView = UIImageView(frame: CGRect(x:self.view.frame.width*CGFloat(i), y: 0, width:self.view.frame.width, height:myScrollView.frame.height))
+            myImageView.contentMode = .scaleAspectFill
+            myImageView.clipsToBounds = true
+            myImageView.setImage(fromSource: imageSource[i])
+            myScrollView.addSubview(myImageView)
+            
+        }
+        
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/self.view.frame.width)
+        pageControl.currentPage = Int(pageIndex)
     }
 
 

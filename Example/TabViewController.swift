@@ -31,7 +31,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool{
-        if viewController == self.viewControllers![1] {
+        if viewController == self.viewControllers![2] {
             return false
         } else {
             return true

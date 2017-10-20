@@ -10,32 +10,58 @@ import UIKit
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var tableView1: UITableView!
-    @IBOutlet var tableView2: UITableView!
-    @IBOutlet var tableView3: UITableView!
-    @IBOutlet var tableView4: UITableView!
+    @IBOutlet var myTableView: UITableView!
+    @IBOutlet var walletBtn: UIButton!
+    @IBOutlet var myView: UIView!
+    @IBOutlet var buttonView: UIView!
+    @IBOutlet var indicatorView: UIView!
     
-    var pageIndex:Int = 0
+    var pageIndex:Int = 1
     
     var performOrders: [Order] = []
     var orderedOrders: [Order] = []
     var historyOrders: [Order] = []
     var reviews: [Int] = []
-    var tableViews: [UITableView] = []
+    
+    var orders: [[Order]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scrollView.delegate = self
-        createSlides()
-        setupScrollView(slides: tableViews)
+        for i in 0..<10{
+            let order = Order(id: i, science: 0, type: 1, subject: "Аналитическая геометрия", cost: 100, startDate: "Вчера, 19:00", finishDate: "23.10, 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+            performOrders.append(order)
+            orderedOrders.append(order)
+            historyOrders.append(order)
+        }
+        
+        orders.append(performOrders)
+        orders.append(orderedOrders)
+        orders.append(historyOrders)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        
+        walletBtn.layer.borderWidth = 0.5
+        walletBtn.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
+        
+        myView.layer.shadowColor = UIColor.black.cgColor
+        myView.layer.shadowOpacity = 0.1
+        myView.layer.shadowOffset = CGSize.zero
+        myView.layer.shadowRadius = 10
+        myView.layer.cornerRadius = 5
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let url = URL(string: way + "/order/my/?id=" + String(myId))
+        /*let url = URL(string: way + "/order/my/?id=" + String(myId))
         URLSession.shared.dataTask(with: url!, completionHandler: {
             (data, response, error) in
             if(error != nil){
@@ -67,24 +93,18 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
                         }
                     }
                     OperationQueue.main.addOperation({
-                        self.tableView1.reloadData()
-                        self.tableView2.reloadData()
-                        self.tableView3.reloadData()
-                        self.tableView4.reloadData()
+                        //self.tableView1.reloadData()
                     })
                 }catch let error as NSError{
                     print(error)
                 }
             }
-        }).resume()
+        }).resume()*/
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView1.reloadData()
-        tableView2.reloadData()
-        tableView3.reloadData()
-        tableView4.reloadData()
+        myTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,53 +114,31 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int
     {
-        if (tableView == tableView1){
-            return performOrders.count
-        }
-        else if (tableView == tableView2){
-            return orderedOrders.count
-        }
-        else if (tableView == tableView3){
-            return historyOrders.count
+        if (pageIndex < 4){
+            return orders[pageIndex-1].count
         }
         else{
             return reviews.count
         }
-        
     }
     
-    public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+    func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
+        var cell: UITableViewCell!
         
-        switch tableView{
-        case tableView1:
-            cell.subject.text = performOrders[indexPath.row].subject
-            cell.type.text = types[performOrders[indexPath.row].type]
-            cell.cost.text = String(performOrders[indexPath.row].cost) + " ₽"
-            cell.startDate.text = performOrders[indexPath.row].startDate
-            cell.finishDate.text = performOrders[indexPath.row].finishDate
-            break
-        case tableView2:
-            cell.subject.text = orderedOrders[indexPath.row].subject
-            cell.type.text = types[orderedOrders[indexPath.row].type]
-            cell.cost.text = String(orderedOrders[indexPath.row].cost) + " ₽"
-            cell.startDate.text = orderedOrders[indexPath.row].startDate
-            cell.finishDate.text = orderedOrders[indexPath.row].finishDate
-            break
-        case tableView3:
-            cell.subject.text = historyOrders[indexPath.row].subject
-            cell.type.text = types[historyOrders[indexPath.row].type]
-            cell.cost.text = String(historyOrders[indexPath.row].cost) + " ₽"
-            cell.startDate.text = historyOrders[indexPath.row].startDate
-            cell.finishDate.text = historyOrders[indexPath.row].finishDate
-            break
-        case tableView4: break
-        default: break
+        if (pageIndex < 4){
+            cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
+            
+            (cell as! OrderTableViewCell).subject.text = performOrders[indexPath.row].subject
+            (cell as! OrderTableViewCell).type.text = types[performOrders[indexPath.row].type]
+            (cell as! OrderTableViewCell).cost.text = String(performOrders[indexPath.row].cost) + " ₽"
+            (cell as! OrderTableViewCell).startDate.text = performOrders[indexPath.row].startDate
+            (cell as! OrderTableViewCell).finishDate.text = performOrders[indexPath.row].finishDate
         }
-        
-        cell.tableView = tableView
-       
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
+        }
+
         return cell
     }
     
@@ -150,48 +148,28 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
             let DestViewController = segue.destination as! AboutOrderViewController
             let cell = sender as! OrderTableViewCell
             let indexPath = cell.tableView.indexPath(for: cell)!
-            if (cell.tableView == tableView1){
-                DestViewController.order = performOrders[indexPath.row].copy() as! Order
-            }else if (cell.tableView == tableView2){
-                DestViewController.order = orderedOrders[indexPath.row].copy() as! Order
-            }else if (cell.tableView == tableView3){
-                DestViewController.order = historyOrders[indexPath.row].copy() as! Order
-            }
+            DestViewController.order = orders[pageIndex-1][indexPath.row].copy() as! Order
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 66.0;
-    }
-    
-    func createSlides(){
-        
-        tableViews.append(tableView1)
-        tableViews.append(tableView2)
-        tableViews.append(tableView3)
-        tableViews.append(tableView4)
-        
-    }
-    
-    func setupScrollView(slides: [UITableView]){
-        
-        scrollView.contentSize = CGSize(width: view.frame.width * 4.0, height: scrollView.frame.size.height)
-        scrollView.isPagingEnabled = true
-        
-        for i in 0..<4{
-            tableViews[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
-            scrollView.addSubview(tableViews[i])
-        }
-        
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView){
-        pageIndex = Int(round(scrollView.contentOffset.x/view.frame.width))
+        return 85.0;
     }
     
     @IBAction func logout(){
         MessageManager.manager.logout(vc: self)
+    }
+    
+    @IBAction func chabgePageIndex(sender: UIButton){
+        
+        pageIndex = sender.tag
+        myTableView.reloadData()
+        UIView.animate(withDuration: 0.3, delay: 0.1,
+                       options: .curveEaseOut, animations: {
+                        self.indicatorView.frame.origin.x = CGFloat(self.pageIndex-1)*self.indicatorView.frame.size.width
+        }, completion: nil)
+        
     }
 
 }

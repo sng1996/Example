@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'Example' do
     use_frameworks!
@@ -8,5 +8,8 @@ target 'Example' do
     pod 'YYText'
     pod 'HPGrowingTextView'
     pod 'Starscream', '~> 2.0.3'
+    pod 'Paparazzo', :path => '.'
+    pod 'ImageSource', :path => '.'
+    pod 'JTAppleCalendar', '~> 7.0'
 
 end

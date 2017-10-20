@@ -6,6 +6,8 @@
 //  Copyright © 2017 Сергей Гаврилко. All rights reserved.
 //
 
+import ImageSource
+import Paparazzo
 import UIKit
 
 class AddViewController: UIViewController {
@@ -17,10 +19,14 @@ class AddViewController: UIViewController {
     @IBOutlet var costTxtFld: UITextField!
     @IBOutlet var desTxtView: UITextView!
     @IBOutlet var dateLbl: UILabel!
-    
+    @IBOutlet var myScrollView: UIScrollView!
     var order: Order = Order()
-    
     var isOpen: Bool = false
+    private var photos = [ImageSource]()
+    
+    private func updateUI() {
+        //imageView.setImage(fromSource: photos.first)
+    }
     
     
     override func viewDidLoad() {
@@ -34,6 +40,22 @@ class AddViewController: UIViewController {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        let gap = (self.view.frame.size.width - 4*57)/5
+        
+        var xPosition = gap
+        
+        for i in 0..<4{
+            let btn = UIButton()
+            btn.backgroundColor = UIColor.red
+            btn.frame.size.width = 57
+            btn.frame.size.height = 57
+            btn.tag = i+1
+            btn.frame.origin.x = CGFloat(xPosition)
+            xPosition += gap + btn.frame.size.width
+            btn.addTarget(self, action: #selector(showMediaPicker), for: UIControlEvents.touchUpInside)
+            myScrollView.addSubview(btn)
+        }
 
 
     }
@@ -150,6 +172,36 @@ class AddViewController: UIViewController {
             }
             
         }).resume()
+    }
+    
+    @objc private func showMediaPicker() {
+        
+        let assemblyFactory = Paparazzo.AssemblyFactory(theme: PaparazzoUITheme.appSpecificTheme())
+        let assembly = assemblyFactory.mediaPickerAssembly()
+        
+        let data = MediaPickerData(items: [], selectedItem: nil, maxItemsCount: 20, cropEnabled: true, autocorrectEnabled: true, cropCanvasSize: CGSize(width: 1280, height: 960))
+        
+        let mediaPickerController = assembly.module(
+            data: data,
+            configure: { [weak self] module in
+                weak var module = module
+                
+                module?.setContinueButtonTitle("Done")
+                
+                module?.onFinish = { mediaPickerItems in
+                    module?.dismissModule()
+                    
+                    // storing picked photos in instance var and updating UI
+                    self?.photos = mediaPickerItems.map { $0.image }
+                    self?.updateUI()
+                }
+                module?.onCancel = {
+                    module?.dismissModule()
+                }
+            }
+        )
+        
+        present(mediaPickerController, animated: true)
     }
     
 }

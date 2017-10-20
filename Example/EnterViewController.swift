@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Paparazzo
 
 class EnterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +53,6 @@ class EnterViewController: UIViewController {
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! TabViewController
                     self.present(nextViewController, animated:true, completion:nil)
-                    print("OK")
                 })
             }
         
