@@ -22,17 +22,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationController?.navigationBar.barTintColor = .white
         //updateData()
         
-        tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
+        for i in 0..<10{
+            let order = Order(id: i, science: 0, type: 1, subject: "Аналитическая геометрия", cost: 100, startDate: "Вчера, 19:00", finishDate: "23.10, 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+            tmpOrdersArr.append(order)
+            
+        }
+        
+        
+        
+        //tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        
         //updateData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
+        /*tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
         if (filter.type != 0){
             tmpOrdersArr = tmpOrdersArr.filter { $0.type == filter.type }
@@ -74,7 +87,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             break
         }
-        mainTableView.reloadData()
+        mainTableView.reloadData()*/
         
     }
 
@@ -85,17 +98,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 66.0;
+        return 85.0;
     }
     
     public func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
-        
         return tmpOrdersArr.count
         
     }
     
     public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
         
         cell.subject.text = tmpOrdersArr[indexPath.row].subject

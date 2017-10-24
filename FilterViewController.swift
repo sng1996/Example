@@ -13,24 +13,43 @@ class FilterViewController: UIViewController {
     @IBOutlet var scienceLbl: UILabel!
     @IBOutlet var typeLbl: UILabel!
     @IBOutlet var sw: UISwitch!
-    @IBOutlet var img1: UIImageView!
-    @IBOutlet var img2: UIImageView!
-    @IBOutlet var img3: UIImageView!
+    @IBOutlet var view1: UIView!
+    @IBOutlet var view2: UIView!
+    @IBOutlet var view3: UIView!
     @IBOutlet var minCost: UITextField!
     @IBOutlet var maxCost: UITextField!
+    @IBOutlet var applyBtn: UIButton!
 
-    var imgArr: [UIImageView]!
+    var viewArr: [UIView]!
     var filter: Filter = Filter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgArr = [img1, img2, img3]
+        viewArr = [view1, view2, view3]
         sw.addTarget(self, action:#selector(stateChanged(switchState:)), for: UIControlEvents.valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+        customView.backgroundColor = UIColor.white
+        let continueBtn = UIButton(frame: CGRect(x: 190, y: 11, width: 110, height: 22))
+        continueBtn.setTitle("Применить", for: .normal)
+        continueBtn.setTitleColor(UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1), for: .normal)
+        continueBtn.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
+        continueBtn.addTarget(self, action: #selector(apply), for: .touchUpInside)
+        customView.addSubview(continueBtn)
+        let photoBtn = UIButton(frame: CGRect(x: 15, y: 4, width: 40, height: 36))
+        photoBtn.setImage(UIImage(named: "Keyboard"), for: .normal)
+        photoBtn.addTarget(self, action: #selector(dismissKeyboard), for: .touchUpInside)
+        let goImg = UIImageView(frame: CGRect(x: 300, y: 18.5, width: 6, height: 10))
+        goImg.image = UIImage(named: "Go_color")
+        customView.addSubview(goImg)
+        customView.addSubview(photoBtn)
+        customView.addSubview(continueBtn)
+        customView.layer.borderColor = UIColor(red: (180/255.0), green: (180/255.0), blue: (180/255.0), alpha: 1).cgColor
+        customView.layer.borderWidth = 0.5
+        minCost.inputAccessoryView = customView
+        maxCost.inputAccessoryView = customView
         
         setData()
         
@@ -81,9 +100,9 @@ class FilterViewController: UIViewController {
         typeLbl.text = types[filter.type]
         sw.isOn = filter.isSortDown
         for i in 0..<3{
-            imgArr[i].isHidden = true
+            viewArr[i].isHidden = true
         }
-        imgArr[filter.sort].isHidden = false
+        viewArr[filter.sort].isHidden = false
         minCost.text = String(filter.minCost)
         maxCost.text = String(filter.maxCost)
         
@@ -100,7 +119,8 @@ class FilterViewController: UIViewController {
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
+                self.view.frame.origin.y -= (keyboardSize.height - applyBtn.frame.height)
+                self.applyBtn.frame.origin.y += 2*applyBtn.frame.height
             }
         }
     }
@@ -108,7 +128,8 @@ class FilterViewController: UIViewController {
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
+                self.view.frame.origin.y += (keyboardSize.height - applyBtn.frame.height)
+                self.applyBtn.frame.origin.y -= 2*applyBtn.frame.height
             }
         }
     }
@@ -122,10 +143,10 @@ class FilterViewController: UIViewController {
     @IBAction func pressSort(sender: UIButton){
         
         for i in 0..<3{
-            imgArr[i].isHidden = true
+            viewArr[i].isHidden = true
         }
         
-        imgArr[sender.tag].isHidden = false
+        viewArr[sender.tag].isHidden = false
         filter.sort = sender.tag
         
     }
@@ -134,6 +155,10 @@ class FilterViewController: UIViewController {
         
         filter = Filter()
         setData()
+        
+    }
+    
+    func apply(){
         
     }
     

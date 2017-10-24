@@ -11,5 +11,6 @@ target 'Example' do
     pod 'Paparazzo', :path => '.'
     pod 'ImageSource', :path => '.'
     pod 'JTAppleCalendar', '~> 7.0'
+    pod 'Cosmos', '~> 12.0'
 
 end

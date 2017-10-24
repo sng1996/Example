@@ -29,6 +29,10 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myTextView.becomeFirstResponder()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -36,7 +40,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
         myView.layer.borderColor = gray.cgColor
         myView.layer.borderWidth = 0.5
         myTextView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
-        myTextView.placeholder = "Описание"
+        myTextView.placeholder = "Добавь описание или фото..."
         
         let customView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
         customView.backgroundColor = UIColor.white
@@ -56,6 +60,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
         redRound.backgroundColor = .red
         redRound.layer.cornerRadius = 10
         redRound.clipsToBounds = true
+        redRound.isHidden = true
         numLbl = UILabel(frame: CGRect(x: 5, y: 5, width: 10, height: 10))
         numLbl.text = ""
         numLbl.font = UIFont(name: numLbl.font.fontName, size: 12)
@@ -68,9 +73,6 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
         customView.layer.borderWidth = 0.5
         myTextView.inputAccessoryView = customView
         
-        self.navigationItem.titleView = setTitle(title: "ДОБАВЬТЕ ОПИСАНИЕ", subtitle: "5 из 6")
-        
-        
         //////////ATTENTION!!!!! Add some sheet
         
         order.startDate = "20.02.17"
@@ -81,6 +83,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         UIApplication.shared.setStatusBarHidden(false, with: .fade)
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -167,39 +170,6 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
         )
         
         navigationController?.pushViewController(mediaPickerController, animated: true)
-    }
-    
-    func setTitle(title:String, subtitle:String) -> UIView {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 2, width: 0, height: 0))
-        
-        titleLabel.backgroundColor = .clear
-        titleLabel.textColor = .black
-        titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
-        titleLabel.text = title
-        titleLabel.sizeToFit()
-        
-        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: 0, height: 0))
-        subtitleLabel.backgroundColor = .clear
-        subtitleLabel.textColor = .gray
-        subtitleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 11)
-        subtitleLabel.text = subtitle
-        subtitleLabel.sizeToFit()
-        
-        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
-        titleView.addSubview(titleLabel)
-        titleView.addSubview(subtitleLabel)
-        
-        let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
-        
-        if widthDiff < 0 {
-            let newX = widthDiff / 2
-            subtitleLabel.frame.origin.x = abs(newX)
-        } else {
-            let newX = widthDiff / 2
-            titleLabel.frame.origin.x = newX
-        }
-        
-        return titleView
     }
 
 }

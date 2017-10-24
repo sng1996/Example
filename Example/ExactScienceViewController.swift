@@ -20,12 +20,16 @@ class ExactScienceViewController: UIViewController, UITableViewDelegate, UITable
 
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.barTintColor = .white
+        
         myTextField.leftView = UIImageView(image: UIImage(named: "Search_gray"))
         myTextField.leftView?.frame = CGRect(x: 8, y: 8, width: 24, height:15)
         myTextField.leftView?.layoutMargins = UIEdgeInsetsMake(8, 8, 8, 0)
         myTextField.leftViewMode = .always
-        
-        self.navigationItem.titleView = setTitle(title: "ВЫБЕРИТЕ ПРЕДМЕТ", subtitle: "2 из 6")
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,46 +73,10 @@ class ExactScienceViewController: UIViewController, UITableViewDelegate, UITable
         let nextViewController : CalendarViewController = segue.destination as! CalendarViewController
         nextViewController.order = order
     }
-    
-    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "ВЫБЕРИТЕ ПРЕДМЕТ"
-    }*/
+
     
     @IBAction func back(){
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    func setTitle(title:String, subtitle:String) -> UIView {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 2, width: 0, height: 0))
-        
-        titleLabel.backgroundColor = .clear
-        titleLabel.textColor = .black
-        titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
-        titleLabel.text = title
-        titleLabel.sizeToFit()
-        
-        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: 0, height: 0))
-        subtitleLabel.backgroundColor = .clear
-        subtitleLabel.textColor = .gray
-        subtitleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 11)
-        subtitleLabel.text = subtitle
-        subtitleLabel.sizeToFit()
-        
-        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
-        titleView.addSubview(titleLabel)
-        titleView.addSubview(subtitleLabel)
-        
-        let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
-        
-        if widthDiff < 0 {
-            let newX = widthDiff / 2
-            subtitleLabel.frame.origin.x = abs(newX)
-        } else {
-            let newX = widthDiff / 2
-            titleLabel.frame.origin.x = newX
-        }
-        
-        return titleView
     }
 
 }

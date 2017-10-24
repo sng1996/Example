@@ -46,7 +46,7 @@ extension UITextView: UITextViewDelegate {
         if let placeholderLabel = self.viewWithTag(100) as? UILabel {
             placeholderLabel.isHidden = self.text.characters.count > 0
         }
-        let textViewFixedWidth: CGFloat = textView.frame.size.width
+        /*let textViewFixedWidth: CGFloat = textView.frame.size.width
         let newSize: CGSize = textView.sizeThatFits(CGSize(width: textViewFixedWidth, height: CGFloat(MAXFLOAT)))
         var newFrame: CGRect = textView.frame
         var textViewYPosition = textView.frame.origin.y
@@ -56,17 +56,17 @@ extension UITextView: UITextViewDelegate {
             newFrame.offsetBy(dx: 0.0, dy: heightDifference)
             updateParentView(heightDifference: heightDifference, view: textView.superview!)
         }
-        textView.frame = newFrame
+        textView.frame = newFrame*/
     }
     
-    func updateParentView(heightDifference: CGFloat, view: UIView) {
+    /*func updateParentView(heightDifference: CGFloat, view: UIView) {
         var newContainerViewFrame: CGRect = view.frame
         let containerViewHeight = view.frame.size.height
         let newContainerViewHeight = containerViewHeight - heightDifference
         let containerViewHeightDifference = containerViewHeight - newContainerViewHeight
         newContainerViewFrame.size = CGSize(width: view.frame.size.width, height: newContainerViewHeight)
         view.frame = newContainerViewFrame
-    }
+    }*/
     
     /// Resize the placeholder UILabel to make sure it's in the same position as the UITextView text
     private func resizePlaceholder() {

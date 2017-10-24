@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - Cosmos (12.0.1)
   - HPGrowingTextView (1.1)
   - ImageSource (2.0.0):
     - ImageSource/AlamofireImage (= 2.0.0)
@@ -62,6 +63,7 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
+  - Cosmos (~> 12.0)
   - HPGrowingTextView
   - ImageSource (from `.`)
   - JTAppleCalendar (~> 7.0)
@@ -84,6 +86,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Cosmos: 4a9f57998a08788a1062c7b8eefbc62d2b590f39
   HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
   ImageSource: dd391918cda9515e0588285c90b4bd25ea41d74e
   JNWSpringAnimation: cd4c2f4464324f63f176c3624ffccf205211a100
@@ -95,6 +98,6 @@ SPEC CHECKSUMS:
   Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 8be02cbe4eea4be72193e5f9d2f069fbac46de0d
+PODFILE CHECKSUM: a285872a57d57fd91c04a4c319d199d9347da651
 
 COCOAPODS: 1.2.0

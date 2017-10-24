@@ -17,6 +17,10 @@ class CostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        costTxtFld.becomeFirstResponder()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        
         let leftColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
         let rightColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
         let gradientColors: [CGColor] = [leftColor.cgColor, rightColor.cgColor]
@@ -43,8 +47,6 @@ class CostViewController: UIViewController {
         customView.layer.borderColor = UIColor(red: (180/255.0), green: (180/255.0), blue: (180/255.0), alpha: 1).cgColor
         customView.layer.borderWidth = 0.5
         costTxtFld.inputAccessoryView = customView
-        
-        self.navigationItem.titleView = setTitle(title: "УСТАНОВИТЕ ЦЕНУ", subtitle: "4 из 6")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,7 +60,7 @@ class CostViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
         
     }
     
@@ -67,6 +69,7 @@ class CostViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
         self.navigationController?.navigationBar.layer.setBottomBorder()
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,39 +114,6 @@ class CostViewController: UIViewController {
     
     func pressWallet(){
         print("pressWallet")
-    }
-    
-    func setTitle(title:String, subtitle:String) -> UIView {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 2, width: 0, height: 0))
-        
-        titleLabel.backgroundColor = .clear
-        titleLabel.textColor = .white
-        titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
-        titleLabel.text = title
-        titleLabel.sizeToFit()
-        
-        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: 0, height: 0))
-        subtitleLabel.backgroundColor = .clear
-        subtitleLabel.textColor = .white
-        subtitleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 11)
-        subtitleLabel.text = subtitle
-        subtitleLabel.sizeToFit()
-        
-        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
-        titleView.addSubview(titleLabel)
-        titleView.addSubview(subtitleLabel)
-        
-        let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
-        
-        if widthDiff < 0 {
-            let newX = widthDiff / 2
-            subtitleLabel.frame.origin.x = abs(newX)
-        } else {
-            let newX = widthDiff / 2
-            titleLabel.frame.origin.x = newX
-        }
-        
-        return titleView
     }
 
 }

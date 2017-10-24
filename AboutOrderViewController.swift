@@ -371,6 +371,10 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
             myImageView.contentMode = .scaleAspectFill
             myImageView.clipsToBounds = true
             myImageView.setImage(fromSource: imageSource[i])
+            myImageView.tag = i
+            let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+            myImageView.isUserInteractionEnabled = true
+            myImageView.addGestureRecognizer(tap)
             myScrollView.addSubview(myImageView)
             
         }
@@ -383,6 +387,16 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = Int(pageIndex)
     }
 
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ShowPhotosViewController") as! ShowPhotosViewController
+        nextViewController.photos = photos
+        nextViewController.numOfPhoto = tappedImage.tag
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
 
 
 }
