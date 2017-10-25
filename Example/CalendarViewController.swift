@@ -17,6 +17,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var timeView: UIView!
     var date: Date!
 
     var order:Order!
@@ -38,6 +39,12 @@ class CalendarViewController: UIViewController {
         myImageView.layer.shadowRadius = 2
         myImageView.layer.cornerRadius = 5
         
+        timeView.layer.cornerRadius = 17
+        timeView.layer.shadowColor = UIColor.black.cgColor
+        timeView.layer.shadowOpacity = 0.4
+        timeView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        timeView.layer.shadowRadius = 3
+        
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
         
         timePicker.setValue(UIColor.white, forKeyPath: "textColor")
@@ -45,7 +52,14 @@ class CalendarViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
     }
     
     func setupCalendarView(){
@@ -92,7 +106,7 @@ class CalendarViewController: UIViewController {
             if cellState.dateBelongsTo == .thisMonth{
                 validCell.dateLabel.textColor = .black
             } else {
-                validCell.dateLabel.textColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+                validCell.dateLabel.textColor = UIColor(red: 158/255.0, green: 171/255.0, blue: 205/255.0, alpha: 0.5)
             }
         }
     }

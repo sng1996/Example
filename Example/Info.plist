@@ -40,6 +40,14 @@
 		<string>Latoto-Regular.ttf</string>
 		<string>Latoto-Semibold.ttf</string>
 		<string>Latoto-SemiboldItalic.ttf</string>
+		<string>sm SFNSDisplay-Bold.ttf</string>
+		<string>sm SFNSDisplay-Regular.ttf</string>
+		<string>sm SFNSDisplay-Thin.ttf</string>
+		<string>sm SFNSDisplay-Ultralight.ttf</string>
+		<string>sm SFNSDisplay-BoldItalic.ttf</string>
+		<string>sm SFNSDisplay-Medium.ttf</string>
+		<string>sm SFNSDisplay-MediumItalic.ttf</string>
+		<string>sm SFNSDisplay-RegularItalic.ttf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

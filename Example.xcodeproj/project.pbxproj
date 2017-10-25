@@ -92,11 +92,19 @@
 		2AC1CE011F79833F000BB5BD /* AppSpecificUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CE001F797B12000BB5BD /* AppSpecificUITheme.swift */; };
 		2AC1CE201F798925000BB5BD /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CDFB1F797B12000BB5BD /* NavigationController.swift */; };
 		2AE9FF0E1F7A36B2004197CF /* TMPCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9FF0D1F7A36B2004197CF /* TMPCameraViewController.swift */; };
-		2AE9FF0F1F7A3BCD004197CF /* Latoto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1B1F7988F9000BB5BD /* Latoto-Bold.ttf */; };
-		2AE9FF101F7A3BCD004197CF /* Latoto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1C1F7988F9000BB5BD /* Latoto-Light.ttf */; };
-		2AE9FF111F7A3BCD004197CF /* Latoto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1D1F7988F9000BB5BD /* Latoto-Regular.ttf */; };
-		2AE9FF121F7A3BCD004197CF /* Latoto-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1E1F7988F9000BB5BD /* Latoto-Semibold.ttf */; };
-		2AE9FF131F7A3BCD004197CF /* Latoto-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1A1F7988F9000BB5BD /* Latoto-SemiboldItalic.ttf */; };
+		2AFFE7331FA111A8008D4C43 /* Latoto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1B1F7988F9000BB5BD /* Latoto-Bold.ttf */; };
+		2AFFE7341FA111A8008D4C43 /* Latoto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1C1F7988F9000BB5BD /* Latoto-Light.ttf */; };
+		2AFFE7351FA111A8008D4C43 /* Latoto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1D1F7988F9000BB5BD /* Latoto-Regular.ttf */; };
+		2AFFE7361FA111A8008D4C43 /* Latoto-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1E1F7988F9000BB5BD /* Latoto-Semibold.ttf */; };
+		2AFFE7371FA111A8008D4C43 /* Latoto-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1CE1A1F7988F9000BB5BD /* Latoto-SemiboldItalic.ttf */; };
+		2AFFE7381FA111A8008D4C43 /* sm SFNSDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE7281FA110C6008D4C43 /* sm SFNSDisplay-Bold.ttf */; };
+		2AFFE7391FA111A8008D4C43 /* sm SFNSDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE7251FA110B5008D4C43 /* sm SFNSDisplay-Regular.ttf */; };
+		2AFFE73A1FA111A8008D4C43 /* sm SFNSDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE7271FA110C0008D4C43 /* sm SFNSDisplay-Thin.ttf */; };
+		2AFFE73B1FA111A8008D4C43 /* sm SFNSDisplay-Ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE7291FA110CD008D4C43 /* sm SFNSDisplay-Ultralight.ttf */; };
+		2AFFE73C1FA111A8008D4C43 /* sm SFNSText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE72A1FA110D3008D4C43 /* sm SFNSText-BoldItalic.ttf */; };
+		2AFFE73D1FA111A8008D4C43 /* sm SFNSText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE7261FA110BA008D4C43 /* sm SFNSText-Medium.ttf */; };
+		2AFFE73E1FA111A8008D4C43 /* sm SFNSText-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE7231FA110AA008D4C43 /* sm SFNSText-MediumItalic.ttf */; };
+		2AFFE73F1FA111A8008D4C43 /* sm SFNSText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AFFE7241FA110AF008D4C43 /* sm SFNSText-RegularItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +234,14 @@
 		2AC1CE1E1F7988F9000BB5BD /* Latoto-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Latoto-Semibold.ttf"; sourceTree = "<group>"; };
 		2AC1CE1F1F79890B000BB5BD /* MarshrouteFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshrouteFacade.swift; sourceTree = "<group>"; };
 		2AE9FF0D1F7A36B2004197CF /* TMPCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPCameraViewController.swift; sourceTree = "<group>"; };
+		2AFFE7231FA110AA008D4C43 /* sm SFNSText-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSText-MediumItalic.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSText-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2AFFE7241FA110AF008D4C43 /* sm SFNSText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSText-RegularItalic.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSText-RegularItalic.ttf"; sourceTree = "<group>"; };
+		2AFFE7251FA110B5008D4C43 /* sm SFNSDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSDisplay-Regular.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		2AFFE7261FA110BA008D4C43 /* sm SFNSText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSText-Medium.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSText-Medium.ttf"; sourceTree = "<group>"; };
+		2AFFE7271FA110C0008D4C43 /* sm SFNSDisplay-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSDisplay-Thin.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSDisplay-Thin.ttf"; sourceTree = "<group>"; };
+		2AFFE7281FA110C6008D4C43 /* sm SFNSDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSDisplay-Bold.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		2AFFE7291FA110CD008D4C43 /* sm SFNSDisplay-Ultralight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSDisplay-Ultralight.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSDisplay-Ultralight.ttf"; sourceTree = "<group>"; };
+		2AFFE72A1FA110D3008D4C43 /* sm SFNSText-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sm SFNSText-BoldItalic.ttf"; path = "../../San_Francisco_font_(graphicsland.ru)/sm SFNSText-BoldItalic.ttf"; sourceTree = "<group>"; };
 		4DC371CC1489F6BE1C162944 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		71DF283D52B8039CA2A2F85B /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -430,6 +446,14 @@
 		2AB9E4F01F3734C400861298 /* static */ = {
 			isa = PBXGroup;
 			children = (
+				2AFFE7281FA110C6008D4C43 /* sm SFNSDisplay-Bold.ttf */,
+				2AFFE7251FA110B5008D4C43 /* sm SFNSDisplay-Regular.ttf */,
+				2AFFE7271FA110C0008D4C43 /* sm SFNSDisplay-Thin.ttf */,
+				2AFFE7291FA110CD008D4C43 /* sm SFNSDisplay-Ultralight.ttf */,
+				2AFFE72A1FA110D3008D4C43 /* sm SFNSText-BoldItalic.ttf */,
+				2AFFE7261FA110BA008D4C43 /* sm SFNSText-Medium.ttf */,
+				2AFFE7231FA110AA008D4C43 /* sm SFNSText-MediumItalic.ttf */,
+				2AFFE7241FA110AF008D4C43 /* sm SFNSText-RegularItalic.ttf */,
 			);
 			path = static;
 			sourceTree = SOURCE_ROOT;
@@ -663,11 +687,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AE9FF0F1F7A3BCD004197CF /* Latoto-Bold.ttf in Resources */,
-				2AE9FF101F7A3BCD004197CF /* Latoto-Light.ttf in Resources */,
-				2AE9FF111F7A3BCD004197CF /* Latoto-Regular.ttf in Resources */,
-				2AE9FF121F7A3BCD004197CF /* Latoto-Semibold.ttf in Resources */,
-				2AE9FF131F7A3BCD004197CF /* Latoto-SemiboldItalic.ttf in Resources */,
+				2AFFE7331FA111A8008D4C43 /* Latoto-Bold.ttf in Resources */,
+				2AFFE7341FA111A8008D4C43 /* Latoto-Light.ttf in Resources */,
+				2AFFE7351FA111A8008D4C43 /* Latoto-Regular.ttf in Resources */,
+				2AFFE7361FA111A8008D4C43 /* Latoto-Semibold.ttf in Resources */,
+				2AFFE7371FA111A8008D4C43 /* Latoto-SemiboldItalic.ttf in Resources */,
+				2AFFE7381FA111A8008D4C43 /* sm SFNSDisplay-Bold.ttf in Resources */,
+				2AFFE7391FA111A8008D4C43 /* sm SFNSDisplay-Regular.ttf in Resources */,
+				2AFFE73A1FA111A8008D4C43 /* sm SFNSDisplay-Thin.ttf in Resources */,
+				2AFFE73B1FA111A8008D4C43 /* sm SFNSDisplay-Ultralight.ttf in Resources */,
+				2AFFE73C1FA111A8008D4C43 /* sm SFNSText-BoldItalic.ttf in Resources */,
+				2AFFE73D1FA111A8008D4C43 /* sm SFNSText-Medium.ttf in Resources */,
+				2AFFE73E1FA111A8008D4C43 /* sm SFNSText-MediumItalic.ttf in Resources */,
+				2AFFE73F1FA111A8008D4C43 /* sm SFNSText-RegularItalic.ttf in Resources */,
 				2A2141ED1F5E5AE5000F052E /* ModernMessageCheckmark2@2x.png in Resources */,
 				2A2141FB1F5E5DBD000F052E /* ModernBubbleIncomingPartialPad@2x.png in Resources */,
 				2AB3E0D21F371AF500E2B5FC /* LaunchScreen.storyboard in Resources */,

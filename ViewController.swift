@@ -22,16 +22,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationController?.navigationBar.barTintColor = .white
         //updateData()
         
-        for i in 0..<10{
+        var order = Order(id: 0, science: 0, type: Int(arc4random()%4)+1, subject: "Дифференциальные уравнения и порно исчисления", cost: 15000, startDate: "Вчера 20:45", finishDate: "Срок: 31 дек. 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+        tmpOrdersArr.append(order)
+        
+        order = Order(id: 1, science: 0, type: Int(arc4random()%4)+1, subject: "Химия", cost: 100, startDate: "Вчера 20:45", finishDate: "Срок: 31 дек. 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+        tmpOrdersArr.append(order)
+        
+        order = Order(id: 2, science: 0, type: Int(arc4random()%4)+1, subject: "Методы и анализ проектных решений", cost: 1200, startDate: "Вчера 20:45", finishDate: "Срок: 31 дек. 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+        tmpOrdersArr.append(order)
+        
+        order = Order(id: 3, science: 0, type: Int(arc4random()%4)+1, subject: "Математический анализ", cost: 20, startDate: "Вчера 20:45", finishDate: "Срок: 31 дек. 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+        tmpOrdersArr.append(order)
+        
+        order = Order(id: 4, science: 0, type: Int(arc4random()%4)+1, subject: "Электроустановки замкнутого цикла", cost: 11200, startDate: "Вчера 20:45", finishDate: "Срок: 31 дек. 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+        tmpOrdersArr.append(order)
+        
+        for i in 5..<10{
             let order = Order(id: i, science: 0, type: Int(arc4random()%4)+1, subject: "Аналитическая геометрия", cost: 100, startDate: "10 авг. 20:45", finishDate: "Срок: завтра 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
             tmpOrdersArr.append(order)
         }
         
         
-        
         //tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 18)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
         
     }
     
@@ -43,7 +57,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 18)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
         
         //updateData()
     }
@@ -116,13 +131,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.subject.text = tmpOrdersArr[indexPath.row].subject
         cell.type.text = types[tmpOrdersArr[indexPath.row].type]
-        cell.cost.text = String(tmpOrdersArr[indexPath.row].cost)
+        cell.cost.text = String(tmpOrdersArr[indexPath.row].cost) + " ₽"
         cell.startDate.text = tmpOrdersArr[indexPath.row].startDate
         cell.finishDate.text = tmpOrdersArr[indexPath.row].finishDate
         cell.type.sizeToFit()
         cell.colorView.frame.size.width = 10 + cell.type.frame.size.width + 10
         //cell.colorView.backgroundColor = colors[tmpOrdersArr[indexPath.row].type-1]
         cell.colorView.layer.borderColor = UIColor(red: 100/255.0, green: 64/255.0, blue: 111/255.0, alpha: 1.0).cgColor
+        //cell.colorView.layer.borderColor = colors[tmpOrdersArr[indexPath.row].type-1].cgColor
         cell.colorView.layer.borderWidth = 0.5
         cell.colorView.layer.cornerRadius = 4
         
