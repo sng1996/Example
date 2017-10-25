@@ -23,22 +23,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //updateData()
         
         for i in 0..<10{
-            let order = Order(id: i, science: 0, type: 1, subject: "Аналитическая геометрия", cost: 100, startDate: "Вчера, 19:00", finishDate: "23.10, 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
+            let order = Order(id: i, science: 0, type: Int(arc4random()%4)+1, subject: "Аналитическая геометрия", cost: 100, startDate: "10 авг. 20:45", finishDate: "Срок: завтра 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
             tmpOrdersArr.append(order)
-            
         }
         
         
         
         //tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 18)!]
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 18)!]
         
         //updateData()
     }
@@ -98,7 +103,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 85.0;
+        return 96.0;
     }
     
     public func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -111,9 +116,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.subject.text = tmpOrdersArr[indexPath.row].subject
         cell.type.text = types[tmpOrdersArr[indexPath.row].type]
-        cell.cost.text = String(tmpOrdersArr[indexPath.row].cost) + " ₽"
+        cell.cost.text = String(tmpOrdersArr[indexPath.row].cost)
         cell.startDate.text = tmpOrdersArr[indexPath.row].startDate
         cell.finishDate.text = tmpOrdersArr[indexPath.row].finishDate
+        cell.type.sizeToFit()
+        cell.colorView.frame.size.width = 10 + cell.type.frame.size.width + 10
+        //cell.colorView.backgroundColor = colors[tmpOrdersArr[indexPath.row].type-1]
+        cell.colorView.layer.borderColor = UIColor(red: 100/255.0, green: 64/255.0, blue: 111/255.0, alpha: 1.0).cgColor
+        cell.colorView.layer.borderWidth = 0.5
+        cell.colorView.layer.cornerRadius = 4
+        
+        /*let leftColor = colors[tmpOrdersArr[indexPath.row].type-1]
+        let rightColor = UIColor.white
+        let gradientColors: [CGColor] = [leftColor.cgColor, rightColor.cgColor]*/
+        
+        /*let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors[tmpOrdersArr[indexPath.row].type-1]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        gradientLayer.frame = cell.colorView.bounds
+        if (cell.colorView.layer.sublayers?.count == 1){
+            cell.colorView.layer.insertSublayer(gradientLayer, at: 0)
+        }*/
+        
         
         return cell
         

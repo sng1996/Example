@@ -30,7 +30,10 @@ import Paparazzo
 
 var orders: [Order] = []
 var sciences: [String] = ["Все области", "Математика", "Физика", "Химия", "Философия", "Экономика", "История"]
-var types: [String] = ["Все типы", "Домашняя работа", "Контрольная работа", "Курсовой проект"]
+var types: [String] = ["Все типы", "Домашняя работа", "Контрольная работа", "Курсовой проект", "Дипломная работа"]
+//var colors: [UIColor] = [UIColor(red: 252/255.0, green: 235/255.0, blue: 191/255.0, alpha: 0.4), UIColor(red: 246/255.0, green: 194/255.0, blue: 216/255.0, alpha: 0.4), UIColor(red: 123/255.0, green: 171/255.0, blue: 237/255.0, alpha: 0.3), UIColor(red: 173/255.0, green: 239/255.0, blue: 190/255.0, alpha: 0.4)]
+//var gradientColors: [[CGColor]] = [[colors[0].cgColor, UIColor.white.cgColor], [colors[1].cgColor, UIColor.white.cgColor], [colors[2].cgColor, UIColor.white.cgColor], [colors[3].cgColor, UIColor.white.cgColor]]
+
 var myId: Int = 0
 //var way: String = "https://fast-basin-97049.herokuapp.com"
 var way: String = "http://localhost:8080"

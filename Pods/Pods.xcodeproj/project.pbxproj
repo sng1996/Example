@@ -694,7 +694,7 @@
 		10D21BFCD74FAEF810E72423DE490B7E /* ModalNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModalNavigationDismissalAnimationLaunchingContext.swift; path = Marshroute/Sources/Transitions/TransitionAnimationsLaunching/ModalNavigation/Dismissal/ModalNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		10FF8826F762A38BAB2A011B906175CD /* MarshrouteFactoryImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarshrouteFactoryImpl.swift; path = Marshroute/Sources/SettingUpStack/MarshrouteFactoryImpl.swift; sourceTree = "<group>"; };
 		110FE30D14FCDBD5137BC49E591051DB /* CameraAssemblyImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraAssemblyImpl.swift; sourceTree = "<group>"; };
-		119072C64A19799964E1620D83F514FB /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
+		119072C64A19799964E1620D83F514FB /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
 		12E3CEFD8BA58AD9736B4EE766421CF5 /* NOCChatViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NOCChatViewController.m; sourceTree = "<group>"; };
 		13BDD4F7E99D83E18411A5D315AB46D8 /* ImageSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		1464EC533794C00BB112FEF05133BCA1 /* RemoteImageSource+AlamofireImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "RemoteImageSource+AlamofireImage.swift"; sourceTree = "<group>"; };
@@ -811,7 +811,7 @@
 		4997B13AA5032B0FCBCF213352D9A952 /* AccessibilityId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessibilityId.swift; sourceTree = "<group>"; };
 		49B71A040F9A9BDCCDED0035F14112D8 /* ImageCroppingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCroppingView.swift; sourceTree = "<group>"; };
 		49CA1ED2773B73E5B050516858E34D0B /* UIImageView+ImageSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageSource.swift"; sourceTree = "<group>"; };
-		4A78A9165791C751EB7187578894BB44 /* YYText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YYText.framework; path = YYText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A78A9165791C751EB7187578894BB44 /* YYText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YYText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC1BEF0AAF8544526B7520C5E7D5532 /* BaseUIKitRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseUIKitRouter.swift; sourceTree = "<group>"; };
 		4AE84FFBD6446B2BFF2AB0D7A944001D /* NOCProtoKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NOCProtoKit-prefix.pch"; sourceTree = "<group>"; };
 		4B81083B95862B1E4A86D8D1EE65E3A5 /* JTAppleCollectionReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCollectionReusableView.swift; path = Sources/JTAppleCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -821,7 +821,7 @@
 		4CECCB7EBD123D76C347FC280A48B84E /* ImageSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF7B92BDE341F5472279565CE5D00C0 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResettingTransitionsAnimatorBox.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
 		4D01B86E7262F4949EFE2EDF48866B2F /* ImageSource-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ImageSource-prefix.pch"; sourceTree = "<group>"; };
-		4D5112C1E3FFB7035C3E353E07BEBD51 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		4D5112C1E3FFB7035C3E353E07BEBD51 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		4D77C9D2DE2B4247BE75547CC1D37898 /* PopoverPresentationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverPresentationAnimationContext.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/Popover/Presentation/PopoverPresentationAnimationContext.swift; sourceTree = "<group>"; };
 		4E49CEDFFBB16157165E79017DA85628 /* WeakBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeakBox.swift; path = Marshroute/Sources/Boxes/WeakBox.swift; sourceTree = "<group>"; };
 		4F30705C95EE1123B5B5D0841E2F38CC /* TransitionsMarkersHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionsMarkersHolder.swift; path = Marshroute/Sources/Transitions/TransitionsMarking/TransitionsMarkersHolder.swift; sourceTree = "<group>"; };
@@ -863,12 +863,12 @@
 		5A985FFF056124A33E79092F7A8E1BB5 /* CroppedImageSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CroppedImageSource.swift; sourceTree = "<group>"; };
 		5AE733E74A577DBE3ED1F367390EF67E /* Cosmos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-umbrella.h"; sourceTree = "<group>"; };
 		5BEA4D817765E259983E262E48CBBE7E /* NSAttributedString+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+YYText.h"; path = "YYText/Utility/NSAttributedString+YYText.h"; sourceTree = "<group>"; };
-		5C9D11AD60D3223DB3814A4CDD9163C5 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9D11AD60D3223DB3814A4CDD9163C5 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0D8E2955AECE8D344C2EE31EF760DD /* YYTextInput.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextInput.m; path = YYText/Component/YYTextInput.m; sourceTree = "<group>"; };
 		5D921197DF1964AE71A1D35A4000067D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E9CFC99CF0E33204E83384E57DC9A71 /* PhotoLibraryMarshrouteAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryMarshrouteAssembly.swift; sourceTree = "<group>"; };
 		5F95528FBC3F1D97EBB2EF9EEB853B3C /* SplitViewTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplitViewTransitionsHandlerImpl.swift; path = Marshroute/Sources/Transitions/TransitionsHandlerImpls/SplitViewTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
-		61908B2D5D1341A3C62E2445EA28FF82 /* Cosmos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Cosmos.modulemap; sourceTree = "<group>"; };
+		61908B2D5D1341A3C62E2445EA28FF82 /* Cosmos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Cosmos.modulemap; sourceTree = "<group>"; };
 		621F84E5F3787F5C6E1423FCAE954E41 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		62471CCC4C4250D96B74E3DEBC91E061 /* InfoMessageAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InfoMessageAnimator.swift; sourceTree = "<group>"; };
 		6291C936D22427BDEB97C8C31772F42E /* InitializableWithCGImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InitializableWithCGImage.swift; sourceTree = "<group>"; };
@@ -892,14 +892,14 @@
 		6ABD7EB53739AAB3ECF188992E8C15C0 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		6ACF14326EABDCFCFF817365A0DD7B6A /* SettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingNavigationAnimationContext.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/Navigation/Set/SettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
 		6B99695A76A980C37D22C28CD71A22E7 /* MediaItemThumbnailCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaItemThumbnailCell.swift; sourceTree = "<group>"; };
-		6BCF9BEAAFC3281A4D159358FF025A3B /* ImageSource.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ImageSource.modulemap; sourceTree = "<group>"; };
+		6BCF9BEAAFC3281A4D159358FF025A3B /* ImageSource.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ImageSource.modulemap; sourceTree = "<group>"; };
 		6C6C649792FB964C73EA89393C4BF5CD /* MaskCropperModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MaskCropperModule.swift; sourceTree = "<group>"; };
 		6CDC8F93F966F2CCEA4117409EF00701 /* YYTextEffectWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextEffectWindow.m; path = YYText/Component/YYTextEffectWindow.m; sourceTree = "<group>"; };
 		6CF161EE61052A6059876B7F5B161B4F /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Source/ImageCache.swift; sourceTree = "<group>"; };
 		6D012636581E6CD7C5CD3BA3D0B01FC1 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4CC53DBEEAC1D7E57782188C4A07BB /* ImageCroppingControlsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCroppingControlsView.swift; sourceTree = "<group>"; };
 		6D845A5F7632C8EB78509A991E890A09 /* ResettingTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResettingTransitionContext.swift; path = Marshroute/Sources/Transitions/TransitionContexts/ResettingTransitionContext.swift; sourceTree = "<group>"; };
-		6D92EFD661D3D94D4E12C6CF0A16F0BE /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Starscream.modulemap; sourceTree = "<group>"; };
+		6D92EFD661D3D94D4E12C6CF0A16F0BE /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Starscream.modulemap; sourceTree = "<group>"; };
 		6DEAA2A4F22E4EDFEBFF2B601996B9CA /* CachingImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CachingImageDownloader.swift; sourceTree = "<group>"; };
 		6E1332319C6CBEC11CD493C75E404432 /* ArrayExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		6EAA4AD8C0EC1C1E2C541747F8B1D864 /* TransitionId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionId.swift; path = Marshroute/Sources/Transitions/TransitionsHandling/TransitionId/TransitionId.swift; sourceTree = "<group>"; };
@@ -912,7 +912,7 @@
 		714ED04F763EAE9389E19127BDFB398A /* UIImageSourceCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIImageSourceCollectionViewCell.swift; sourceTree = "<group>"; };
 		71B5EBC424B4C74096A88E89C5772E80 /* ImageFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageFilter.swift; path = Source/ImageFilter.swift; sourceTree = "<group>"; };
 		71D27EAE6D3B24D8EDBABA5945EFFA5B /* MarshrouteStack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarshrouteStack.swift; path = Marshroute/Sources/SettingUpStack/MarshrouteStack.swift; sourceTree = "<group>"; };
-		71F952C5E8F3A68B077BCD874719E466 /* YYText.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YYText.modulemap; sourceTree = "<group>"; };
+		71F952C5E8F3A68B077BCD874719E466 /* YYText.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = YYText.modulemap; sourceTree = "<group>"; };
 		71FD4E0427D55BDFFA0DA687A91EFD20 /* GCDAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GCDAdditions.swift; sourceTree = "<group>"; };
 		750CB7C8CA8150EB3F1A40DFB8D43453 /* CameraControlsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		75394756F27089CCE88B2E6D43C44AFD /* AccessDeniedUITheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessDeniedUITheme.swift; sourceTree = "<group>"; };
@@ -923,18 +923,18 @@
 		764D33E23CE6C1111110B04F5CBADADB /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		76E86332942C7EC7069D400EB29EA626 /* Starscream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.xcconfig; sourceTree = "<group>"; };
 		7796AECB5720BE971F284885E393044D /* ImageCroppingService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCroppingService.swift; sourceTree = "<group>"; };
-		77F07F17DD09CEB0BE013519FCEA6D57 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTAppleCalendar.framework; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		77FEE1B823C2FAA7CAD7A05159076FBE /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AlamofireImage.framework; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F07F17DD09CEB0BE013519FCEA6D57 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77FEE1B823C2FAA7CAD7A05159076FBE /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78716FDC86F6F927AF408D72BB492F17 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		78777966312B3A663CF46493E138726F /* ImageCroppingAssemblyImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCroppingAssemblyImpl.swift; sourceTree = "<group>"; };
 		78DAE016B4BE0B0E3011B629AF44D436 /* RouterFocusable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterFocusable.swift; path = Marshroute/Sources/Routers/Routers/RouterFocusable.swift; sourceTree = "<group>"; };
 		78DE3D1A9FDF69247A3C87829A7B89F9 /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayerHelper.swift; path = Cosmos/CosmosLayerHelper.swift; sourceTree = "<group>"; };
 		79BEF85E93FFA325ACC7542292E2766F /* YYText-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYText-prefix.pch"; sourceTree = "<group>"; };
 		7A1B326B99EE6006CDD5880577CAA603 /* ImageCroppingUITheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCroppingUITheme.swift; sourceTree = "<group>"; };
-		7A847630F06680F6D79200D003CC3DB5 /* NoChat.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NoChat.modulemap; sourceTree = "<group>"; };
+		7A847630F06680F6D79200D003CC3DB5 /* NoChat.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NoChat.modulemap; sourceTree = "<group>"; };
 		7ADD85057123D2EA6C774C438419E79C /* PhotoStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoStorage.swift; sourceTree = "<group>"; };
 		7AE2E255689F611D078D8312161418D8 /* JNWSpringAnimation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JNWSpringAnimation-dummy.m"; sourceTree = "<group>"; };
-		7AF2EB823372130BF07531C4E1C24D37 /* Paparazzo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Paparazzo.framework; path = Paparazzo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF2EB823372130BF07531C4E1C24D37 /* Paparazzo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Paparazzo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1ABBE35671DBC13D95A94691E92E49 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C1841253ADB7980157424B2711C1321 /* MaskCropperInteractorImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MaskCropperInteractorImpl.swift; sourceTree = "<group>"; };
 		7CF0313D9D31B028519A3FD62921299C /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
@@ -974,11 +974,11 @@
 		8E66334FE5443A491D1F43B069430157 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextKeyboardManager.h; path = YYText/Component/YYTextKeyboardManager.h; sourceTree = "<group>"; };
 		8E8267C7F5627791B292D8E3DC41CA05 /* NOCChatContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NOCChatContainerView.m; sourceTree = "<group>"; };
 		8E96A286A0AC986284064FA4AF07ACC5 /* NOCGame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NOCGame.h; sourceTree = "<group>"; };
-		8FAA42B1860A86FEA008C095B606C78B /* HPGrowingTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HPGrowingTextView.framework; path = HPGrowingTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FAA42B1860A86FEA008C095B606C78B /* HPGrowingTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HPGrowingTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBEA7658A5558C1EC181CC7BD599DA2 /* ImageSource+BackwardCompatibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ImageSource+BackwardCompatibility.swift"; sourceTree = "<group>"; };
 		904D889158AD5E547AA238C00255106A /* JTCalendarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTCalendarProtocols.swift; path = Sources/JTCalendarProtocols.swift; sourceTree = "<group>"; };
 		90643CF20B143F8BE2375992D6E82E07 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		9142D51D406D2307274B78F382C0242E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9142D51D406D2307274B78F382C0242E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9146822F49BAC7582048F7B52C68A283 /* ThreadSafeIntGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThreadSafeIntGenerator.swift; sourceTree = "<group>"; };
 		915124FA7BF8EA5797D04B699DBAF0AC /* NOCChatItemCellLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NOCChatItemCellLayout.h; sourceTree = "<group>"; };
 		9161249958D870936D72FE79C938912C /* TransitionsCoordinatorImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionsCoordinatorImpl.swift; path = Marshroute/Sources/Transitions/TransitionsHandling/TransitionsCoordinator/TransitionsCoordinatorImpl.swift; sourceTree = "<group>"; };
@@ -989,13 +989,13 @@
 		92762370C151F6000885A640397F4E81 /* NSParagraphStyle+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSParagraphStyle+YYText.m"; path = "YYText/Utility/NSParagraphStyle+YYText.m"; sourceTree = "<group>"; };
 		93025452F025F15E0F31B3460A36ACEE /* TransitionUserId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionUserId.swift; path = Marshroute/Sources/Transitions/TransitionsMarking/TransitionUserId.swift; sourceTree = "<group>"; };
 		93684475A4A47403AFAFC7DBAE94EC68 /* YYTextRubyAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextRubyAnnotation.m; path = YYText/String/YYTextRubyAnnotation.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93C59FE1E52F37E5E59BCB85885D5F03 /* TransitionContextsStackClientProviderHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionContextsStackClientProviderHolder.swift; path = Marshroute/Sources/Transitions/TransitionsHandling/TransitionsStack/TransitionContextsStackClientProviderHolder.swift; sourceTree = "<group>"; };
 		94A5A7AAB7CD7C50815FC48206277670 /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
 		94AA04E6F42769C80944C20A81D026DE /* PopoverNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverNavigationTransitionsAnimator.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/PopoverNavigation/PopoverNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		94CA280BBF1B3F7CA9EC5A3E52B97EDE /* Cosmos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cosmos-dummy.m"; sourceTree = "<group>"; };
 		96A81E1A9F03A7EB7F4736EF528563EF /* MediaPickerRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaPickerRouter.swift; sourceTree = "<group>"; };
-		96D64BAC6A38875ECFC1ED7E77275034 /* NOCProtoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NOCProtoKit.framework; path = NOCProtoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D64BAC6A38875ECFC1ED7E77275034 /* NOCProtoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NOCProtoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E422E4DDAF4952FFD420057C2AEBDA /* ModalEndpointNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModalEndpointNavigationTransitionsAnimator.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/ModalEndpointNavigation/ModalEndpointNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		977094240824BAAB9D9AF984A8DDBC89 /* CameraService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		97A8D3EF243D982EB86DAB8CCC9BB398 /* HPGrowingTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HPGrowingTextView.h; path = class/HPGrowingTextView.h; sourceTree = "<group>"; };
@@ -1005,7 +1005,7 @@
 		99342F2B0772DC1325D343F059401F64 /* MasterDetailRouterSeed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MasterDetailRouterSeed.swift; path = Marshroute/Sources/Routers/BaseImpls/BaseMasterDetailRouter/MasterDetailRouterSeed.swift; sourceTree = "<group>"; };
 		996FD932631888E1075529237A367A11 /* ThemeConfigurable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThemeConfigurable.swift; sourceTree = "<group>"; };
 		99C068409AC991B6F1B6C6B6B895E670 /* MaskCropperMarshrouteAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MaskCropperMarshrouteAssembly.swift; sourceTree = "<group>"; };
-		99E12ADF361CD121B0AAFE426D47A7DB /* ImageSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ImageSource.framework; path = ImageSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99E12ADF361CD121B0AAFE426D47A7DB /* ImageSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EBBB42C963ADF37719325F02B33FEF /* HPGrowingTextView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HPGrowingTextView-dummy.m"; sourceTree = "<group>"; };
 		9A0209F69356579C3EF1A4CE48EB9235 /* ModalNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModalNavigationTransitionsAnimator.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/ModalNavigation/ModalNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		9ABEB33BF3D0AAF296DB13F718F838DE /* RouterSeed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterSeed.swift; path = Marshroute/Sources/Routers/BaseImpls/BaseRouter/RouterSeed.swift; sourceTree = "<group>"; };
@@ -1031,18 +1031,18 @@
 		A22827E1D4A012FB51D1255D49FE2503 /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
 		A230184EA77C0F32D3C95CCFE83A4C2B /* CosmosText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosText.swift; path = Cosmos/CosmosText.swift; sourceTree = "<group>"; };
 		A28429275D4643A135515460380DC38A /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		A2C849DFAB2AA146A2C12F77C91AC1C4 /* NOCProtoKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NOCProtoKit.modulemap; sourceTree = "<group>"; };
+		A2C849DFAB2AA146A2C12F77C91AC1C4 /* NOCProtoKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NOCProtoKit.modulemap; sourceTree = "<group>"; };
 		A2DD675F3AB45175C67A21D15588198E /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryViewController.swift; sourceTree = "<group>"; };
 		A3A76A036A0DCF6E779B4875F5209CCF /* PhotoLibraryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryView.swift; sourceTree = "<group>"; };
 		A47A8AF4FDDC18BAB2CB0E94DAB4579C /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A661FECCEBFF9D01869EE3B29C4C1EFF /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A699B735E75CFF682B2FB32A54F3A9C3 /* NoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NoChat.framework; path = NoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A699B735E75CFF682B2FB32A54F3A9C3 /* NoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AA773C3B40194E01B4D90A4C667539 /* PopoverPresentationRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverPresentationRouter.swift; path = Marshroute/Sources/Routers/Routers/PopoverPresentationRouter.swift; sourceTree = "<group>"; };
 		A703109434C0C35B518DEFB71163328F /* YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYText.h; path = YYText/YYText.h; sourceTree = "<group>"; };
 		A7283A83345ABE497FC20B82ADFE4197 /* ModalTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModalTransitionsAnimator.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/Modal/ModalTransitionsAnimator.swift; sourceTree = "<group>"; };
-		A7342E01334F4A5059C9CBC9CD6E9CF9 /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cosmos.framework; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7342E01334F4A5059C9CBC9CD6E9CF9 /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A763CE663A6C5CC678883142EAAE0FA5 /* WeakWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakWrapper.swift; sourceTree = "<group>"; };
-		A908EC46C1D515F5AEF6318DB63A161A /* JNWSpringAnimation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JNWSpringAnimation.modulemap; sourceTree = "<group>"; };
+		A908EC46C1D515F5AEF6318DB63A161A /* JNWSpringAnimation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JNWSpringAnimation.modulemap; sourceTree = "<group>"; };
 		A9215A3AE93B4BB15A1C7F0BA0D336A6 /* HPGrowingTextView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HPGrowingTextView-umbrella.h"; sourceTree = "<group>"; };
 		A9785CAD6B0BCCD80ACD67BB22F38141 /* PhotoLibraryAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryAssembly.swift; sourceTree = "<group>"; };
 		A9A7759B9D29C5FA05B6D0714685AE3A /* ObjCExceptionCatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ObjCExceptionCatcher.swift; sourceTree = "<group>"; };
@@ -1055,7 +1055,7 @@
 		AC0AEB55A22DE23156A834B5D898488B /* CIContext+XCode8Workaround.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CIContext+XCode8Workaround.h"; sourceTree = "<group>"; };
 		AC6D934A531F94D71BB8E22061EDFB71 /* TransitionsMarker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionsMarker.swift; path = Marshroute/Sources/Transitions/TransitionsMarking/TransitionsMarker.swift; sourceTree = "<group>"; };
 		AC8D7C6B2102B47401C3A8841393DF70 /* RouterDismissable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterDismissable.swift; path = Marshroute/Sources/Routers/Routers/RouterDismissable.swift; sourceTree = "<group>"; };
-		ACA6F7E902BB82552E00F76A38339B89 /* Marshroute.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Marshroute.modulemap; sourceTree = "<group>"; };
+		ACA6F7E902BB82552E00F76A38339B89 /* Marshroute.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Marshroute.modulemap; sourceTree = "<group>"; };
 		ACF208083E83D7ED9288084B2031729D /* NOCChatCollectionViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NOCChatCollectionViewLayout.m; sourceTree = "<group>"; };
 		AD0224DF042F8BD334F067C50C1291F9 /* RouterControllersProviderImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterControllersProviderImpl.swift; path = Marshroute/Sources/Routers/Routers/RouterControllersProviderImpl.swift; sourceTree = "<group>"; };
 		AD48FE512E2D36227ADEC7A38ABF118E /* TransitionIdGeneratorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionIdGeneratorHolder.swift; path = Marshroute/Sources/Transitions/TransitionsHandling/TransitionId/TransitionIdGeneratorHolder.swift; sourceTree = "<group>"; };
@@ -1126,7 +1126,7 @@
 		CFDF1E46DF67AE461BFA9D99E1121FDA /* NOCChatViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NOCChatViewController.h; sourceTree = "<group>"; };
 		CFE7429BFD10BD6ECCB84142179BA3B4 /* TransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionsAnimator.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/TransitionsAnimator.swift; sourceTree = "<group>"; };
 		D0BCDA5894B333932958A7F85130A369 /* PhotoLibraryLatestPhotoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryLatestPhotoProvider.swift; sourceTree = "<group>"; };
-		D0CB3E4CD12F4F48FE9B9710E8449D83 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0CB3E4CD12F4F48FE9B9710E8449D83 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B381BB5B13A6A3731E0790862E940 /* NOCDispatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NOCDispatcher.h; sourceTree = "<group>"; };
 		D1B1FD8B6A674D123B1C0B80595033CA /* ModalEndpointNavigationPresentationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModalEndpointNavigationPresentationAnimationContext.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/ModalEndpointNavigation/Presentation/ModalEndpointNavigationPresentationAnimationContext.swift; sourceTree = "<group>"; };
 		D24788AAD875B2FCAB608FB308D5A560 /* Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
@@ -1143,7 +1143,7 @@
 		D70501B2634D12EF73383F5FDC9D8430 /* TransitionsHandlersProviderHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionsHandlersProviderHolder.swift; path = Marshroute/Sources/Transitions/TransitionsHandling/TransitionsCoordinator/TransitionsHandlersProviderHolder.swift; sourceTree = "<group>"; };
 		D724AB3777E2CFEECAB202A61D4FACB8 /* YYTextAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextAttribute.m; path = YYText/String/YYTextAttribute.m; sourceTree = "<group>"; };
 		D7F2054CEF8F1EFEAB5BA62499F83FD6 /* ImageSource-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ImageSource-dummy.m"; sourceTree = "<group>"; };
-		D8535DBE36CA3FE434F6BE6D0279298C /* Paparazzo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Paparazzo.modulemap; sourceTree = "<group>"; };
+		D8535DBE36CA3FE434F6BE6D0279298C /* Paparazzo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Paparazzo.modulemap; sourceTree = "<group>"; };
 		D8544345BD2D994403A7428CC938F369 /* AccessDeniedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessDeniedView.swift; sourceTree = "<group>"; };
 		D8DA5B5D03C3505A35F53F3609FA45E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		D8E6757DECE2C248A430324249E457CA /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSParagraphStyle+YYText.h"; path = "YYText/Utility/NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
@@ -1165,7 +1165,7 @@
 		E3503F69E2D0C3933B628DF01B3A6E60 /* YYTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextView.m; path = YYText/YYTextView.m; sourceTree = "<group>"; };
 		E4A12088FB16BC268C0AAE0BDBECD6F3 /* Paparazzo-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Paparazzo-prefix.pch"; sourceTree = "<group>"; };
 		E512A5F985F876750237FD237C3AEEDA /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		E520BC7E9A3A84ED3C4B046EF2DBDC2E /* JTAppleCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTAppleCalendar.modulemap; sourceTree = "<group>"; };
+		E520BC7E9A3A84ED3C4B046EF2DBDC2E /* JTAppleCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JTAppleCalendar.modulemap; sourceTree = "<group>"; };
 		E6143C1CAF38FB095767AE5339789ECB /* PhotoLibraryInteractorImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryInteractorImpl.swift; sourceTree = "<group>"; };
 		E6726EB7851A72CEB36EEA50D40C84B1 /* YYTextWeakProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextWeakProxy.h; path = YYText/Utility/YYTextWeakProxy.h; sourceTree = "<group>"; };
 		E67AEE0312C27C8A9AA19082DE2AA7F1 /* PhotoLibraryMarshrouteAssemblyImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryMarshrouteAssemblyImpl.swift; sourceTree = "<group>"; };
@@ -1179,7 +1179,7 @@
 		EA753DAA72CA1D170F4FAF5ECE657552 /* YYTextInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextInput.h; path = YYText/Component/YYTextInput.h; sourceTree = "<group>"; };
 		EAAC88B3463BCE49620125EC3275DBDB /* MaskCropperPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MaskCropperPresenter.swift; sourceTree = "<group>"; };
 		EB198D3977888B01274BCAF3CEBEF5E2 /* NSValue+JNWAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSValue+JNWAdditions.h"; sourceTree = "<group>"; };
-		EB5F26C2904CF279D95A195637B08B03 /* AlamofireImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AlamofireImage.modulemap; sourceTree = "<group>"; };
+		EB5F26C2904CF279D95A195637B08B03 /* AlamofireImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AlamofireImage.modulemap; sourceTree = "<group>"; };
 		EBCD95C8069E336021F62ACF51586A07 /* PopoverTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverTransitionsAnimator.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/Popover/PopoverTransitionsAnimator.swift; sourceTree = "<group>"; };
 		EBF57C7EC2F980C3F9FA44220595A8EC /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResetNavigationTransitionsAnimator.swift; path = Marshroute/Sources/Transitions/TransitionAnimations/Navigation/Reset/ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		ECC0161328731EF03CF1D31A6E477BAD /* NavigationTransitionStorableParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationTransitionStorableParameters.swift; path = Marshroute/Sources/Transitions/TransitionStorableParameters/NavigationTransitionStorableParameters.swift; sourceTree = "<group>"; };
@@ -1201,7 +1201,7 @@
 		F960072B43CB8FF888EE8760910678BE /* TransitionsTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionsTracker.swift; path = Marshroute/Sources/Transitions/TransitionsTracking/TransitionsTracker.swift; sourceTree = "<group>"; };
 		F9627D14DAE62D6F8DB6BDBEFB6CD747 /* CameraAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraAssembly.swift; sourceTree = "<group>"; };
 		FA697AC175EEA108880EFA6E433E323E /* YYTextUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextUtilities.m; path = YYText/Utility/YYTextUtilities.m; sourceTree = "<group>"; };
-		FAC472E4DCE947B61458BD0BF67185C6 /* HPGrowingTextView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = HPGrowingTextView.modulemap; sourceTree = "<group>"; };
+		FAC472E4DCE947B61458BD0BF67185C6 /* HPGrowingTextView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = HPGrowingTextView.modulemap; sourceTree = "<group>"; };
 		FACF04E236D89508C858CF57BA1CE86E /* Paparazzo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Paparazzo-umbrella.h"; sourceTree = "<group>"; };
 		FB8BEF577211CA957FD780CB7A139053 /* CameraViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraViewInput.swift; sourceTree = "<group>"; };
 		FC1BB1E809278CC6CC0D0CC83856FB85 /* ImageRequestOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageRequestOptions.swift; sourceTree = "<group>"; };
@@ -1211,10 +1211,10 @@
 		FE2D2BA51BCA1E03FB71247C1635A300 /* MarshrouteAssemblyFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarshrouteAssemblyFactory.swift; sourceTree = "<group>"; };
 		FE6141CEEB27D13BCD27FB23D61FA571 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FE9E52A5C642EBA5A434ABEA3DC251E5 /* BaseRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRouter.swift; path = Marshroute/Sources/Routers/BaseImpls/BaseRouter/BaseRouter.swift; sourceTree = "<group>"; };
-		FEB02B538C12C99E5065AA980C932F49 /* Marshroute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Marshroute.framework; path = Marshroute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB02B538C12C99E5065AA980C932F49 /* Marshroute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Marshroute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8342B6286CE457278605B92633F26 /* PhotoLibraryPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoLibraryPresenter.swift; sourceTree = "<group>"; };
 		FF0CC1725392E631F0D624329C00C820 /* NOCProtoKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NOCProtoKit.xcconfig; sourceTree = "<group>"; };
-		FF2213CF47240E9C91FA9B1B60AC3751 /* JNWSpringAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JNWSpringAnimation.framework; path = JNWSpringAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF2213CF47240E9C91FA9B1B60AC3751 /* JNWSpringAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JNWSpringAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF68C795D702F93F71ECAD77CB26C441 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPasteboard+YYText.h"; path = "YYText/Utility/UIPasteboard+YYText.h"; sourceTree = "<group>"; };
 		FFA085F439E6AEA3453E553DDAA55CD6 /* BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseMasterDetailRouter.swift; path = Marshroute/Sources/Routers/BaseImpls/BaseMasterDetailRouter/BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1370,7 +1370,6 @@
 			children = (
 				429474B897ACB4842527AE43EFB5E8C1 /* UIKit */,
 			);
-			name = ImageSource;
 			path = ImageSource;
 			sourceTree = "<group>";
 		};
@@ -1380,7 +1379,6 @@
 				A9785CAD6B0BCCD80ACD67BB22F38141 /* PhotoLibraryAssembly.swift */,
 				E25C9A8666AE7C2D36F69373DC4BC6FC /* PhotoLibraryAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -1389,7 +1387,6 @@
 			children = (
 				7CF746062009EBD3B82C98572329828C /* Core */,
 			);
-			name = ImageSource;
 			path = ImageSource;
 			sourceTree = "<group>";
 		};
@@ -1399,7 +1396,6 @@
 				F9627D14DAE62D6F8DB6BDBEFB6CD747 /* CameraAssembly.swift */,
 				110FE30D14FCDBD5137BC49E591051DB /* CameraAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -1409,7 +1405,6 @@
 				81022D03D930A758A58DAB354C1A6844 /* MediaPickerMarshrouteRouter.swift */,
 				320DEBD31C04F361CA85D13AE0C310AF /* NonAnimatedPushAnimator.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -1434,7 +1429,6 @@
 				344E712FA9AF5AF5730138A3BC203AAF /* RemoteImageRequestOperation.swift */,
 				52FED36B80A66AEF62FD077B1AF8F4D7 /* RemoteImageSource.swift */,
 			);
-			name = Remote;
 			path = Remote;
 			sourceTree = "<group>";
 		};
@@ -1460,7 +1454,6 @@
 				90643CF20B143F8BE2375992D6E82E07 /* Validation.swift */,
 				4EEBB08EFA95DEF0D91BD7FBB631D22F /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1470,7 +1463,6 @@
 				1EC88A0D7134AF6C708468D4DBB018DB /* Assembly */,
 				08FAE7EC0F59942D7898AD7875113FAF /* Router */,
 			);
-			name = MediaPicker;
 			path = MediaPicker;
 			sourceTree = "<group>";
 		};
@@ -1496,7 +1488,6 @@
 				235F58377C7B7B13E4BF89BF9B2A01A1 /* RightIconButton.swift */,
 				3099F9D53251B396939FF51EC55B45CE /* RotationSliderView.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1506,7 +1497,6 @@
 				96A81E1A9F03A7EB7F4736EF528563EF /* MediaPickerRouter.swift */,
 				75A4899122B094B5D05F4C00B922730D /* MediaPickerUIKitRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -1520,7 +1510,6 @@
 				AA038DAAC41B92984DEDAF0964A184CE /* InfoMessageViewFactory.swift */,
 				509FA97ADCEFB9F1236AF491ED56DC2A /* InfoMessageViewInput.swift */,
 			);
-			name = InfoMessage;
 			path = InfoMessage;
 			sourceTree = "<group>";
 		};
@@ -1551,7 +1540,6 @@
 				59ABBA0330F8BDC72D02BFE3FDB74A95 /* MaskCropperInteractor.swift */,
 				7C1841253ADB7980157424B2711C1321 /* MaskCropperInteractorImpl.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -1561,7 +1549,6 @@
 				9F05DD1D45F6F03FBC8BC69645C00AD8 /* MediaPickerAssembly.swift */,
 				302EDDDB16F1D6ED7DAEEBCE946EAA19 /* MediaPickerAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -1575,7 +1562,6 @@
 				CD94C58CDEF16D0A475564B5D2D3362E /* MaskCropperViewController.swift */,
 				0595FA5FE804B2448A7EC5C0BE7EC9BC /* MaskCropperViewInput.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -1596,7 +1582,6 @@
 				3BB9C4227A8FC2FC9C74712E60BD5A1A /* MediaPickerMarshrouteAssembly.swift */,
 				A12F0273413E01626765C856C2E21594 /* MediaPickerMarshrouteAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -1622,7 +1607,6 @@
 				711F4DCDC1FBB2CD033A57A6E77A17C9 /* UIImageView+AlamofireImage.swift */,
 				37996E735D363E0477D5E72F634E1BFB /* Support Files */,
 			);
-			name = AlamofireImage;
 			path = AlamofireImage;
 			sourceTree = "<group>";
 		};
@@ -1632,7 +1616,6 @@
 				977094240824BAAB9D9AF984A8DDBC89 /* CameraService.swift */,
 				F261B07C3BE8D261981839E181449941 /* CameraServiceImpl.swift */,
 			);
-			name = Camera;
 			path = Camera;
 			sourceTree = "<group>";
 		};
@@ -1642,7 +1625,6 @@
 				55FB012B9841678B532C12EA4DA4D09A /* MaskCropperAssembly.swift */,
 				218D429731314FA8CB1D4D27EC965DB2 /* MaskCropperAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -1687,7 +1669,6 @@
 			children = (
 				FC7628A85E22BBA6D0B5D91E0D7AB6C5 /* NoChat */,
 			);
-			name = NoChat;
 			path = NoChat;
 			sourceTree = "<group>";
 		};
@@ -1696,7 +1677,6 @@
 			children = (
 				7796AECB5720BE971F284885E393044D /* ImageCroppingService.swift */,
 			);
-			name = ImageCropping;
 			path = ImageCropping;
 			sourceTree = "<group>";
 		};
@@ -1713,7 +1693,6 @@
 			children = (
 				CDF0DFA34DDB42938C92BFF848B8560C /* PhotoLibraryMarshrouteRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -1736,7 +1715,6 @@
 			children = (
 				683264D9B3398CF70C82BB488339E9AE /* Filter.swift */,
 			);
-			name = Filters;
 			path = Filters;
 			sourceTree = "<group>";
 		};
@@ -1746,7 +1724,6 @@
 				67B427DD043100DBCED3BC521FFDC289 /* CameraInteractor.swift */,
 				AE72EACE00B584FD8870BB1DA42CD81E /* CameraInteractorImpl.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -1890,7 +1867,6 @@
 				3BB89BA8ADC3300AD6F47EE39D3E7BE5 /* WeakTransitionsHandlerBox.swift */,
 				A5DDC1B6A2935844538811F567792EBF /* Support Files */,
 			);
-			name = Marshroute;
 			path = Marshroute;
 			sourceTree = "<group>";
 		};
@@ -1903,7 +1879,6 @@
 				57C495FEFC5A08C7EA19B0B4C00DE1AF /* UIImageSourceView.swift */,
 				49CA1ED2773B73E5B050516858E34D0B /* UIImageView+ImageSource.swift */,
 			);
-			name = UIKit;
 			path = UIKit;
 			sourceTree = "<group>";
 		};
@@ -1922,7 +1897,6 @@
 			children = (
 				ED56771967DA0A4E6630A303CC0DB4AC /* ImageCroppingModule.swift */,
 			);
-			name = Module;
 			path = Module;
 			sourceTree = "<group>";
 		};
@@ -1947,7 +1921,6 @@
 				5914C7AA1EA52982AE60D1BF850EECC3 /* WebSocket.swift */,
 				0AE63932F5C322BD160C70A79E65F5BF /* Support Files */,
 			);
-			name = Starscream;
 			path = Starscream;
 			sourceTree = "<group>";
 		};
@@ -1958,7 +1931,6 @@
 				57605AAB126452044BD8C8FE67C6B524 /* MediaPickerItem.swift */,
 				F016C3E1475348B52E2D62E046AA9973 /* MediaPickerModule.swift */,
 			);
-			name = Module;
 			path = Module;
 			sourceTree = "<group>";
 		};
@@ -1968,7 +1940,6 @@
 				926FBB797E6C4A1CABF4951CEB7147B8 /* Assembly */,
 				3780EC44E6E4FB454B1A91CC476753DD /* Router */,
 			);
-			name = PhotoLibrary;
 			path = PhotoLibrary;
 			sourceTree = "<group>";
 		};
@@ -1994,7 +1965,6 @@
 				0E76ABBA5B89195594A79509036C9C15 /* MediaPicker */,
 				4DF9530BCC01BA5E4A5DCB73968FD05E /* PhotoLibrary */,
 			);
-			name = Marshroute;
 			path = Marshroute;
 			sourceTree = "<group>";
 		};
@@ -2016,7 +1986,6 @@
 			children = (
 				D0BCDA5894B333932958A7F85130A369 /* PhotoLibraryLatestPhotoProvider.swift */,
 			);
-			name = PhotoLibrary;
 			path = PhotoLibrary;
 			sourceTree = "<group>";
 		};
@@ -2027,7 +1996,6 @@
 				39CB1DF98C78118AD9EEDFE4A6BE5B65 /* PhotoPreviewCell.swift */,
 				63C2DFD1412DCEE7005EDB64DA5ED470 /* PhotoPreviewView.swift */,
 			);
-			name = MainView;
 			path = MainView;
 			sourceTree = "<group>";
 		};
@@ -2036,7 +2004,6 @@
 			children = (
 				0B0B15C1296A9317435D6A76CA952B8A /* Remote */,
 			);
-			name = ImageSource;
 			path = ImageSource;
 			sourceTree = "<group>";
 		};
@@ -2049,7 +2016,6 @@
 				A4A1A20504C8C182D3C1897A86F00BDE /* Presenter */,
 				EC183CC7228A1A3D3BF7BAB5D56F4645 /* View */,
 			);
-			name = Camera;
 			path = Camera;
 			sourceTree = "<group>";
 		};
@@ -2065,7 +2031,6 @@
 				A2DD675F3AB45175C67A21D15588198E /* PhotoLibraryViewController.swift */,
 				099B2FC7A67B4CBB66D2AAE6E3271597 /* PhotoLibraryViewInput.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -2079,7 +2044,6 @@
 				D73C2EEA8A4F222B01FB0FAA49A587DD /* MediaPicker */,
 				E0784B34098C6DB201E4102F9AFE33DF /* PhotoLibrary */,
 			);
-			name = VIPER;
 			path = VIPER;
 			sourceTree = "<group>";
 		};
@@ -2089,7 +2053,6 @@
 				9850CA459613A6CF9D64D13287BBD881 /* LocalImageRequestOperation.swift */,
 				B67F6BB7A52967B6AEE579DBF4C439AB /* LocalImageSource.swift */,
 			);
-			name = Local;
 			path = Local;
 			sourceTree = "<group>";
 		};
@@ -2098,7 +2061,6 @@
 			children = (
 				E0014851A9795A39C3E011DF69DF99B7 /* MaskCropperMarshrouteRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -2156,7 +2118,6 @@
 				38F0E8BC3FE47BBE8B7C14FAA5B04331 /* YYTextWeakProxy.m */,
 				8C29200689B5768AF7DFA4222EAA668C /* Support Files */,
 			);
-			name = YYText;
 			path = YYText;
 			sourceTree = "<group>";
 		};
@@ -2171,7 +2132,6 @@
 				7F4BD9854E3C509778BB03CBDC018C4F /* Presenter */,
 				10F3B3B4B79B49426DB39CA21C62786F /* View */,
 			);
-			name = ImageCropping;
 			path = ImageCropping;
 			sourceTree = "<group>";
 		};
@@ -2182,7 +2142,6 @@
 				CDC8AFC40980D35B251189E343C83053 /* AvitoMediaPicker_ObjCExceptionCatcherHelper.m */,
 				A9A7759B9D29C5FA05B6D0714685AE3A /* ObjCExceptionCatcher.swift */,
 			);
-			name = ObjCExceptionsCatcher;
 			path = ObjCExceptionsCatcher;
 			sourceTree = "<group>";
 		};
@@ -2195,7 +2154,6 @@
 				8053A01F901124929772BA671F1F86C3 /* HPTextViewInternal.m */,
 				6AD828B53C3AD008E6F60A26AD8A976F /* Support Files */,
 			);
-			name = HPGrowingTextView;
 			path = HPGrowingTextView;
 			sourceTree = "<group>";
 		};
@@ -2205,7 +2163,6 @@
 				E7BD8E91A17ED6F700200E51B781323E /* AlamofireCachingImageDownloader.swift */,
 				1464EC533794C00BB112FEF05133BCA1 /* RemoteImageSource+AlamofireImage.swift */,
 			);
-			name = AlamofireImage;
 			path = AlamofireImage;
 			sourceTree = "<group>";
 		};
@@ -2238,7 +2195,6 @@
 				750CB7C8CA8150EB3F1A40DFB8D43453 /* CameraControlsView.swift */,
 				FD2F04C0BBC95F1848B91E92DC725C65 /* PhotoControlsView.swift */,
 			);
-			name = Controls;
 			path = Controls;
 			sourceTree = "<group>";
 		};
@@ -2248,7 +2204,6 @@
 				EA1A18218E299EF55A3A08078F4A6778 /* Assembly */,
 				60A2A4D08FBEAEF53B9BED8DB43CF72F /* Router */,
 			);
-			name = MaskCropper;
 			path = MaskCropper;
 			sourceTree = "<group>";
 		};
@@ -2265,7 +2220,6 @@
 				566D03F26174522577A0E12B476E4031 /* MainView */,
 				9F7BC5657CB1048670DB95E1EDB04942 /* ThumbnailsView */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -2275,7 +2229,6 @@
 				47AB64CD66CC758F322D88733845E837 /* MaskCropperData.swift */,
 				6C6C649792FB964C73EA89393C4BF5CD /* MaskCropperModule.swift */,
 			);
-			name = Module;
 			path = Module;
 			sourceTree = "<group>";
 		};
@@ -2306,7 +2259,6 @@
 				38B66B40CCEB08795CCCDD0A9B864C74 /* SharedQueues.swift */,
 				9146822F49BAC7582048F7B52C68A283 /* ThreadSafeIntGenerator.swift */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -2342,7 +2294,6 @@
 				584AA1E9B85763BF6CE0774448EBB30A /* StarLayer.swift */,
 				4958217F72B6C65A391AEFAD424896F1 /* Support Files */,
 			);
-			name = Cosmos;
 			path = Cosmos;
 			sourceTree = "<group>";
 		};
@@ -2351,7 +2302,6 @@
 			children = (
 				B5E846EC851EB2D3CD58E50A0E02CB79 /* ImageCroppingPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -2368,7 +2318,6 @@
 			children = (
 				4FC5A2157D1899B9A9537CB9685297AD /* Marshroute */,
 			);
-			name = Paparazzo;
 			path = Paparazzo;
 			sourceTree = "<group>";
 		};
@@ -2378,7 +2327,6 @@
 				A08F78E4E8D6B5104A2B35D252374DD8 /* PhotoLibraryData.swift */,
 				81A4D6B3E052F03B0B652748985A588B /* PhotoLibraryModule.swift */,
 			);
-			name = Module;
 			path = Module;
 			sourceTree = "<group>";
 		};
@@ -2388,7 +2336,6 @@
 				4997B13AA5032B0FCBCF213352D9A952 /* AccessibilityId.swift */,
 				CD302660008439D7F86B606483FDEACC /* Debouncer.swift */,
 			);
-			name = Utilities;
 			path = Utilities;
 			sourceTree = "<group>";
 		};
@@ -2413,7 +2360,6 @@
 				CBF580728FF8B22312BB18B7F9AAECC6 /* ImageCroppingInteractorImpl.swift */,
 				8BE0B3C5F173BAA7EE5B8F9B4B8B532F /* ImageCroppingParameters.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -2423,7 +2369,6 @@
 				5E9CFC99CF0E33204E83384E57DC9A71 /* PhotoLibraryMarshrouteAssembly.swift */,
 				E67AEE0312C27C8A9AA19082DE2AA7F1 /* PhotoLibraryMarshrouteAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -2432,7 +2377,6 @@
 			children = (
 				18638E91F3D728EC6BD8CFAA3629192F /* MediaPickerPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -2442,7 +2386,6 @@
 				65D3DD1DFCBF9E2EF9A69A80AB78A638 /* PhotoLibraryInteractor.swift */,
 				E6143C1CAF38FB095767AE5339789ECB /* PhotoLibraryInteractorImpl.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -2454,7 +2397,6 @@
 				8C86308F4CD0A09145C247A5CE7060B9 /* ThumbnailsView.swift */,
 				7541ECFE2E21AB79D7BF71AC05F6F3CE /* ThumbnailsViewLayout.swift */,
 			);
-			name = ThumbnailsView;
 			path = ThumbnailsView;
 			sourceTree = "<group>";
 		};
@@ -2468,7 +2410,6 @@
 				E87CD6F300F32CBB4F3B575599C84144 /* Router */,
 				1D50F3AFAE67BCD6B4BF511918173A2D /* View */,
 			);
-			name = MaskCropper;
 			path = MaskCropper;
 			sourceTree = "<group>";
 		};
@@ -2499,7 +2440,6 @@
 				523BBD8D7AAB6AD3288C809E64F107A0 /* NSValue+JNWAdditions.m */,
 				A65689BBF4DC2FACE6691CFF52825935 /* Support Files */,
 			);
-			name = JNWSpringAnimation;
 			path = JNWSpringAnimation;
 			sourceTree = "<group>";
 		};
@@ -2508,7 +2448,6 @@
 			children = (
 				4642F52D9750A6047DCB2377D05931AE /* CameraPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -2540,7 +2479,6 @@
 				A763CE663A6C5CC678883142EAAE0FA5 /* WeakWrapper.swift */,
 				67F367F5D3498F8E5D6796C989F10EFF /* ObjCExceptionsCatcher */,
 			);
-			name = Helpers;
 			path = Helpers;
 			sourceTree = "<group>";
 		};
@@ -2580,7 +2518,6 @@
 				25BCC6C2195A2DE9DEE92451CD69F69E /* ImageCroppingAssembly.swift */,
 				78777966312B3A663CF46493E138726F /* ImageCroppingAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -2589,7 +2526,6 @@
 			children = (
 				C6CF0DCCD7105FFAAB01433EBF3D432E /* PHAsset */,
 			);
-			name = ImageSource;
 			path = ImageSource;
 			sourceTree = "<group>";
 		};
@@ -2616,7 +2552,6 @@
 				E1BCE9846BA8B47BEE153067AC25B74C /* HeartShapeCroppingOverlayProvider.swift */,
 				588C3880BBFD68B09BD360937DC22422 /* RectangleCroppingOverlayProvider.swift */,
 			);
-			name = CroppingOverlayProviders;
 			path = CroppingOverlayProviders;
 			sourceTree = "<group>";
 		};
@@ -2625,7 +2560,6 @@
 			children = (
 				C21CA1D821C8AC4BFEA85B95FD0DCBCA /* Core */,
 			);
-			name = Paparazzo;
 			path = Paparazzo;
 			sourceTree = "<group>";
 		};
@@ -2656,7 +2590,6 @@
 				477D0E946017FE1283D4B0FF60A30667 /* UIScrollView+ScrollToBottom.swift */,
 				504D73DF240A65DCBCCABF7FD7F9324F /* UIView+Layout.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -2676,7 +2609,6 @@
 				8B6793638B9138F1FC234ECD499C8C6E /* Utilities */,
 				5D03158D3F178E1C15700050FCEF6279 /* VIPER */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -2685,7 +2617,6 @@
 			children = (
 				EAAC88B3463BCE49620125EC3275DBDB /* MaskCropperPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -2723,7 +2654,6 @@
 			children = (
 				518F2172F518CA3540307CA081BB1DD7 /* PHAssetImageSource.swift */,
 			);
-			name = PHAsset;
 			path = PHAsset;
 			sourceTree = "<group>";
 		};
@@ -2752,7 +2682,6 @@
 				367907A7C2929996C8B3EE5E32436F2B /* ImageCropping */,
 				55CCA7ACE242A4746AB55831AC4AF9C9 /* PhotoLibrary */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -2761,7 +2690,6 @@
 			children = (
 				5F82EFEFF03F036C4CB6B55E1BBE8F39 /* Local */,
 			);
-			name = ImageSource;
 			path = ImageSource;
 			sourceTree = "<group>";
 		};
@@ -2784,7 +2712,6 @@
 				706CA0DFDB825BEE2382DFECBC0AFA0C /* UserInteractionFunctions.swift */,
 				BB6BAC4309901EA309EC42C781B1F293 /* Support Files */,
 			);
-			name = JTAppleCalendar;
 			path = JTAppleCalendar;
 			sourceTree = "<group>";
 		};
@@ -2795,7 +2722,6 @@
 				BC82EC57A6D1A26BB43ADEFD782C3FDB /* MediaPickerInteractorImpl.swift */,
 				3A5DAD232084DBD2CE270E8000F80029 /* Filters */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -2804,7 +2730,6 @@
 			children = (
 				FEE8342B6286CE457278605B92633F26 /* PhotoLibraryPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -2818,7 +2743,6 @@
 				15CCE8993B5A703801D9052AAAABC1B2 /* Router */,
 				748351C698B3C77A517683DFA60CF9B0 /* View */,
 			);
-			name = MediaPicker;
 			path = MediaPicker;
 			sourceTree = "<group>";
 		};
@@ -2832,7 +2756,6 @@
 				E4ABD3F9252D239699F57AD0094ED09D /* Router */,
 				5AA70DCDF023CF935A8CFDE914501DA0 /* View */,
 			);
-			name = PhotoLibrary;
 			path = PhotoLibrary;
 			sourceTree = "<group>";
 		};
@@ -2843,7 +2766,6 @@
 				DB108733C895F41644A8ED0CECFBFE0F /* BasePaparazzoAssembly.swift */,
 				0BDFAC7E9745343D3C4BD5836D8BEED6 /* ServiceFactory.swift */,
 			);
-			name = DI;
 			path = DI;
 			sourceTree = "<group>";
 		};
@@ -2852,7 +2774,6 @@
 			children = (
 				7B1ABBE35671DBC13D95A94691E92E49 /* Assets.xcassets */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -2861,7 +2782,6 @@
 			children = (
 				27D27E38E22B2A06F81DF36B15AC5F53 /* CameraModuleInput.swift */,
 			);
-			name = Module;
 			path = Module;
 			sourceTree = "<group>";
 		};
@@ -2871,7 +2791,6 @@
 				6AB96A9974B392649BEDCDA03C4460A3 /* PhotoLibraryRouter.swift */,
 				DABF4B39C94F77082CCA38D6F5EA263B /* PhotoLibraryUIKitRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -2892,7 +2811,6 @@
 				C75BFB2F46BBDEDD785230D027BDE657 /* MaskCropperRouter.swift */,
 				2DECB8F8F7B5899FC6336434DDC427F1 /* MaskCropperUIKitRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -2901,7 +2819,6 @@
 			children = (
 				E3E563578A6BD54B347F4D7F266FED37 /* Assets */,
 			);
-			name = Paparazzo;
 			path = Paparazzo;
 			sourceTree = "<group>";
 		};
@@ -2911,7 +2828,6 @@
 				99C068409AC991B6F1B6C6B6B895E670 /* MaskCropperMarshrouteAssembly.swift */,
 				05D176035C86845EEDAFFF5E62EE5D62 /* MaskCropperMarshrouteAssemblyImpl.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -2922,7 +2838,6 @@
 				FB8BEF577211CA957FD780CB7A139053 /* CameraViewInput.swift */,
 				14A16F6FAE5F9F2162F72958FE79B286 /* FocusIndicator.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -2939,7 +2854,6 @@
 			children = (
 				6A2BBD4D376F96B333C70B550575094E /* AlamofireImage */,
 			);
-			name = ImageSource;
 			path = ImageSource;
 			sourceTree = "<group>";
 		};
@@ -2948,7 +2862,6 @@
 			children = (
 				FD7AAEFB8964D9F5292934B2DBC08768 /* NOCProtoKit */,
 			);
-			name = NOCProtoKit;
 			path = NOCProtoKit;
 			sourceTree = "<group>";
 		};
@@ -2971,7 +2884,6 @@
 				12E3CEFD8BA58AD9736B4EE766421CF5 /* NOCChatViewController.m */,
 				62E1B2565BCCF5FACF39103967A4FA15 /* NoChat.h */,
 			);
-			name = NoChat;
 			path = NoChat;
 			sourceTree = "<group>";
 		};
@@ -2986,7 +2898,6 @@
 				09FFC64B03A58C9F9C0A028B11DA916F /* NOCGame.m */,
 				C642397855FBDD7A307E6C8EDA66E0DB /* NOCProtoKit.h */,
 			);
-			name = NOCProtoKit;
 			path = NOCProtoKit;
 			sourceTree = "<group>";
 		};
@@ -3438,6 +3349,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					4FDC533A4360A68ABDCE852F04B30927 = {
+						LastSwiftMigration = 0900;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4872,7 +4788,7 @@
 				PRODUCT_NAME = Cosmos;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -4970,7 +4886,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

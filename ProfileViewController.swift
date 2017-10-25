@@ -13,11 +13,16 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     @IBOutlet var myTableView: UITableView!
     @IBOutlet var myView: UIView!
     @IBOutlet var buttonView: UIView!
-    //@IBOutlet var indicatorView: UIView!
     @IBOutlet var btn1: UIButton!
     @IBOutlet var btn2: UIButton!
     @IBOutlet var btn3: UIButton!
     @IBOutlet var btn4: UIButton!
+    @IBOutlet var nameLbl: UILabel!
+    @IBOutlet var sectionNameLbl: UILabel!
+    @IBOutlet var editBtn: UIButton!
+    @IBOutlet var underStarsView: UIView!
+    @IBOutlet var starsView: UIView!
+    @IBOutlet var ratingView: UIView!
     
     var pageIndex:Int = 1
     
@@ -28,6 +33,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     var buttons: [UIButton] = []
     var buttonImgNames: [String] = ["Work", "Work_white", "Wait", "Wait_white", "History", "History_white", "Review", "Review_white"]
+    var labels: [String] = ["Выполняемые работы", "Заказанные работы", "История всех заказов", "Рейтинг и отзывы"]
     
     var orders: [[Order]] = []
 
@@ -53,20 +59,21 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.barTintColor = .white
-        
-        /*myView.layer.shadowColor = UIColor.black.cgColor
-        myView.layer.shadowOpacity = 0.1
-        myView.layer.shadowOffset = CGSize.zero
-        myView.layer.shadowRadius = 10
-        myView.layer.cornerRadius = 5*/
-        
-        buttonView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
-        buttonView.layer.borderWidth = 0.5
-        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
+        buttonView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
+        buttonView.layer.borderWidth = 0.5
+        
+        editBtn.layer.cornerRadius = 3
+        
+        underStarsView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
+        underStarsView.layer.borderWidth = 0.5
+        underStarsView.layer.cornerRadius = 15
+        
+        myView.frame.size.height -= ratingView.frame.height
     
     }
     
@@ -180,6 +187,21 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
                        options: .curveEaseOut, animations: {
                         self.indicatorView.frame.origin.x = CGFloat(self.pageIndex-1)*self.indicatorView.frame.size.width
         }, completion: nil)*/
+        
+        sectionNameLbl.text = labels[pageIndex-1]
+        
+        if (pageIndex == 4){
+            if (myView.frame.size.height < 300.0){
+                myView.frame.size.height += ratingView.frame.height
+            }
+            ratingView.isHidden = false
+        }
+        else{
+            if (myView.frame.size.height > 300.0){
+                myView.frame.size.height -= ratingView.frame.height
+            }
+            ratingView.isHidden = true
+        }
         
         for i in 0..<4{
             if (buttons[i] == sender){
