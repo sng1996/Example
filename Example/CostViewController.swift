@@ -19,7 +19,7 @@ class CostViewController: UIViewController {
         
         costTxtFld.becomeFirstResponder()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
         
         let leftColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
         let rightColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
@@ -38,7 +38,7 @@ class CostViewController: UIViewController {
         let continueBtn = UIButton(frame: CGRect(x: 180, y: 11, width: 120, height: 22))
         continueBtn.setTitle("Продолжить", for: .normal)
         continueBtn.setTitleColor(UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1), for: .normal)
-        continueBtn.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
+        continueBtn.titleLabel?.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)
         continueBtn.addTarget(self, action: #selector(pressNext), for: .touchUpInside)
         customView.addSubview(continueBtn)
         let goImg = UIImageView(frame: CGRect(x: 300, y: 18.5, width: 6, height: 10))
@@ -60,7 +60,7 @@ class CostViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
         
     }
     
@@ -69,7 +69,7 @@ class CostViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
         self.navigationController?.navigationBar.layer.setBottomBorder()
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
     }
 
     override func didReceiveMemoryWarning() {

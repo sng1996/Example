@@ -12,6 +12,7 @@ import UIKit
 class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var type: UILabel!
+    @IBOutlet var subject: UILabel!
     @IBOutlet var startDate: UILabel!
     @IBOutlet var finishDate: UILabel!
     @IBOutlet var cost: UILabel!
@@ -20,6 +21,9 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var myScrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var heightScrollView: UIScrollView!
+    @IBOutlet var startImg: UIImageView!
+    @IBOutlet var finishImg: UIImageView!
+    @IBOutlet var colorView: UIView!
     
     
     var isMyOrder: Bool = false
@@ -29,6 +33,7 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        subject.text = "Методы и анализ проектных решений"
         type.text = types[order.type]
         startDate.text = order.startDate
         finishDate.text = order.finishDate
@@ -36,9 +41,9 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 5
-        let attributes = [NSParagraphStyleAttributeName : style]
+        let attributes = [NSParagraphStyleAttributeName : style, NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 14)!]
         des.attributedText = NSAttributedString(string: order.des, attributes:attributes)
-        des.font = UIFont(name: (des.font?.fontName)!, size: 14)
+        des.textColor = UIColor(red: 158/255.0, green: 171/255.0, blue: 205/255.0, alpha: 1.0)
         
         let contentSize = self.des.sizeThatFits(self.des.bounds.size)
         var frame = self.des.frame
@@ -49,7 +54,6 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         self.des.addConstraint(aspectRatioTextViewConstraint)*/
         
         heightScrollView.contentSize = CGSize(width: self.view.frame.width, height: des.frame.origin.y + des.frame.height + 20.0)
-        print(heightScrollView.contentSize.height, des.frame.origin.y + des.frame.height + 20.0)
         
         if (order.customer.id == myId){
             isMyOrder = true
@@ -62,6 +66,23 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         pageControl.layer.cornerRadius = 19
         
         setupScrollView(imageSource: photos)
+        
+        subject.numberOfLines = 10
+        updateLabelFrame()
+        
+        type.sizeToFit()
+        colorView.frame.size.width = 10 + type.frame.size.width + 10
+        colorView.layer.borderColor = UIColor(red: 100/255.0, green: 64/255.0, blue: 111/255.0, alpha: 1.0).cgColor
+        colorView.layer.borderWidth = 0.5
+        colorView.layer.cornerRadius = 4
+        
+        colorView.frame.origin.y = subject.frame.origin.y + subject.frame.size.height + 10
+        startDate.frame.origin.y = colorView.frame.origin.y + colorView.frame.size.height + 12
+        startImg.frame.origin.y = startDate.frame.origin.y - 1
+        finishDate.frame.origin.y = startDate.frame.origin.y
+        finishImg.frame.origin.y = startDate.frame.origin.y
+        des.frame.origin.y = startDate.frame.origin.y + startDate.frame.size.height + 20
+        
     
     }
     
@@ -74,6 +95,7 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        updateLabelFrame()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -219,7 +241,7 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ChoosePerformer") as! ChoosePerformerViewController
         nextViewController.order = order
-        self.present(nextViewController, animated:true, completion:nil)
+        self.navigationController?.pushViewController(nextViewController, animated: true)
         
     }
     
@@ -396,6 +418,12 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         nextViewController.photos = photos
         nextViewController.numOfPhoto = tappedImage.tag
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    func updateLabelFrame(){
+        let maxSize = CGSize(width: 212, height: 100)
+        let size = subject.sizeThatFits(maxSize)
+        subject.frame = CGRect(origin: CGPoint(x: subject.frame.origin.x, y: subject.frame.origin.y), size: size)
     }
 
 

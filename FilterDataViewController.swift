@@ -17,7 +17,20 @@ class FilterDataViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +43,11 @@ class FilterDataViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return dataArr.count
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 53.0;
     }
     
     public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -59,6 +77,10 @@ class FilterDataViewController: UIViewController, UITableViewDelegate, UITableVi
             DestViewController.typeLbl.text = cell.data.text
             DestViewController.filter.type = indexPath.row
         }
+    }
+    
+    @IBAction func back(){
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

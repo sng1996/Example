@@ -12,6 +12,7 @@ class PerformerTableViewCell: UITableViewCell {
 
     @IBOutlet var name: UILabel!
     @IBOutlet var cost: UILabel!
+    @IBOutlet var date: UILabel!
 
 
 }

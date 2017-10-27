@@ -17,10 +17,18 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        for i in 0..<10{
+            let performer = WaitingPerformer(performer: Profile(), cost: 100, date: "Завтра 19:00")
+            performers.append(performer)
+        }
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let url = URL(string: way + "/person/get_performers/?id=" + String(order.id))
+        
+        /*let url = URL(string: way + "/person/get_performers/?id=" + String(order.id))
         URLSession.shared.dataTask(with: url!, completionHandler: {
             (data, response, error) in
             if(error != nil){
@@ -49,10 +57,20 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
                     print(error)
                 }
             }
-        }).resume()
+        }).resume()*/
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
+        
         tV.reloadData()
     }
 
@@ -71,8 +89,9 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "performerCell", for: indexPath) as! PerformerTableViewCell
         
-        cell.name.text = performers[indexPath.row].performer.name
+        cell.name.text = "SmartBoy"
         cell.cost.text = String(performers[indexPath.row].cost)
+        cell.date.text = performers[indexPath.row].date
         
         return cell
         
@@ -89,7 +108,7 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
         let indexPath = tV.indexPath(for: cell)!
         let DestViewController : AboutOrderViewController = segue.destination as! AboutOrderViewController
         
-        var code: Int = 0
+        /*var code: Int = 0
         var request = URLRequest(url: URL(string: way + "/order/set_executor")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -121,7 +140,7 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
                 })
             }
             
-        }).resume()
+        }).resume()*/
         
     }
     

@@ -31,7 +31,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
         
         myTextView.becomeFirstResponder()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
@@ -46,7 +46,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
         customView.backgroundColor = UIColor.white
         let continueBtn = UIButton(frame: CGRect(x: 180, y: 11, width: 120, height: 22))
         continueBtn.setTitle("Продолжить", for: .normal)
-        continueBtn.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
+        continueBtn.titleLabel?.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)
         continueBtn.setTitleColor(UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1), for: .normal)
         continueBtn.addTarget(self, action: #selector(pressNext), for: .touchUpInside)
         customView.addSubview(continueBtn)
@@ -83,7 +83,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         UIApplication.shared.setStatusBarHidden(false, with: .fade)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
     }
     
     override func viewDidAppear(_ animated: Bool) {

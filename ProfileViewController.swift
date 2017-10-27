@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     var performOrders: [Order] = []
     var orderedOrders: [Order] = []
     var historyOrders: [Order] = []
-    var reviews: [Int] = []
+    var reviews: [Review] = []
     
     var buttons: [UIButton] = []
     var buttonImgNames: [String] = ["Work", "Work_white", "Wait", "Wait_white", "History", "History_white", "Review", "Review_white"]
@@ -45,6 +45,12 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
             performOrders.append(order)
             orderedOrders.append(order)
             historyOrders.append(order)
+            
+        }
+        
+        for i in 0..<10{
+            let review = Review(id: i, title: "Круто!!!", myText: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.", name: "Scorpions", date: "20 авг.", rating: 3)
+            reviews.append(review)
             
         }
             
@@ -152,9 +158,16 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
             (cell as! OrderTableViewCell).cost.text = String(performOrders[indexPath.row].cost) + " ₽"
             (cell as! OrderTableViewCell).startDate.text = performOrders[indexPath.row].startDate
             (cell as! OrderTableViewCell).finishDate.text = performOrders[indexPath.row].finishDate
+            (cell as! OrderTableViewCell).setView()
         }
         else{
-            cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewTableViewCell
+            (cell as! ReviewTableViewCell).textLbl.text = reviews[indexPath.row].myText
+            (cell as! ReviewTableViewCell).titleLbl.text = reviews[indexPath.row].title
+            (cell as! ReviewTableViewCell).dateLbl.text = reviews[indexPath.row].date
+            //(cell as! ReviewTableViewCell).rating = reviews[indexPath.row].rating
+            (cell as! ReviewTableViewCell).nameLbl.text = reviews[indexPath.row].name
+            updateLabelFrame(label: (cell as! ReviewTableViewCell).textLbl)
         }
 
         return cell
@@ -172,6 +185,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
+        if (pageIndex == 4){
+            return (checkHeight(myText: reviews[indexPath.row].myText))
+        }
         return 85.0;
     }
     
@@ -212,6 +228,23 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
             }
         }
         
+    }
+    
+    func updateLabelFrame(label: UILabel){
+        label.numberOfLines = 20
+        let maxSize = CGSize(width: 300, height: 200)
+        let size = label.sizeThatFits(maxSize)
+        label.frame = CGRect(origin: CGPoint(x: label.frame.origin.x, y: label.frame.origin.y), size: size)
+    }
+    
+    func checkHeight(myText: String) -> CGFloat{
+        
+        var label: UILabel = UILabel()
+        label.text = myText
+        label.numberOfLines = 20
+        let maxSize = CGSize(width: 300, height: 200)
+        let size = label.sizeThatFits(maxSize)
+        return size.height
     }
 
 }

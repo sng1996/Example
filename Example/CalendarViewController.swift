@@ -45,7 +45,7 @@ class CalendarViewController: UIViewController {
         timeView.layer.shadowOffset = CGSize(width: 0, height: 4)
         timeView.layer.shadowRadius = 3
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
         
         timePicker.setValue(UIColor.white, forKeyPath: "textColor")
         

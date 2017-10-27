@@ -134,13 +134,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.cost.text = String(tmpOrdersArr[indexPath.row].cost) + " ₽"
         cell.startDate.text = tmpOrdersArr[indexPath.row].startDate
         cell.finishDate.text = tmpOrdersArr[indexPath.row].finishDate
-        cell.type.sizeToFit()
-        cell.colorView.frame.size.width = 10 + cell.type.frame.size.width + 10
-        //cell.colorView.backgroundColor = colors[tmpOrdersArr[indexPath.row].type-1]
+        /*cell.colorView.frame.size.width = 10 + cell.type.frame.size.width + 10
         cell.colorView.layer.borderColor = UIColor(red: 100/255.0, green: 64/255.0, blue: 111/255.0, alpha: 1.0).cgColor
-        //cell.colorView.layer.borderColor = colors[tmpOrdersArr[indexPath.row].type-1].cgColor
         cell.colorView.layer.borderWidth = 0.5
-        cell.colorView.layer.cornerRadius = 4
+        cell.colorView.layer.cornerRadius = 4*/
+        
+        cell.setView()
         
         /*let leftColor = colors[tmpOrdersArr[indexPath.row].type-1]
         let rightColor = UIColor.white

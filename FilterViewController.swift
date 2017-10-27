@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterViewController: UIViewController {
+class FilterViewController: UIViewController{
 
     @IBOutlet var scienceLbl: UILabel!
     @IBOutlet var typeLbl: UILabel!
@@ -19,6 +19,13 @@ class FilterViewController: UIViewController {
     @IBOutlet var minCost: UITextField!
     @IBOutlet var maxCost: UITextField!
     @IBOutlet var applyBtn: UIButton!
+    @IBOutlet var subjectBtn: UIButton!
+    @IBOutlet var typeBtn: UIButton!
+    @IBOutlet var sortBtn: UIButton!
+    @IBOutlet var dateBtn: UIButton!
+    @IBOutlet var costBtn: UIButton!
+    @IBOutlet var timeBtn: UIButton!
+    @IBOutlet var betweenBtn: UIButton!
 
     var viewArr: [UIView]!
     var filter: Filter = Filter()
@@ -35,7 +42,7 @@ class FilterViewController: UIViewController {
         let continueBtn = UIButton(frame: CGRect(x: 190, y: 11, width: 110, height: 22))
         continueBtn.setTitle("Применить", for: .normal)
         continueBtn.setTitleColor(UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1), for: .normal)
-        continueBtn.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
+        continueBtn.titleLabel?.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)
         continueBtn.addTarget(self, action: #selector(apply), for: .touchUpInside)
         customView.addSubview(continueBtn)
         let photoBtn = UIButton(frame: CGRect(x: 15, y: 4, width: 40, height: 36))
@@ -51,8 +58,39 @@ class FilterViewController: UIViewController {
         minCost.inputAccessoryView = customView
         maxCost.inputAccessoryView = customView
         
+        let borderWidth: CGFloat = 0.5
+        let borderColor = UIColor(red: (240/255.0), green: (240/255.0), blue: (240/255.0), alpha: 1).cgColor
+        
+        subjectBtn.layer.borderWidth = borderWidth
+        typeBtn.layer.borderWidth = borderWidth
+        sortBtn.layer.borderWidth = borderWidth
+        dateBtn.layer.borderWidth = borderWidth
+        costBtn.layer.borderWidth = borderWidth
+        timeBtn.layer.borderWidth = borderWidth
+        betweenBtn.layer.borderWidth = borderWidth
+        subjectBtn.layer.borderColor = borderColor
+        typeBtn.layer.borderColor = borderColor
+        sortBtn.layer.borderColor = borderColor
+        dateBtn.layer.borderColor = borderColor
+        costBtn.layer.borderColor = borderColor
+        timeBtn.layer.borderColor = borderColor
+        betweenBtn.layer.borderColor = borderColor
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        
         setData()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,7 +156,7 @@ class FilterViewController: UIViewController {
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
+            if self.view.frame.origin.y > 0{
                 self.view.frame.origin.y -= (keyboardSize.height - applyBtn.frame.height)
                 self.applyBtn.frame.origin.y += 2*applyBtn.frame.height
             }
@@ -127,7 +165,7 @@ class FilterViewController: UIViewController {
     
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
+            if self.view.frame.origin.y < 0{
                 self.view.frame.origin.y += (keyboardSize.height - applyBtn.frame.height)
                 self.applyBtn.frame.origin.y -= 2*applyBtn.frame.height
             }
