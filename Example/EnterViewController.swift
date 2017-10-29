@@ -15,13 +15,10 @@ class EnterViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
+    //ACTION
+    
     @IBAction func enterUser(sender: UIButton){
         
         var code: Int = -1

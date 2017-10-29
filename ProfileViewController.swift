@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController{
     
     //VIEW
     
@@ -60,14 +60,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
         setData()
         designNavbar()
         setupButtonView()
-        
-        editBtn.layer.cornerRadius = 3
-        
-        underStarsView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
-        underStarsView.layer.borderWidth = 0.5
-        underStarsView.layer.cornerRadius = 15
-        
-        myView.frame.size.height -= ratingView.frame.height
+        setupEditButton()
+        setupUnderStarsView()
+        setupMyView()
     
     }
     
@@ -118,11 +113,122 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     override func viewDidAppear(_ animated: Bool) {
         myTableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "aboutOrder"){
+            let DestViewController = segue.destination as! AboutOrderViewController
+            let cell = sender as! OrderTableViewCell
+            let indexPath = cell.tableView.indexPath(for: cell)!
+            DestViewController.order = orders[pageIndex-1][indexPath.row].copy() as! Order
+        }
     }
+    
+    //ACTION
+    
+    @IBAction func logout(){
+        MessageManager.manager.logout(vc: self)
+    }
+    
+    @IBAction func changePageIndex(sender: UIButton){
+        
+        pageIndex = sender.tag
+        myTableView.reloadData()
+        
+        sectionNameLbl.text = labels[pageIndex-1]
+        
+        setupRatingView()
+        setupImage(sender: sender)
+        
+    }
+    
+    //CONTROLLER
+    
+    func setData(){
+        buttons = [self.btn1, self.btn2, self.btn3, self.btn4]
+        buttons[0].setImage(UIImage(named: "Work"), for: .normal)
+        orders.append(performOrders)
+        orders.append(orderedOrders)
+        orders.append(historyOrders)
+    }
+    
+    //DESIGN
+    
+    func designNavbar(){
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
+    func setupButtonView(){
+        buttonView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
+        buttonView.layer.borderWidth = 0.5
+    }
+    
+    func setupEditButton(){
+        editBtn.layer.cornerRadius = 3
+    }
+    
+    func setupUnderStarsView(){
+        underStarsView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
+        underStarsView.layer.borderWidth = 0.5
+        underStarsView.layer.cornerRadius = 15
+    }
+    
+    func setupMyView(){
+        myView.frame.size.height -= ratingView.frame.height
+    }
+    
+    func setupRatingView(){
+        if (pageIndex == 4){
+            if (myView.frame.size.height < 300.0){
+                myView.frame.size.height += ratingView.frame.height
+            }
+            ratingView.isHidden = false
+        }
+        else{
+            if (myView.frame.size.height > 300.0){
+                myView.frame.size.height -= ratingView.frame.height
+            }
+            ratingView.isHidden = true
+        }
+    }
+    
+    func setupImage(sender: UIButton){
+        for i in 0..<4{
+            if (buttons[i] == sender){
+                buttons[i].setImage(UIImage(named: buttonImgNames[i*2]), for: .normal)
+            }
+            else{
+                buttons[i].setImage(UIImage(named: buttonImgNames[i*2 + 1]), for: .normal)
+            }
+        }
+    }
+    
+    func updateLabelFrame(label: UILabel){
+        label.numberOfLines = 20
+        let maxSize = CGSize(width: 300, height: 200)
+        let size = label.sizeThatFits(maxSize)
+        label.frame = CGRect(origin: CGPoint(x: label.frame.origin.x, y: label.frame.origin.y), size: size)
+    }
+    
+    func checkHeight(myText: String) -> CGFloat{
+        let label: UILabel = UILabel()
+        label.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)!
+        label.text = myText
+        label.numberOfLines = 20
+        let maxSize = CGSize(width: 300, height: 200)
+        let size = label.sizeThatFits(maxSize)
+        return size.height
+    }
+    
+}
+
+extension ProfileViewController: UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int
     {
@@ -157,18 +263,8 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
             (cell as! ReviewTableViewCell).nameLbl.text = reviews[indexPath.row].name
             updateLabelFrame(label: (cell as! ReviewTableViewCell).textLbl)
         }
-
-        return cell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if (segue.identifier == "aboutOrder"){
-            let DestViewController = segue.destination as! AboutOrderViewController
-            let cell = sender as! OrderTableViewCell
-            let indexPath = cell.tableView.indexPath(for: cell)!
-            DestViewController.order = orders[pageIndex-1][indexPath.row].copy() as! Order
-        }
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -179,88 +275,4 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
         return 85.0;
     }
     
-    @IBAction func logout(){
-        MessageManager.manager.logout(vc: self)
-    }
-    
-    @IBAction func chabgePageIndex(sender: UIButton){
-        
-        pageIndex = sender.tag
-        myTableView.reloadData()
-        /*UIView.animate(withDuration: 0.3, delay: 0.1,
-                       options: .curveEaseOut, animations: {
-                        self.indicatorView.frame.origin.x = CGFloat(self.pageIndex-1)*self.indicatorView.frame.size.width
-        }, completion: nil)*/
-        
-        sectionNameLbl.text = labels[pageIndex-1]
-        
-        if (pageIndex == 4){
-            if (myView.frame.size.height < 300.0){
-                myView.frame.size.height += ratingView.frame.height
-            }
-            ratingView.isHidden = false
-        }
-        else{
-            if (myView.frame.size.height > 300.0){
-                myView.frame.size.height -= ratingView.frame.height
-            }
-            ratingView.isHidden = true
-        }
-        
-        for i in 0..<4{
-            if (buttons[i] == sender){
-                buttons[i].setImage(UIImage(named: buttonImgNames[i*2]), for: .normal)
-            }
-            else{
-                buttons[i].setImage(UIImage(named: buttonImgNames[i*2 + 1]), for: .normal)
-            }
-        }
-        
-    }
-    
-    func updateLabelFrame(label: UILabel){
-        label.numberOfLines = 20
-        let maxSize = CGSize(width: 300, height: 200)
-        let size = label.sizeThatFits(maxSize)
-        label.frame = CGRect(origin: CGPoint(x: label.frame.origin.x, y: label.frame.origin.y), size: size)
-    }
-    
-    func checkHeight(myText: String) -> CGFloat{
-        
-        var label: UILabel = UILabel()
-        label.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)!
-        label.text = myText
-        label.numberOfLines = 20
-        let maxSize = CGSize(width: 300, height: 200)
-        let size = label.sizeThatFits(maxSize)
-        return size.height
-    }
-    
-    //CONTROLLER
-    
-    func setData(){
-        buttons = [self.btn1, self.btn2, self.btn3, self.btn4]
-        buttons[0].setImage(UIImage(named: "Work"), for: .normal)
-        orders.append(performOrders)
-        orders.append(orderedOrders)
-        orders.append(historyOrders)
-    }
-    
-    //DESIGN
-    
-    func designNavbar(){
-        self.navigationController?.isNavigationBarHidden = true
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-    }
-    
-    func setupButtonView(){
-        buttonView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
-        buttonView.layer.borderWidth = 0.5
-    }
-
 }

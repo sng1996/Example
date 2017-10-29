@@ -11,9 +11,13 @@ import UIKit
 
 class ShowPhotosViewController: UIViewController, UIScrollViewDelegate {
     
+    //VIEW
+    
     @IBOutlet var okButton: UIButton!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var myScrollView: UIScrollView!
+    
+    //CONTROLLER
     
     var photos: [ImageSource] = []
     var numOfPhoto: Int = 0
@@ -22,38 +26,40 @@ class ShowPhotosViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.isNavigationBarHidden = true
-        
-        pageControl.numberOfPages = photos.count
-        pageControl.currentPage = numOfPhoto
-        pageControl.frame.size.width = CGFloat(24 * photos.count)
-        pageControl.layer.cornerRadius = 19
-        
+        setupPageControl()
         setupScrollView(imageSource: photos)
-        
-        myScrollView.contentOffset.x = self.view.frame.width * CGFloat(numOfPhoto)
-        
-        okButton.layer.borderColor = UIColor.white.cgColor
-        okButton.layer.borderWidth = 0.5
-        okButton.layer.cornerRadius = 3
+        setupMyScrollView()
+        setupOkButton()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(myScrollView.contentOffset.x/self.view.frame.width)
+        pageControl.currentPage = Int(pageIndex)
     }
     
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageViews[Int(myScrollView.contentOffset.x/self.view.frame.width)]
+    }
+    
+    //ACTION
+    
+    @IBAction func ok(){
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //CONTROLLER
+    
     func setupScrollView(imageSource: [ImageSource]){
-        
         myScrollView.contentSize = CGSize(width: self.view.frame.width*CGFloat(photos.count), height: myScrollView.frame.height)
         myScrollView.isPagingEnabled = true
         
@@ -71,51 +77,27 @@ class ShowPhotosViewController: UIViewController, UIScrollViewDelegate {
             subScrollView.addSubview(myImageView)
             myScrollView.addSubview(subScrollView)
             imageViews.append(myImageView)
-            
         }
-        
-        
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageIndex = round(myScrollView.contentOffset.x/self.view.frame.width)
-        pageControl.currentPage = Int(pageIndex)
+    //DESIGN
+    
+    func setupPageControl(){
+        pageControl.numberOfPages = photos.count
+        pageControl.currentPage = numOfPhoto
+        pageControl.frame.size.width = CGFloat(24 * photos.count)
+        pageControl.layer.cornerRadius = 19
     }
     
-    @IBAction func ok(){
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.popViewController(animated: true)
+    func setupMyScrollView(){
+        myScrollView.contentOffset.x = self.view.frame.width * CGFloat(numOfPhoto)
     }
     
-    /*func imagePinched(pinchGestureRecognizer: UIPinchGestureRecognizer) {
-        
-        let pinchedImage = pinchGestureRecognizer.view as! UIImageView
-        
-        if (pinchGestureRecognizer.state == .ended || pinchGestureRecognizer.state == .changed){
-            
-            var currentScale = pinchedImage.frame.size.width / pinchedImage.bounds.size.width
-            var newScale = currentScale * pinchGestureRecognizer.scale;
-            
-            print(currentScale)
-            
-            /*if (newScale < 1.0) {
-                newScale = 1.0;
-            }*/
-            if (newScale > 4.0) {
-                newScale = 4.0;
-            }
-            
-            self.view.transform = self.view.transform.scaledBy(x: newScale, y: newScale)
-            pinchGestureRecognizer.scale = 1
-            
-        }
-        
-    }*/
-    
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return imageViews[Int(myScrollView.contentOffset.x/self.view.frame.width)]
+    func setupOkButton(){
+        okButton.layer.borderColor = UIColor.white.cgColor
+        okButton.layer.borderWidth = 0.5
+        okButton.layer.cornerRadius = 3
     }
-    
 
 
 }

@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChoosePerformerViewController: UIViewController{
+    
+    //VIEW
+    
+    @IBOutlet var tV: UITableView!
+    
+    //CONTROLLER
     
     var order: Order!
     var performers: [WaitingPerformer] = []
-    @IBOutlet var tV: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +27,11 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
             performers.append(performer)
         }
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        designNavbar()
         /*let url = URL(string: way + "/person/get_performers/?id=" + String(order.id))
         URLSession.shared.dataTask(with: url!, completionHandler: {
             (data, response, error) in
@@ -61,49 +65,12 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.layer.dropBottomBorder()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        self.navigationController?.navigationBar.layer.setBottomBorder()
-        
         tV.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    public func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        return performers.count
-        
-    }
-    
-    public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "performerCell", for: indexPath) as! PerformerTableViewCell
-        
-        cell.name.text = "SmartBoy"
-        cell.cost.text = String(performers[indexPath.row].cost)
-        cell.date.text = performers[indexPath.row].date
-        
-        return cell
-        
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-
         let cell = sender as! PerformerTableViewCell
         let indexPath = tV.indexPath(for: cell)!
         let DestViewController : AboutOrderViewController = segue.destination as! AboutOrderViewController
@@ -144,9 +111,45 @@ class ChoosePerformerViewController: UIViewController, UITableViewDelegate, UITa
         
     }
     
+    //ACTION
+    
     @IBAction func back(){
         self.dismiss(animated: true, completion: nil)
     }
+    
+    //DESIGN
+    
+    func designNavbar(){
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
+    }
+}
 
-
+extension ChoosePerformerViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    public func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
+        return performers.count
+    }
+    
+    public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "performerCell", for: indexPath) as! PerformerTableViewCell
+        
+        cell.name.text = "SmartBoy"
+        cell.cost.text = String(performers[indexPath.row].cost)
+        cell.date.text = performers[indexPath.row].date
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
 }

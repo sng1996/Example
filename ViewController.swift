@@ -8,19 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
 
+    //VIEW
+    
     @IBOutlet var mainTableView: UITableView!
+    
+    //CONTROLLER
     var filter: Filter = Filter()
     var tmpOrdersArr: [Order] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.shared.statusBarStyle = .lightContent
         
         MessageManager.manager.play()
-        navigationController?.navigationBar.barTintColor = .white
         //updateData()
         
         var order = Order(id: 0, science: 0, type: Int(arc4random()%4)+1, subject: "Дифференциальные уравнения и порно исчисления", cost: 15000, startDate: "Вчера 20:45", finishDate: "Срок: 31 дек. 19:00", des: "kek", customer: Profile(), performer: Profile(), status: 0)
@@ -46,27 +48,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
-        self.navigationController?.navigationBar.layer.dropBottomBorder()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false;
-        UIApplication.shared.statusBarStyle = .lightContent
-        self.navigationController?.navigationBar.layer.dropBottomBorder()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
-        
+        designNavbar()
         //updateData()
     }
     
@@ -117,59 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mainTableView.reloadData()*/
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return 96.0;
-    }
-    
-    public func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
-        return tmpOrdersArr.count
-        
-    }
-    
-    public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
-        
-        cell.subject.text = tmpOrdersArr[indexPath.row].subject
-        cell.type.text = types[tmpOrdersArr[indexPath.row].type]
-        cell.cost.text = String(tmpOrdersArr[indexPath.row].cost) + " ₽"
-        cell.startDate.text = tmpOrdersArr[indexPath.row].startDate
-        cell.finishDate.text = tmpOrdersArr[indexPath.row].finishDate
-        /*cell.colorView.frame.size.width = 10 + cell.type.frame.size.width + 10
-        cell.colorView.layer.borderColor = UIColor(red: 100/255.0, green: 64/255.0, blue: 111/255.0, alpha: 1.0).cgColor
-        cell.colorView.layer.borderWidth = 0.5
-        cell.colorView.layer.cornerRadius = 4*/
-        
-        cell.setView()
-        
-        /*let leftColor = colors[tmpOrdersArr[indexPath.row].type-1]
-        let rightColor = UIColor.white
-        let gradientColors: [CGColor] = [leftColor.cgColor, rightColor.cgColor]*/
-        
-        /*let gradientLayer: CAGradientLayer = CAGradientLayer()
-        gradientLayer.colors = gradientColors[tmpOrdersArr[indexPath.row].type-1]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
-        gradientLayer.frame = cell.colorView.bounds
-        if (cell.colorView.layer.sublayers?.count == 1){
-            cell.colorView.layer.insertSublayer(gradientLayer, at: 0)
-        }*/
-        
-        
-        return cell
-        
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -186,7 +119,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    //ACTION
+    
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {}
+    
+    @IBAction func updateView(){
+        viewDidAppear(false)
+    }
+    
+    //CONTROLLER
     
     func updateData(){
         
@@ -223,12 +164,52 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }).resume()
     }
     
-    @IBAction func updateView(){
-        
-        viewDidAppear(false)
+    //DESIGN
+    
+    func designNavbar(){
+        self.tabBarController?.tabBar.isHidden = false;
+        UIApplication.shared.statusBarStyle = .lightContent
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
+    }
+    
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 96.0;
+    }
+    
+    public func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
+        return tmpOrdersArr.count
         
     }
     
-
+    public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
+        
+        cell.subject.text = tmpOrdersArr[indexPath.row].subject
+        cell.type.text = types[tmpOrdersArr[indexPath.row].type]
+        cell.cost.text = String(tmpOrdersArr[indexPath.row].cost) + " ₽"
+        cell.startDate.text = tmpOrdersArr[indexPath.row].startDate
+        cell.finishDate.text = tmpOrdersArr[indexPath.row].finishDate
+        cell.setView()
+        
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
 }
 
