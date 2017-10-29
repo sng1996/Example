@@ -8,16 +8,43 @@
 
 import UIKit
 
-class TypeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TypeViewController: UIViewController {
+
+    //VIEW
     
-    var order: Order = Order()
     @IBOutlet var myTableView: UITableView!
     @IBOutlet var alertView: UIView!
+    
+    //CONTROLLER
+    
+    var order: Order = Order()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        designNavbar()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as? FilterDataTableViewCell
+        let indexPath = myTableView.indexPath(for: cell!)
+        order.type = (indexPath?.row)!+1
+        let nextViewController : ExactScienceViewController = segue.destination as! ExactScienceViewController
+        nextViewController.order = order
+    }
+    
+    //ACTION
+    
+    @IBAction func close(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //DESIGN
+    
+    func designNavbar(){
         UIApplication.shared.statusBarStyle = .default
-        
         self.navigationController?.navigationBar.layer.dropBottomBorder()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -26,33 +53,14 @@ class TypeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
         self.navigationController?.navigationBar.layer.setBottomBorder()
-        
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-    
-        UIApplication.shared.statusBarStyle = .default
-        self.navigationController?.navigationBar.layer.dropBottomBorder()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        self.navigationController?.navigationBar.layer.setBottomBorder()
-        
-    }
-    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+}
+
+extension TypeViewController: UITableViewDelegate, UITableViewDataSource{
     
     public func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
-        
         return types.count-1
-        
     }
     
     public func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -74,16 +82,4 @@ class TypeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.myView.isHidden = true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as? FilterDataTableViewCell
-        let indexPath = myTableView.indexPath(for: cell!)
-        order.type = (indexPath?.row)!+1
-        let nextViewController : ExactScienceViewController = segue.destination as! ExactScienceViewController
-        nextViewController.order = order
-    }
-    
-    @IBAction func close(){
-        self.dismiss(animated: true, completion: nil)
-    }
-
 }

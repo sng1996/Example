@@ -11,6 +11,8 @@ import UIKit
 
 class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     
+    //VIEW
+    
     @IBOutlet var type: UILabel!
     @IBOutlet var subject: UILabel!
     @IBOutlet var startDate: UILabel!
@@ -26,6 +28,7 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var finishImg: UIImageView!
     @IBOutlet var colorView: UIView!
     
+    //CONTROLLER
     
     var isMyOrder: Bool = false
     var order: Order!
@@ -39,215 +42,73 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         order.status = 0
         isMyOrder = true
         
-        
-        subject.text = "Методы и анализ проектных решений"
-        type.text = types[order.type]
-        startDate.text = order.startDate
-        finishDate.text = order.finishDate
-        cost.text = String(order.cost) + " ₽"
-        
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 5
-        let attributes = [NSParagraphStyleAttributeName : style, NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 14)!]
-        des.attributedText = NSAttributedString(string: order.des, attributes:attributes)
-        des.textColor = UIColor(red: 158/255.0, green: 171/255.0, blue: 205/255.0, alpha: 1.0)
-        
-        let gradientColors: [CGColor] = [UIColor.clear.cgColor, UIColor.white.cgColor]
-        
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        gradientLayer.colors = gradientColors
-        gradientLayer.locations = [0.0, 0.5]
-        
-        gradientLayer.frame = myView.bounds
-        myView.layer.mask = gradientLayer
-        
-        myButton.layer.cornerRadius = 20
-        
-        let contentSize = self.des.sizeThatFits(self.des.bounds.size)
-        var frame = self.des.frame
-        frame.size.height = contentSize.height
-        self.des.frame = frame
-        
-        /*let aspectRatioTextViewConstraint = NSLayoutConstraint(item: self.des, attribute: .height, relatedBy: .equal, toItem: self.des, attribute: .width, multiplier: des.bounds.height/des.bounds.width, constant: 1)
-        self.des.addConstraint(aspectRatioTextViewConstraint)*/
-        
-        heightScrollView.contentSize = CGSize(width: self.view.frame.width, height: des.frame.origin.y + des.frame.height + 20.0)
-        
-        /*if (order.customer.id == myId){
-            isMyOrder = true
-        }*/
-        
-        pageControl.numberOfPages = photos.count
-        pageControl.currentPage = 0
-        pageControl.frame.size.width = CGFloat(24 * photos.count)
-        pageControl.frame.origin.x = (self.view.frame.width - pageControl.frame.width)/2
-        pageControl.layer.cornerRadius = 19
-        
+        setData()
+        setupTextView() //I should change it to UILable
+        setupGradient()
+        setupMyButton()
+        setupHeightScrollView()
+        setupPageControl()
         setupScrollView(imageSource: photos)
-        
-        subject.numberOfLines = 10
         updateLabelFrame()
-        
-        type.sizeToFit()
-        colorView.frame.size.width = 10 + type.frame.size.width + 10
-        colorView.layer.borderColor = UIColor(red: 100/255.0, green: 64/255.0, blue: 111/255.0, alpha: 1.0).cgColor
-        colorView.layer.borderWidth = 0.5
-        colorView.layer.cornerRadius = 4
-        
-        colorView.frame.origin.y = subject.frame.origin.y + subject.frame.size.height + 10
-        startDate.frame.origin.y = colorView.frame.origin.y + colorView.frame.size.height + 12
-        startImg.frame.origin.y = startDate.frame.origin.y - 1
-        finishDate.frame.origin.y = startDate.frame.origin.y
-        finishImg.frame.origin.y = startDate.frame.origin.y
-        des.frame.origin.y = startDate.frame.origin.y + startDate.frame.size.height + 20
+        setupColorView()
+        setViewsPosition()
         
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = true;
-        self.navigationController?.navigationBar.layer.dropBottomBorder()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        
+        designNavbar()
         updateLabelFrame()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
-        self.navigationController?.navigationBar.layer.setBottomBorder()
+        
     }
     
     @IBAction func actionSheet(sender: UIButton){
         
-        print("KEEEEEEEEEK")
-        
         if (isMyOrder){
             switch(order.status){
             case 0:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Посмотреть заявки", style: .default, handler: { _ in
-                    self.showPerformers()
-                }))
-                sheet.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { _ in
-                    self.editOrder()
-                }))
-                sheet.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { _ in
-                    self.editOrder()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                myStatus0()
                 break
             case 1:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
-                    self.goToChat()
-                }))
-                sheet.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { _ in
-                    self.editOrder()
-                }))
-                sheet.addAction(UIAlertAction(title: "Пожаловаться", style: .default, handler: { _ in
-                    self.complain()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отменить заказ", style: .destructive, handler: { _ in
-                    self.cancelOrder()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                myStatus1()
                 break
             case 2:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
-                    self.goToChat()
-                }))
-                sheet.addAction(UIAlertAction(title: "Одобрить", style: .default, handler: { _ in
-                    self.approve()
-                }))
-                sheet.addAction(UIAlertAction(title: "Пожаловаться", style: .default, handler: { _ in
-                    self.complain()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                myStatus2()
                 break
             case 3:
                 break
             default:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
-                    self.goToChat()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                myStatus4()
                 break
             }
         }else{
             switch(order.status){
             case 0:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Взять заказ", style: .default, handler: { _ in
-                    self.getOrder()
-                }))
-                sheet.addAction(UIAlertAction(title: "Своя цена", style: .default, handler: { _ in
-                    self.getOrderWithOwnCost()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                status0()
                 break
             case 1:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
-                    self.goToChat()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отказаться", style: .default, handler: { _ in
-                    self.refuse()
-                }))
-                sheet.addAction(UIAlertAction(title: "Готово", style: .default, handler: { _ in
-                    self.doneOrder()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                status1()
                 break
             case 2:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
-                    self.goToChat()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                status2()
                 break
             case 3:
                 break
             default:
-                let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
-                    self.goToChat()
-                }))
-                sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
-                }))
-                present(sheet, animated: true, completion: nil)
+                status4()
                 break
             }
         }
         
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/self.view.frame.width)
+        pageControl.currentPage = Int(pageIndex)
     }
+    
+    //ACTION
     
     @IBAction func back(){
         
@@ -402,6 +263,31 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         //Деньги переходят исполнителю, заказ получает статус 3 и переходит в историю
     }
     
+
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ShowPhotosViewController") as! ShowPhotosViewController
+        nextViewController.photos = photos
+        nextViewController.numOfPhoto = tappedImage.tag
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    //CONTROLLER
+    
+    func setData(){
+        subject.text = "Методы и анализ проектных решений"
+        type.text = types[order.type]
+        startDate.text = order.startDate
+        finishDate.text = order.finishDate
+        cost.text = String(order.cost) + " ₽"
+        /*if (order.customer.id == myId){
+         isMyOrder = true
+         }*/
+    }
+    
     func setupScrollView(imageSource: [ImageSource]){
         
         myScrollView.contentSize = CGSize(width: self.view.frame.width*CGFloat(photos.count), height: myScrollView.frame.height)
@@ -420,27 +306,189 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
             myScrollView.addSubview(myImageView)
             
         }
-        
-        
+
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageIndex = round(scrollView.contentOffset.x/self.view.frame.width)
-        pageControl.currentPage = Int(pageIndex)
+    func myStatus0(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Посмотреть заявки", style: .default, handler: { _ in
+            self.showPerformers()
+        }))
+        sheet.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { _ in
+            self.editOrder()
+        }))
+        sheet.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { _ in
+            self.editOrder()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
     }
-
-    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ShowPhotosViewController") as! ShowPhotosViewController
-        nextViewController.photos = photos
-        nextViewController.numOfPhoto = tappedImage.tag
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+    
+    func myStatus1(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
+            self.goToChat()
+        }))
+        sheet.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { _ in
+            self.editOrder()
+        }))
+        sheet.addAction(UIAlertAction(title: "Пожаловаться", style: .default, handler: { _ in
+            self.complain()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отменить заказ", style: .destructive, handler: { _ in
+            self.cancelOrder()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    func myStatus2(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
+            self.goToChat()
+        }))
+        sheet.addAction(UIAlertAction(title: "Одобрить", style: .default, handler: { _ in
+            self.approve()
+        }))
+        sheet.addAction(UIAlertAction(title: "Пожаловаться", style: .default, handler: { _ in
+            self.complain()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    func myStatus4(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
+            self.goToChat()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    func status0(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Взять заказ", style: .default, handler: { _ in
+            self.getOrder()
+        }))
+        sheet.addAction(UIAlertAction(title: "Своя цена", style: .default, handler: { _ in
+            self.getOrderWithOwnCost()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    func status1(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
+            self.goToChat()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отказаться", style: .default, handler: { _ in
+            self.refuse()
+        }))
+        sheet.addAction(UIAlertAction(title: "Готово", style: .default, handler: { _ in
+            self.doneOrder()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    func status2(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
+            self.goToChat()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    func status4(){
+        let sheet = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Перейти к чату", style: .default, handler: { _ in
+            self.goToChat()
+        }))
+        sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+        }))
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    
+    //DESIGN
+    
+    func designNavbar(){
+        self.tabBarController?.tabBar.isHidden = true;
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+    }
+    
+    func setupTextView(){
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName : style, NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 14)!]
+        des.attributedText = NSAttributedString(string: order.des, attributes:attributes)
+        des.textColor = UIColor(red: 158/255.0, green: 171/255.0, blue: 205/255.0, alpha: 1.0)
+        let contentSize = self.des.sizeThatFits(self.des.bounds.size)
+        var frame = self.des.frame
+        frame.size.height = contentSize.height
+        self.des.frame = frame
+    }
+    
+    func setupGradient(){
+        let gradientColors: [CGColor] = [UIColor.clear.cgColor, UIColor.white.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = [0.0, 0.5]
+        gradientLayer.frame = myView.bounds
+        myView.layer.mask = gradientLayer
+    }
+    
+    func setupMyButton(){
+        myButton.layer.cornerRadius = 20
+    }
+    
+    func setupHeightScrollView(){
+        heightScrollView.contentSize = CGSize(width: self.view.frame.width, height: des.frame.origin.y + des.frame.height + 20.0)
+    }
+    
+    func setupPageControl(){
+        pageControl.numberOfPages = photos.count
+        pageControl.currentPage = 0
+        pageControl.frame.size.width = CGFloat(24 * photos.count)
+        pageControl.frame.origin.x = (self.view.frame.width - pageControl.frame.width)/2
+        pageControl.layer.cornerRadius = 19
+    }
+    
+    func setupColorView(){
+        type.sizeToFit()
+        colorView.frame.size.width = 10 + type.frame.size.width + 10
+        colorView.layer.borderColor = UIColor(red: 100/255.0, green: 64/255.0, blue: 111/255.0, alpha: 1.0).cgColor
+        colorView.layer.borderWidth = 0.5
+        colorView.layer.cornerRadius = 4
+    }
+    
+    func setViewsPosition(){
+        colorView.frame.origin.y = subject.frame.origin.y + subject.frame.size.height + 10
+        startDate.frame.origin.y = colorView.frame.origin.y + colorView.frame.size.height + 12
+        startImg.frame.origin.y = startDate.frame.origin.y - 1
+        finishDate.frame.origin.y = startDate.frame.origin.y
+        finishImg.frame.origin.y = startDate.frame.origin.y
+        des.frame.origin.y = startDate.frame.origin.y + startDate.frame.size.height + 20
     }
     
     func updateLabelFrame(){
+        subject.numberOfLines = 10
         let maxSize = CGSize(width: 212, height: 100)
         let size = subject.sizeThatFits(maxSize)
         subject.frame = CGRect(origin: CGPoint(x: subject.frame.origin.x, y: subject.frame.origin.y), size: size)

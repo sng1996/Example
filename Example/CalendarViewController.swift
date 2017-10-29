@@ -11,6 +11,8 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
+    //VIEW
+    
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var year: UILabel!
@@ -19,87 +21,37 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var myButton: UIButton!
-    var date: Date!
 
+    
+    //CONTROLLER
     var order:Order!
     let formatter = DateFormatter()
     let months: [String] = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентбрь", "Октябрь", "Ноябрь", "Декабрь"]
+    var date: Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.shared.statusBarStyle = .default
-        calendarView.selectDates([Date()])
+
+        designNavbar()
         setupCalendarView()
-        myView.layer.shadowColor = UIColor.black.cgColor
-        myView.layer.shadowOpacity = 0.1
-        myView.layer.shadowOffset = CGSize.zero
-        myView.layer.shadowRadius = 5
-        myView.layer.cornerRadius = 5
-        myImageView.layer.shadowColor = UIColor.black.cgColor
-        myImageView.layer.shadowOpacity = 0.1
-        myImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        myImageView.layer.shadowRadius = 2
-        myImageView.layer.cornerRadius = 5
-        
-        timeView.layer.cornerRadius = 17
-        timeView.layer.shadowColor = UIColor.black.cgColor
-        timeView.layer.shadowOpacity = 0.4
-        timeView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        timeView.layer.shadowRadius = 3
-        
-        myButton.layer.cornerRadius = 20
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        
-        timePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        setupMyView()
+        setupMyImageView()
+        setupTimeView()
+        setupMyButton()
+        setupTimePicker()
+
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .default
-        self.navigationController?.navigationBar.layer.dropBottomBorder()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        self.navigationController?.navigationBar.layer.setBottomBorder()
+    override func viewWillAppear(_ animated: Bool) {
+        
+        designNavbar()
+        
     }
     
-    func setupCalendarView(){
-        calendarView.minimumLineSpacing = 0
-        calendarView.minimumInteritemSpacing = 0
-        
-        calendarView.visibleDates(){ (visibleDates) in
-            self.setupViewsOfCalendar(from: visibleDates)
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func setupViewsOfCalendar(from visibleDates: DateSegmentInfo){
-        let date = visibleDates.monthDates.first!.date
-        self.formatter.dateFormat = "yyyy"
-        self.year.text = self.formatter.string(from: date)
-        self.formatter.dateFormat = "MM"
-        self.month.text = months[Int(self.formatter.string(from: date))! - 1]
-        self.date = date
-    }
-
-    func nextView(){
-        formatter.dateFormat = "dd-MM-yyyy"
-        let dateString = formatter.string(from:calendarView.selectedDates.first!)
-        formatter.dateFormat = "HH:mm"
-        let timeString = formatter.string(from:timePicker.date)
-        print(dateString + " " + timeString)
-        order.finishDate = dateString + " " + timeString
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "DescriptionViewController") as! DescriptionViewController
-        nextViewController.order = order
-        self.navigationController?.pushViewController(nextViewController, animated:true)
     }
     
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState){
@@ -116,18 +68,92 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    //ACTIONS
+    
     @IBAction func back(){
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func next(){
         
-        order.finishDate = formatter.string(from: Date())
+        formatter.dateFormat = "dd-MM-yyyy"
+        let dateString = formatter.string(from:calendarView.selectedDates.first!)
+        formatter.dateFormat = "HH:mm"
+        let timeString = formatter.string(from:timePicker.date)
+        order.finishDate = dateString + " " + timeString
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CostViewController") as! CostViewController
         nextViewController.order = order
         self.navigationController?.pushViewController(nextViewController, animated:true)
         
+    }
+    
+    //DESIGN VIEW
+    
+    func designNavbar(){
+        
+        UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        UIApplication.shared.setStatusBarHidden(false, with: .fade)
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
+        
+    }
+    
+    func setupMyView(){
+        myView.layer.shadowColor = UIColor.black.cgColor
+        myView.layer.shadowOpacity = 0.1
+        myView.layer.shadowOffset = CGSize.zero
+        myView.layer.shadowRadius = 5
+        myView.layer.cornerRadius = 5
+    }
+    
+    func setupMyImageView(){
+        myImageView.layer.shadowColor = UIColor.black.cgColor
+        myImageView.layer.shadowOpacity = 0.1
+        myImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        myImageView.layer.shadowRadius = 2
+        myImageView.layer.cornerRadius = 5
+    }
+    
+    func setupTimeView(){
+        timeView.layer.cornerRadius = 17
+        timeView.layer.shadowColor = UIColor.black.cgColor
+        timeView.layer.shadowOpacity = 0.4
+        timeView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        timeView.layer.shadowRadius = 3
+    }
+    
+    func setupMyButton(){
+        myButton.layer.cornerRadius = 20
+    }
+    
+    func setupTimePicker(){
+        timePicker.setValue(UIColor.white, forKeyPath: "textColor")
+    }
+    
+    func setupCalendarView(){
+        calendarView.selectDates([Date()])
+        calendarView.minimumLineSpacing = 0
+        calendarView.minimumInteritemSpacing = 0
+        calendarView.visibleDates(){ (visibleDates) in
+            self.setupViewsOfCalendar(from: visibleDates)
+        }
+    }
+    
+    func setupViewsOfCalendar(from visibleDates: DateSegmentInfo){
+        let date = visibleDates.monthDates.first!.date
+        self.formatter.dateFormat = "yyyy"
+        self.year.text = self.formatter.string(from: date)
+        self.formatter.dateFormat = "MM"
+        self.month.text = months[Int(self.formatter.string(from: date))! - 1]
+        self.date = date
     }
 
 }

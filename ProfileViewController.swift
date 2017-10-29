@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    //VIEW
+    
     @IBOutlet var myTableView: UITableView!
     @IBOutlet var myView: UIView!
     @IBOutlet var buttonView: UIView!
@@ -23,15 +25,16 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     @IBOutlet var underStarsView: UIView!
     @IBOutlet var starsView: UIView!
     @IBOutlet var ratingView: UIView!
+    var buttons: [UIButton] = []
+    
+    //CONTROLLER
     
     var pageIndex:Int = 1
-    
     var performOrders: [Order] = []
     var orderedOrders: [Order] = []
     var historyOrders: [Order] = []
     var reviews: [Review] = []
     
-    var buttons: [UIButton] = []
     var buttonImgNames: [String] = ["Work", "Work_white", "Wait", "Wait_white", "History", "History_white", "Review", "Review_white"]
     var labels: [String] = ["Выполняемые работы", "Заказанные работы", "История всех заказов", "Рейтинг и отзывы"]
     
@@ -53,25 +56,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
             reviews.append(review)
             
         }
-            
-            buttons = [self.btn1, self.btn2, self.btn3, self.btn4]
-            
-            buttons[0].setImage(UIImage(named: "Work"), for: .normal)
         
-        orders.append(performOrders)
-        orders.append(orderedOrders)
-        orders.append(historyOrders)
-        
-        self.navigationController?.isNavigationBarHidden = true
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        
-        buttonView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
-        buttonView.layer.borderWidth = 0.5
+        setData()
+        designNavbar()
+        setupButtonView()
         
         editBtn.layer.cornerRadius = 3
         
@@ -246,6 +234,33 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
         let maxSize = CGSize(width: 300, height: 200)
         let size = label.sizeThatFits(maxSize)
         return size.height
+    }
+    
+    //CONTROLLER
+    
+    func setData(){
+        buttons = [self.btn1, self.btn2, self.btn3, self.btn4]
+        buttons[0].setImage(UIImage(named: "Work"), for: .normal)
+        orders.append(performOrders)
+        orders.append(orderedOrders)
+        orders.append(historyOrders)
+    }
+    
+    //DESIGN
+    
+    func designNavbar(){
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
+    func setupButtonView(){
+        buttonView.layer.borderColor = UIColor(red: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0).cgColor
+        buttonView.layer.borderWidth = 0.5
     }
 
 }

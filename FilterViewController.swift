@@ -10,6 +10,8 @@ import UIKit
 
 class FilterViewController: UIViewController{
 
+    //VIEW
+    
     @IBOutlet var scienceLbl: UILabel!
     @IBOutlet var typeLbl: UILabel!
     @IBOutlet var sw: UISwitch!
@@ -28,74 +30,23 @@ class FilterViewController: UIViewController{
     @IBOutlet var betweenBtn: UIButton!
 
     var viewArr: [UIView]!
+    
+    //CONTROLLER
+    
     var filter: Filter = Filter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewArr = [view1, view2, view3]
-        sw.addTarget(self, action:#selector(stateChanged(switchState:)), for: UIControlEvents.valueChanged)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
-        customView.backgroundColor = UIColor.white
-        let continueBtn = UIButton(frame: CGRect(x: 190, y: 11, width: 110, height: 22))
-        continueBtn.setTitle("Применить", for: .normal)
-        continueBtn.setTitleColor(UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1), for: .normal)
-        continueBtn.titleLabel?.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)
-        continueBtn.addTarget(self, action: #selector(apply), for: .touchUpInside)
-        customView.addSubview(continueBtn)
-        let photoBtn = UIButton(frame: CGRect(x: 15, y: 4, width: 40, height: 36))
-        photoBtn.setImage(UIImage(named: "Keyboard"), for: .normal)
-        photoBtn.addTarget(self, action: #selector(dismissKeyboard), for: .touchUpInside)
-        let goImg = UIImageView(frame: CGRect(x: 300, y: 18.5, width: 6, height: 10))
-        goImg.image = UIImage(named: "Go_color")
-        customView.addSubview(goImg)
-        customView.addSubview(photoBtn)
-        customView.addSubview(continueBtn)
-        customView.layer.borderColor = UIColor(red: (180/255.0), green: (180/255.0), blue: (180/255.0), alpha: 1).cgColor
-        customView.layer.borderWidth = 0.5
-        minCost.inputAccessoryView = customView
-        maxCost.inputAccessoryView = customView
-        
-        let borderWidth: CGFloat = 0.5
-        let borderColor = UIColor(red: (240/255.0), green: (240/255.0), blue: (240/255.0), alpha: 1).cgColor
-        
-        subjectBtn.layer.borderWidth = borderWidth
-        typeBtn.layer.borderWidth = borderWidth
-        sortBtn.layer.borderWidth = borderWidth
-        dateBtn.layer.borderWidth = borderWidth
-        costBtn.layer.borderWidth = borderWidth
-        timeBtn.layer.borderWidth = borderWidth
-        betweenBtn.layer.borderWidth = borderWidth
-        subjectBtn.layer.borderColor = borderColor
-        typeBtn.layer.borderColor = borderColor
-        sortBtn.layer.borderColor = borderColor
-        dateBtn.layer.borderColor = borderColor
-        costBtn.layer.borderColor = borderColor
-        timeBtn.layer.borderColor = borderColor
-        betweenBtn.layer.borderColor = borderColor
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        
+    
         setData()
+        keyboardNotifications()
+        setKeyboardView()
+        setBorders()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.layer.dropBottomBorder()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        self.navigationController?.navigationBar.layer.setBottomBorder()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        designNavbar()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,7 +65,6 @@ class FilterViewController: UIViewController{
             }
             
         }
-        
         else{
             
             if sender is UIButton{
@@ -128,29 +78,6 @@ class FilterViewController: UIViewController{
                 }
             }
             
-        }
-        
-    }
-    
-    func setData(){
-        
-        scienceLbl.text = sciences[filter.science]
-        typeLbl.text = types[filter.type]
-        sw.isOn = filter.isSortDown
-        for i in 0..<3{
-            viewArr[i].isHidden = true
-        }
-        viewArr[filter.sort].isHidden = false
-        minCost.text = String(filter.minCost)
-        maxCost.text = String(filter.maxCost)
-        
-    }
-    
-    func stateChanged(switchState: UISwitch){
-        if switchState.isOn {
-            filter.isSortDown = true
-        } else {
-            filter.isSortDown = false
         }
     }
     
@@ -169,6 +96,16 @@ class FilterViewController: UIViewController{
                 self.view.frame.origin.y += (keyboardSize.height - applyBtn.frame.height)
                 self.applyBtn.frame.origin.y -= 2*applyBtn.frame.height
             }
+        }
+    }
+    
+    //ACTION
+    
+    func stateChanged(switchState: UISwitch){
+        if switchState.isOn {
+            filter.isSortDown = true
+        } else {
+            filter.isSortDown = false
         }
     }
     
@@ -198,6 +135,85 @@ class FilterViewController: UIViewController{
     
     func apply(){
         
+    }
+    
+    //CONTROLLER
+    
+    func setData(){
+        
+        scienceLbl.text = sciences[filter.science]
+        typeLbl.text = types[filter.type]
+        sw.isOn = filter.isSortDown
+        for i in 0..<3{
+            viewArr[i].isHidden = true
+        }
+        viewArr[filter.sort].isHidden = false
+        minCost.text = String(filter.minCost)
+        maxCost.text = String(filter.maxCost)
+        
+        sw.addTarget(self, action:#selector(stateChanged(switchState:)), for: UIControlEvents.valueChanged)
+        viewArr = [view1, view2, view3]
+        
+    }
+    
+    //DESIGN
+    
+    func designNavbar(){
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
+    }
+    
+    func keyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func setKeyboardView(){
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+        customView.backgroundColor = UIColor.white
+        let continueBtn = UIButton(frame: CGRect(x: 190, y: 11, width: 110, height: 22))
+        continueBtn.setTitle("Применить", for: .normal)
+        continueBtn.setTitleColor(UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1), for: .normal)
+        continueBtn.titleLabel?.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)
+        continueBtn.addTarget(self, action: #selector(apply), for: .touchUpInside)
+        customView.addSubview(continueBtn)
+        let photoBtn = UIButton(frame: CGRect(x: 15, y: 4, width: 40, height: 36))
+        photoBtn.setImage(UIImage(named: "Keyboard"), for: .normal)
+        photoBtn.addTarget(self, action: #selector(dismissKeyboard), for: .touchUpInside)
+        let goImg = UIImageView(frame: CGRect(x: 300, y: 18.5, width: 6, height: 10))
+        goImg.image = UIImage(named: "Go_color")
+        customView.addSubview(goImg)
+        customView.addSubview(photoBtn)
+        customView.addSubview(continueBtn)
+        customView.layer.borderColor = UIColor(red: (180/255.0), green: (180/255.0), blue: (180/255.0), alpha: 1).cgColor
+        customView.layer.borderWidth = 0.5
+        minCost.inputAccessoryView = customView
+        maxCost.inputAccessoryView = customView
+    }
+    
+    func setBorders(){
+        let borderWidth: CGFloat = 0.5
+        let borderColor = UIColor(red: (240/255.0), green: (240/255.0), blue: (240/255.0), alpha: 1).cgColor
+        subjectBtn.layer.borderWidth = borderWidth
+        typeBtn.layer.borderWidth = borderWidth
+        sortBtn.layer.borderWidth = borderWidth
+        dateBtn.layer.borderWidth = borderWidth
+        costBtn.layer.borderWidth = borderWidth
+        timeBtn.layer.borderWidth = borderWidth
+        betweenBtn.layer.borderWidth = borderWidth
+        subjectBtn.layer.borderColor = borderColor
+        typeBtn.layer.borderColor = borderColor
+        sortBtn.layer.borderColor = borderColor
+        dateBtn.layer.borderColor = borderColor
+        costBtn.layer.borderColor = borderColor
+        timeBtn.layer.borderColor = borderColor
+        betweenBtn.layer.borderColor = borderColor
     }
     
 }
