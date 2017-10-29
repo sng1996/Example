@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .lightContent
         
         MessageManager.manager.play()
         navigationController?.navigationBar.barTintColor = .white
@@ -45,20 +46,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //tmpOrdersArr = NSArray(array:orders, copyItems: true) as! [Order]
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
         self.navigationController?.navigationBar.layer.dropBottomBorder()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
-        self.navigationController?.navigationBar.layer.setBottomBorder()
+        self.navigationController?.view.backgroundColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false;
+        UIApplication.shared.statusBarStyle = .lightContent
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: (100/255.0), green: (64/255.0), blue: (111/255.0), alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!, NSForegroundColorAttributeName : UIColor.white]
         
         //updateData()
     }

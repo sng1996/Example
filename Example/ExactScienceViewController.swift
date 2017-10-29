@@ -17,6 +17,7 @@ class ExactScienceViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .default
 
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.barTintColor = .white
@@ -29,6 +30,7 @@ class ExactScienceViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.layer.dropBottomBorder()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

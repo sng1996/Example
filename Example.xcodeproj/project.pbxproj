@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		059E2A8453087675C5E7959A /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF283D52B8039CA2A2F85B /* Pods_Example.framework */; };
+		2A019B661FA3C19D002AB7FC /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A019B651FA3C19D002AB7FC /* EditCell.swift */; };
+		2A019B681FA3C4AB002AB7FC /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A019B671FA3C4AB002AB7FC /* EditorViewController.swift */; };
+		2A019B6A1FA3C5F1002AB7FC /* EditPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A019B691FA3C5F1002AB7FC /* EditPoint.swift */; };
 		2A094BEE1F69503200A2441A /* ChoosePerformerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */; };
 		2A094BF01F69526000A2441A /* PerformerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */; };
 		2A094BF21F695B4500A2441A /* WaitingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A094BF11F695B4500A2441A /* WaitingPerformer.swift */; };
@@ -128,6 +131,9 @@
 
 /* Begin PBXFileReference section */
 		0BE2CD25B5A35B22C6953F5B /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		2A019B651FA3C19D002AB7FC /* EditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCell.swift; sourceTree = "<group>"; };
+		2A019B671FA3C4AB002AB7FC /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		2A019B691FA3C5F1002AB7FC /* EditPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPoint.swift; sourceTree = "<group>"; };
 		2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePerformerViewController.swift; sourceTree = "<group>"; };
 		2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformerTableViewCell.swift; sourceTree = "<group>"; };
 		2A094BF11F695B4500A2441A /* WaitingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPerformer.swift; sourceTree = "<group>"; };
@@ -300,6 +306,7 @@
 				2AB9E4ED1F3734C400861298 /* Order.swift */,
 				2AB9E5001F37358200861298 /* Profile.swift */,
 				2A40DAAB1FA2327200B5CF45 /* Review.swift */,
+				2A019B691FA3C5F1002AB7FC /* EditPoint.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -318,6 +325,7 @@
 				2A415A8D1F643AFA0017DF85 /* EnterViewController.swift */,
 				2A094BED1F69503200A2441A /* ChoosePerformerViewController.swift */,
 				2A449C731F766AD2009C72CA /* TabViewController.swift */,
+				2A019B671FA3C4AB002AB7FC /* EditorViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -331,6 +339,7 @@
 				2A094BEF1F69526000A2441A /* PerformerTableViewCell.swift */,
 				2A1D93A81F829654005E5A2F /* WithImageCell.swift */,
 				2A40DAA91FA22D3800B5CF45 /* ReviewTableViewCell.swift */,
+				2A019B651FA3C19D002AB7FC /* EditCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -827,6 +836,7 @@
 				2AB3E1381F371BCC00E2B5FC /* TGTextMessageCellLayout.swift in Sources */,
 				2A7092711F7BF12C00D614C3 /* CustomCell.swift in Sources */,
 				2AA300F61F8974E7009CFDCB /* UITextViewPlaceholder.swift in Sources */,
+				2A019B681FA3C4AB002AB7FC /* EditorViewController.swift in Sources */,
 				2A7092641F7BB4DB00D614C3 /* ScienceViewController.swift in Sources */,
 				2A094BF21F695B4500A2441A /* WaitingPerformer.swift in Sources */,
 				2AB3E11B1F371BCC00E2B5FC /* ChatsViewController.swift in Sources */,
@@ -838,6 +848,7 @@
 				2A415A8E1F643AFA0017DF85 /* EnterViewController.swift in Sources */,
 				2AB3E1311F371BCC00E2B5FC /* TGClockProgressView.swift in Sources */,
 				2AB3E1371F371BCC00E2B5FC /* TGTextMessageCell.swift in Sources */,
+				2A019B661FA3C19D002AB7FC /* EditCell.swift in Sources */,
 				2AB3E1361F371BCC00E2B5FC /* TGSystemMessageCellLayout.swift in Sources */,
 				2AB27E281F8AC2DE0035F5AE /* UITextFieldBottomBorder.swift in Sources */,
 				2A9B07761F9892980090A0CE /* UINavigationBarSubtitle.swift in Sources */,
@@ -849,6 +860,7 @@
 				2A094BEE1F69503200A2441A /* ChoosePerformerViewController.swift in Sources */,
 				2AB9E4F91F3734C400861298 /* FilterViewController.swift in Sources */,
 				2AB3E12B1F371BCC00E2B5FC /* SoundManager.swift in Sources */,
+				2A019B6A1FA3C5F1002AB7FC /* EditPoint.swift in Sources */,
 				2AB9E4FA1F3734C400861298 /* Order.swift in Sources */,
 				2A382BEC1F74F2D7003FF523 /* ChatCell.swift in Sources */,
 				2A1D93A91F829654005E5A2F /* WithImageCell.swift in Sources */,

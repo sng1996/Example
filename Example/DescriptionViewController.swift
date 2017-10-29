@@ -28,10 +28,18 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .default
         
         myTextView.becomeFirstResponder()
         
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
@@ -75,18 +83,29 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
         
         //////////ATTENTION!!!!! Add some sheet
         
+        order.subject = "Математический анализ и сложные дифференциальные функции"
         order.startDate = "20.02.17"
         order.finishDate = "20.11.17"
         order.des = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        /*navigationController?.setNavigationBarHidden(false, animated: animated)
         UIApplication.shared.setStatusBarHidden(false, with: .fade)
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]*/
+        
+        self.navigationController?.navigationBar.layer.dropBottomBorder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
+        self.navigationController?.navigationBar.layer.setBottomBorder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
         myTextView.becomeFirstResponder()
         numLbl.text = String(photos.count)
         if (photos.count == 0){
@@ -126,7 +145,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
     @IBAction func next(){
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AboutOrderViewController") as! AboutOrderViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
         nextViewController.order = order
         nextViewController.photos = photos
         self.navigationController?.pushViewController(nextViewController, animated:true)
@@ -139,7 +158,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate {
     
     func pressNext(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AboutOrderViewController") as! AboutOrderViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
         nextViewController.order = order
         nextViewController.photos = photos
         self.navigationController?.pushViewController(nextViewController, animated:true)

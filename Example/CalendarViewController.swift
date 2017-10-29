@@ -18,6 +18,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var timeView: UIView!
+    @IBOutlet weak var myButton: UIButton!
     var date: Date!
 
     var order:Order!
@@ -26,6 +27,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .default
         calendarView.selectDates([Date()])
         setupCalendarView()
         myView.layer.shadowColor = UIColor.black.cgColor
@@ -45,6 +47,8 @@ class CalendarViewController: UIViewController {
         timeView.layer.shadowOffset = CGSize(width: 0, height: 4)
         timeView.layer.shadowRadius = 3
         
+        myButton.layer.cornerRadius = 20
+        
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 17)!]
         
         timePicker.setValue(UIColor.white, forKeyPath: "textColor")
@@ -52,6 +56,7 @@ class CalendarViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.layer.dropBottomBorder()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

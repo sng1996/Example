@@ -17,7 +17,8 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var finishDate: UILabel!
     @IBOutlet var cost: UILabel!
     @IBOutlet var des: UITextView!
-    @IBOutlet var button: UIButton!
+    @IBOutlet var myButton: UIButton!
+    @IBOutlet var myView: UIView!
     @IBOutlet var myScrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var heightScrollView: UIScrollView!
@@ -33,6 +34,12 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //SOME SHIT!!!!
+        
+        order.status = 0
+        isMyOrder = true
+        
+        
         subject.text = "Методы и анализ проектных решений"
         type.text = types[order.type]
         startDate.text = order.startDate
@@ -45,6 +52,17 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         des.attributedText = NSAttributedString(string: order.des, attributes:attributes)
         des.textColor = UIColor(red: 158/255.0, green: 171/255.0, blue: 205/255.0, alpha: 1.0)
         
+        let gradientColors: [CGColor] = [UIColor.clear.cgColor, UIColor.white.cgColor]
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = [0.0, 0.5]
+        
+        gradientLayer.frame = myView.bounds
+        myView.layer.mask = gradientLayer
+        
+        myButton.layer.cornerRadius = 20
+        
         let contentSize = self.des.sizeThatFits(self.des.bounds.size)
         var frame = self.des.frame
         frame.size.height = contentSize.height
@@ -55,9 +73,9 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
         
         heightScrollView.contentSize = CGSize(width: self.view.frame.width, height: des.frame.origin.y + des.frame.height + 20.0)
         
-        if (order.customer.id == myId){
+        /*if (order.customer.id == myId){
             isMyOrder = true
-        }
+        }*/
         
         pageControl.numberOfPages = photos.count
         pageControl.currentPage = 0
@@ -99,7 +117,6 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false;
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.view.backgroundColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
@@ -107,6 +124,8 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func actionSheet(sender: UIButton){
+        
+        print("KEEEEEEEEEK")
         
         if (isMyOrder){
             switch(order.status){
@@ -248,9 +267,10 @@ class AboutOrderViewController: UIViewController, UIScrollViewDelegate {
     func editOrder(){
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "EditorViewController") as! EditorViewController
         nextViewController.order = order
-        self.present(nextViewController, animated:true, completion:nil)
+        nextViewController.photos = photos
+        self.navigationController?.pushViewController(nextViewController, animated: true)
         
     }
     

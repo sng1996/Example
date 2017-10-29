@@ -240,6 +240,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UITableView
     func checkHeight(myText: String) -> CGFloat{
         
         var label: UILabel = UILabel()
+        label.font = UIFont(name: ".HelveticaNeueDeskInterface-Regular", size: 15)!
         label.text = myText
         label.numberOfLines = 20
         let maxSize = CGSize(width: 300, height: 200)
